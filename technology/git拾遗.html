@@ -95,13 +95,13 @@
 
 
 
-<meta name="description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.co">
+<meta name="description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ 步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.c">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git拾遗">
 <meta property="og:url" content="http://yoursite.com/technology/git拾遗.html">
 <meta property="og:site_name" content="Laphi Lee&#39;s Blog">
-<meta property="og:description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.co">
+<meta property="og:description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ 步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.c">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase0.png">
 <meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase1.png">
@@ -112,7 +112,7 @@
 <meta property="og:updated_time" content="2017-07-25T03:06:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git拾遗">
-<meta name="twitter:description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.co">
+<meta name="twitter:description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ 步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.c">
 <meta name="twitter:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase0.png">
 
 
@@ -455,7 +455,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">字数统计:</span>
-           <span class="post-count">1,910(字)</span>
+           <span class="post-count">1,916(字)</span>
            
          </span>
     
@@ -482,55 +482,55 @@
 
       
         <p>整理一些git中非常有用且自己又容易忘记的命令，仅供参考。</p>
-<h2 id="github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？"><a href="#github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？" class="headerlink" title="github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？"></a>github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</h2><p><em>步骤：</em></p>
-<ol>
+<h2 id="github上fork代码后从自己的代码库拉下代码如何保持自己库中的代码和原代码的更新保持一致呢">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</h2>
+<p><em>步骤：</em></p>
+<ol style="list-style-type: decimal">
 <li>在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。</li>
 </ol>
 <p>如: 其中 <code>upstream</code> 表示上游代码库名， 可以任意。</p>
 <p><code>git remote add {upstream} git@github.com:spring-projects/spring-framework.git</code></p>
-<ol>
-<li><p>将本地的修改提交 commit</p>
-<a id="more"></a>
-</li>
-<li><p>在每次 Pull Request 前做如下操作，即可实现和上游版本库的同步。</p>
-</li>
+<ol style="list-style-type: decimal">
+<li>将本地的修改提交 commit</li>
 </ol>
-<p>​      3.1 ： <code>git remote update upstream</code></p>
-<p>​      3.2 ： <code>git rebase upstream/{branch name}</code></p>
+<p><a id="more"></a></p>
+<ol start="2" style="list-style-type: decimal">
+<li>在每次 Pull Request 前做如下操作，即可实现和上游版本库的同步。</li>
+</ol>
+<p>​ 3.1 ： <code>git remote update upstream</code></p>
+<p>​ 3.2 ： <code>git rebase upstream/{branch name}</code></p>
 <p>需要注意的是在操作3.2之前，一定要将checkout到{branch name}所指定的branch，</p>
 <p>如: git checkout develop</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>push 代码到 github</li>
 </ol>
-<p>​      <code>git push origin {branch name}</code></p>
-<h2 id="git在本地新建分支并与远程库建立关联的几种方法"><a href="#git在本地新建分支并与远程库建立关联的几种方法" class="headerlink" title="git在本地新建分支并与远程库建立关联的几种方法"></a>git在本地新建分支并与远程库建立关联的几种方法</h2><ul>
-<li><strong><code>git checkout --track origin/remote_branch</code>（推荐）</strong></li>
-</ul>
+<p>​ <code>git push origin {branch name}</code></p>
+<h2 id="git在本地新建分支并与远程库建立关联的几种方法">git在本地新建分支并与远程库建立关联的几种方法</h2>
 <ul>
-<li><p>基于远程分支”remote_branch”，创建一个叫”remote_branch”的本地分支。</p>
+<li><p><strong><code>git checkout --track origin/remote_branch</code>（推荐）</strong></p></li>
+<li><p>基于远程分支“remote_branch”，创建一个叫“remote_branch”的本地分支。</p></li>
+</ul>
 <p><code>git checkout -b remote_branch origin/remote_branch</code></p>
-</li>
-</ul>
 <ul>
-<li><code>git clone -b {remote_branch} git@github.com:spring-projects/spring-framework.git</code></li>
+<li><p><code>git clone -b {remote_branch} git@github.com:spring-projects/spring-framework.git</code></p></li>
+<li><p><code>git branch remote_branch</code> , <code>git checkout remote_branch</code>, <code>git pull origin remote_branch</code></p></li>
+<li><ol class="example" style="list-style-type: decimal">
+<li><code>git branch --set-upstream-to=origin/&lt;branch&gt; {remote_branch}</code></li>
+</ol></li>
 </ul>
-<ul>
-<li><code>git branch remote_branch</code> ,  <code>git checkout remote_branch</code>,  <code>git pull origin remote_branch</code></li>
-</ul>
-<ul>
-<li>(@Deprecated) <code>git branch --set-upstream-to=origin/&lt;branch&gt; {remote_branch}</code></li>
-</ul>
-<h2 id="git设置提交代码时显示的提交人信息"><a href="#git设置提交代码时显示的提交人信息" class="headerlink" title="git设置提交代码时显示的提交人信息"></a>git设置提交代码时显示的提交人信息</h2><p><code>git config —global user.name laphi</code></p>
+<h2 id="git设置提交代码时显示的提交人信息">git设置提交代码时显示的提交人信息</h2>
+<p><code>git config —global user.name laphi</code></p>
 <p><code>git config —global user.email laphi@laphilee.com</code></p>
 <p>生成git帐号关联邮箱的rsa：<code>git ssh-keygen -t rsa -C laphi@laphilee.com</code>。</p>
 <blockquote>
 <p>这里不强制要求用git生成rsa，直接用不和邮箱信息关联的rsa也完全可以。</p>
 </blockquote>
-<h2 id="git删除远程分支"><a href="#git删除远程分支" class="headerlink" title="git删除远程分支"></a>git删除远程分支</h2><p>如果一不小心把本地的临时分支push到server上去了，想要删除。怎么办？</p>
+<h2 id="git删除远程分支">git删除远程分支</h2>
+<p>如果一不小心把本地的临时分支push到server上去了，想要删除。怎么办？</p>
 <p>用<code>git branch -r -d origin/branch-name</code>只是删除的本地对该远程分支的track，不能删除远程服务器（如github，gitlab等）上的该分支。正确的方法应该是这样：<code>git push origin :branch-name</code>冒号前面的空格不能少，原理是把一个空分支push到server上，相当于删除该分支。</p>
 <p>或者用命令<code>git push origin --delete &lt;branchName&gt;</code></p>
-<h2 id="删除不存在对应远程分支的本地分支"><a href="#删除不存在对应远程分支的本地分支" class="headerlink" title="删除不存在对应远程分支的本地分支"></a>删除不存在对应远程分支的本地分支</h2><p>假设这样一种情况：</p>
-<ol>
+<h2 id="删除不存在对应远程分支的本地分支">删除不存在对应远程分支的本地分支</h2>
+<p>假设这样一种情况：</p>
+<ol style="list-style-type: decimal">
 <li>我创建了本地分支b1并pull到远程分支 <code>origin/b1</code>；</li>
 <li>其他人在本地使用fetch或pull创建了本地的b1分支；</li>
 <li>我删除了 <code>origin/b1</code> 远程分支；</li>
@@ -541,65 +541,87 @@
 <p>这时候能够看到b1是stale的，使用 <code>git remote prune origin</code> 可以将其从本地版本库中去除。</p>
 <p>更简单的方法是使用这个命令，它在fetch之后删除掉没有与远程分支对应的本地分支：</p>
 <p><code>git fetch -p</code></p>
-<h2 id="重命名远程分支"><a href="#重命名远程分支" class="headerlink" title="重命名远程分支"></a>重命名远程分支</h2><p>在Git中重命名远程分支，其实就是先删除远程分支，然后重命名本地分支，再重新提交一个远程分支。</p>
+<h2 id="重命名远程分支">重命名远程分支</h2>
+<p>在Git中重命名远程分支，其实就是先删除远程分支，然后重命名本地分支，再重新提交一个远程分支。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xiaosi@Q:~/code/qt$ git branch -av</div><div class="line">* dev                                            8d807de MOD  </div><div class="line">master                                         f600e50 code change during build  remotes/origin/HEAD                            -&gt; origin/master  remotes/origin/dev                             8d807de MOD  remotes/origin/master                          f600e50 code change during build</div></pre></td></tr></table></figure>
-<p>删除远程分支：<code>git push --delete origin dev</code><br>重命名本地分支：<code>git branch -m dev develop</code><br>推送本地分支：<code>git push origin develop</code></p>
-<h2 id="设置git区分文件名大小写"><a href="#设置git区分文件名大小写" class="headerlink" title="设置git区分文件名大小写"></a>设置git区分文件名大小写</h2><p>git 默认是不区分文件名大小写的，当我们不小心把文件名的大小写写错了，想改过来，会发现push不起作用。</p>
+<p>删除远程分支：<code>git push --delete origin dev</code> 重命名本地分支：<code>git branch -m dev develop</code> 推送本地分支：<code>git push origin develop</code></p>
+<h2 id="设置git区分文件名大小写">设置git区分文件名大小写</h2>
+<p>git 默认是不区分文件名大小写的，当我们不小心把文件名的大小写写错了，想改过来，会发现push不起作用。</p>
 <p>譬如当你创建一个文件后，叫 <em>readme.md</em> 写入内容后 提交到线上代码仓库。然后你在本地修改文件名为<em>Readme.md</em> 接着你去提交，发现代码没有变化.<code>git status</code>无任何提示信息。</p>
 <p>这里有两种解决方法</p>
-<ol>
-<li><p><strong>配置git使其对文件名大小写敏感</strong>：<code>git config core.ignorecase false</code></p>
-</li>
-<li><p>在本地仓库把文件删除，提交，然后push到远程仓库，然后再在本地重新添加正确文件名的文件，然后再push。</p>
-<p>删除</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm readme.md</div></pre></td></tr></table></figure>
-<p>push到远程仓库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git commit -m 'readme.md'</div><div class="line">git push origin &lt;my_branch&gt;</div></pre></td></tr></table></figure>
-<p>重新添加</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add Readme.md</div></pre></td></tr></table></figure>
-<p>提交</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git commit -m 'Readme.md'</div><div class="line">git push origin &lt;my_branch&gt;</div></pre></td></tr></table></figure>
-</li>
+<ol style="list-style-type: decimal">
+<li><p><strong>配置git使其对文件名大小写敏感</strong>：<code>git config core.ignorecase false</code></p></li>
+<li><p>在本地仓库把文件删除，提交，然后push到远程仓库，然后再在本地重新添加正确文件名的文件，然后再push。</p></li>
 </ol>
+<p>删除</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm readme.md</div></pre></td></tr></table></figure></p>
+<p>push到远程仓库</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git commit -m 'readme.md'</div><div class="line">git push origin &lt;my_branch&gt;</div></pre></td></tr></table></figure></p>
+<p>重新添加</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add Readme.md</div></pre></td></tr></table></figure></p>
+<p>提交</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git commit -m 'Readme.md'</div><div class="line">git push origin &lt;my_branch&gt;</div></pre></td></tr></table></figure></p>
 <p>这里推荐使用第一种方法，一劳永逸。</p>
-<h2 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h2><h3 id="使用rebase和其他分支直接合并（不推荐，会有很多冲突）"><a href="#使用rebase和其他分支直接合并（不推荐，会有很多冲突）" class="headerlink" title="使用rebase和其他分支直接合并（不推荐，会有很多冲突）"></a>使用rebase和其他分支直接合并（不推荐，会有很多冲突）</h3><p>假设你现在基于远程分支”origin”，创建一个叫”mywork”的分支。</p>
+<h2 id="rebase">rebase</h2>
+<h3 id="使用rebase和其他分支直接合并不推荐会有很多冲突">使用rebase和其他分支直接合并（不推荐，会有很多冲突）</h3>
+<p>假设你现在基于远程分支“origin”，创建一个叫“mywork”的分支。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b mywork origin</div></pre></td></tr></table></figure>
-<p><img src="http://gitbook.liuhui998.com/assets/images/figure/rebase0.png" alt="img"></p>
+<div class="figure">
+<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase0.png" alt="img">
+<p class="caption">img</p>
+</div>
 <p>现在我们在这个分支做一些修改，然后生成两个提交(commit).</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ vi file.txt</div><div class="line">$ git commit</div><div class="line">$ vi otherfile.txt</div><div class="line">$ git commit</div><div class="line">...</div></pre></td></tr></table></figure>
-<p>但是与此同时，有些人也在”origin”分支上做了一些修改并且做了提交了. 这就意味着”origin”和”mywork”这两个分支各自”前进”了，它们之间”分叉”了。</p>
-<p><img src="http://gitbook.liuhui998.com/assets/images/figure/rebase1.png" alt="img"></p>
-<p>在这里，你可以用”pull”命令把”origin”分支上的修改拉下来并且和你的修改合并； 结果看起来就像一个新的”合并的提交”(merge commit):</p>
-<p><img src="http://gitbook.liuhui998.com/assets/images/figure/rebase2.png" alt="img"></p>
-<p>但是，如果你想让”mywork”分支历史看起来像没有经过任何合并一样，你也许可以用 <a href="http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html" target="_blank" rel="external">git rebase</a>:</p>
+<p>但是与此同时，有些人也在“origin”分支上做了一些修改并且做了提交了. 这就意味着“origin”和“mywork”这两个分支各自“前进”了，它们之间“分叉”了。</p>
+<div class="figure">
+<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase1.png" alt="img">
+<p class="caption">img</p>
+</div>
+<p>在这里，你可以用“pull”命令把“origin”分支上的修改拉下来并且和你的修改合并； 结果看起来就像一个新的“合并的提交”(merge commit):</p>
+<div class="figure">
+<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase2.png" alt="img">
+<p class="caption">img</p>
+</div>
+<p>但是，如果你想让“mywork”分支历史看起来像没有经过任何合并一样，你也许可以用 <a href="http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html" target="_blank" rel="external">git rebase</a>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout mywork</div><div class="line">$ git rebase origin</div></pre></td></tr></table></figure>
-<p>这些命令会把你的”mywork”分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到”.git/rebase”目录中),然后把”mywork”分支更新到最新的”origin”分支，最后把保存的这些补丁应用到”mywork”分支上。</p>
-<p><img src="http://gitbook.liuhui998.com/assets/images/figure/rebase3.png" alt="img"></p>
+<p>这些命令会把你的“mywork”分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到“.git/rebase”目录中),然后把“mywork”分支更新到最新的“origin”分支，最后把保存的这些补丁应用到“mywork”分支上。</p>
+<div class="figure">
+<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase3.png" alt="img">
+<p class="caption">img</p>
+</div>
 <p>当’mywork’分支更新之后，它会指向这些新创建的提交(commit),而那些老的提交会被丢弃。 如果运行垃圾收集命令(pruning garbage collection), 这些被丢弃的提交就会删除. （请查看 <a href="http://www.kernel.org/pub/software/scm/git/docs/git-gc.html" target="_blank" rel="external">git gc</a>)</p>
-<p><img src="http://gitbook.liuhui998.com/assets/images/figure/rebase4.png" alt="img"></p>
+<div class="figure">
+<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase4.png" alt="img">
+<p class="caption">img</p>
+</div>
 <p>现在我们可以看一下用合并(merge)和用rebase所产生的历史的区别：</p>
-<p><img src="http://gitbook.liuhui998.com/assets/images/figure/rebase5.png" alt="img"></p>
+<div class="figure">
+<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase5.png" alt="img">
+<p class="caption">img</p>
+</div>
 <p>在rebase的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决 冲突；在解决完冲突后，用<code>git-add</code>命令去更新这些内容的索引(index), 然后，你无需执行 <code>git-commit</code>,只要执行:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase --continue</div></pre></td></tr></table></figure>
 <p>这样git会继续应用(apply)余下的补丁。</p>
-<p>在任何时候，你可以用<code>--abort</code>参数来终止rebase的行动，并且”mywork” 分支会回到rebase开始前的状态。</p>
+<p>在任何时候，你可以用<code>--abort</code>参数来终止rebase的行动，并且“mywork” 分支会回到rebase开始前的状态。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase --abort</div></pre></td></tr></table></figure>
-<h3 id="使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）"><a href="#使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）" class="headerlink" title="使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）"></a>使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</h3><ol>
-<li><p><code>git rebase -i HEAD~8</code></p>
-<p>合并最近的8次commit。</p>
-</li>
-<li><p><code>git rebase -i i870cs</code></p>
-<p>“i870cs” 为不参与合并的最后一个commit</p>
-</li>
+<h3 id="使用rebase来合并当前分支commit然后再和其他分支merge推荐">使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</h3>
+<ol style="list-style-type: decimal">
+<li><code>git rebase -i HEAD~8</code></li>
 </ol>
+<p>合并最近的8次commit。</p>
+<ol start="2" style="list-style-type: decimal">
+<li><code>git rebase -i i870cs</code></li>
+</ol>
+<p>“i870cs” 为不参与合并的最后一个commit</p>
 <p><em>注：commit排序为倒序。即最新的commit在最上面。</em></p>
-<p>从第二行开始，将<code>pick</code>改为<code>s</code>(s, squash = use commit, but meld into previous commit  )</p>
+<p>从第二行开始，将<code>pick</code>改为<code>s</code>(s, squash = use commit, but meld into previous commit )</p>
 <p>wq保存并退出。</p>
 <p>如果有冲突，修改冲突后</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add .  </div><div class="line">git rebase --continue</div></pre></td></tr></table></figure>
 <p>如果想放弃rebase，执行<code>git rebase --abort</code></p>
 <p>将rebase同步到远程：<code>git push origin &lt;your-branch&gt;</code></p>
-<h2 id="标签（tag）"><a href="#标签（tag）" class="headerlink" title="标签（tag）"></a>标签（tag）</h2><blockquote>
+<h2 id="标签tag">标签（tag）</h2>
+<blockquote>
 <p>当代码写到一个里程碑版本的时候，为了方便日后查看版本以及代码回滚，这时候需要打tag</p>
 </blockquote>
 <p>创建标签：<code>git tag -a v20170725 -m &quot;打标签&quot;</code></p>
@@ -865,7 +887,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？"><span class="nav-text">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git在本地新建分支并与远程库建立关联的几种方法"><span class="nav-text">git在本地新建分支并与远程库建立关联的几种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git设置提交代码时显示的提交人信息"><span class="nav-text">git设置提交代码时显示的提交人信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git删除远程分支"><span class="nav-text">git删除远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除不存在对应远程分支的本地分支"><span class="nav-text">删除不存在对应远程分支的本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名远程分支"><span class="nav-text">重命名远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置git区分文件名大小写"><span class="nav-text">设置git区分文件名大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rebase"><span class="nav-text">rebase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase和其他分支直接合并（不推荐，会有很多冲突）"><span class="nav-text">使用rebase和其他分支直接合并（不推荐，会有很多冲突）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）"><span class="nav-text">使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签（tag）"><span class="nav-text">标签（tag）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github上fork代码后从自己的代码库拉下代码如何保持自己库中的代码和原代码的更新保持一致呢"><span class="nav-text">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git在本地新建分支并与远程库建立关联的几种方法"><span class="nav-text">git在本地新建分支并与远程库建立关联的几种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git设置提交代码时显示的提交人信息"><span class="nav-text">git设置提交代码时显示的提交人信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git删除远程分支"><span class="nav-text">git删除远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除不存在对应远程分支的本地分支"><span class="nav-text">删除不存在对应远程分支的本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名远程分支"><span class="nav-text">重命名远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置git区分文件名大小写"><span class="nav-text">设置git区分文件名大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rebase"><span class="nav-text">rebase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase和其他分支直接合并不推荐会有很多冲突"><span class="nav-text">使用rebase和其他分支直接合并（不推荐，会有很多冲突）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase来合并当前分支commit然后再和其他分支merge推荐"><span class="nav-text">使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签tag"><span class="nav-text">标签（tag）</span></a></li></ol></div>
             
 
           </div>
@@ -1382,7 +1404,7 @@
 })();
 </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+  MathJax.Hub.Config("");
 </script>
 
 <script type="text/x-mathjax-config">
@@ -1394,7 +1416,7 @@
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
