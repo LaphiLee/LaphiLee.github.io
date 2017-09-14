@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java异常处理体系详解]]></title>
+    <url>%2FJava-Exception.html</url>
+    <content type="text"><![CDATA[Java异常处理体系详解 异常指程序中不期而至的各种状况，如：文件找不到、网络连接失败、非法参数等。在Java中异常被当作是对象处理，所有的异常都基于一个超类：Throwable。本文主要讲解Java语言中的异常处理体系。 Java异常处理体系 Java中所有的异常都始于一个基类Throwable。我们就从Throwable讲起。 Throwable中的常用方法 Throwable中定义了一些公共的方法，所有的异常类都可以使用。其中常用的方法： getCause()：返回抛出异常的原因。如果 cause 不存在或未知，则返回 null。 getMessage()：返回异常的消息信息。 printStackTrace()：对象的堆栈跟踪输出至错误输出流，作为字段System.err的值。 这些方法用于发生异常时获取异常和堆栈信息，帮助我们快速的定位排查问题。 Java异常体系结构 Java中的所有异常（各种Exception，Error）都是java.lang.Throwable超类的子类。这些异常分为两大类：Error和Exception。 Error是程序无法处理的错误，表示程序运行期间发生较严重的问题。比如OutOfMemoryError、ThreadDeath等。这些异常发生时， Java虚拟机（JVM）一般会选择线程终止。 Exception是程序本身可以处理的异常，这种异常分两大类运行时异常和非运行时异常。 程序中应当尽可能去处理这些异常。 运行时异常 运行时异常都是RuntimeException类及其子类异常，如 NullPointerException、 IndexOutOfBoundsException 等，这些异常是非检查异常，程序中可以选择捕获处理，也可以不处理。这些异常一般是由程序逻辑错误引起的，程序应该从逻辑角度尽可能避免这类异常的发生。 非运行时异常 非运行时异常是RuntimeException以外的异常，类型上都属于Exception类及其子类。 从程序语法角度讲是必须进行处理的异常，属于检查异常。如果不处理，程序就不能编译通过。 如IOException、SQLException等以及用户自定义的Exception异常，一般情况下不自定义检查异常。 Java整个异常体系结构图 如下，笔者整理了Java（基于jdk1.8）的整个异常体系结构，谨供读者参考。 Java异常体系 Java异常处理机制 在Java程序中，异常处理有两种机制：抛出异常、捕获异常。检查异常必须在程序中处理；非检查异常，程序中可以选择捕获处理，也可以不处理。 抛出异常 Java中我们通过throw、throws关键字来抛出异常。 throw关键字用于方法体内部，抛出一个Throwable类型的异常。如果抛出了检查异常， 则还应该在方法头部声明方法可能抛出的异常类型。该方法的调用者也必须检查处理抛出的异常。 如果所有方法都层层上抛获取的异常，最终JVM会进行处理，处理也很简单，就是打印异常消息和堆栈信息。 如果抛出的是Error或RuntimeException，则该方法的调用者可选择处理该异常。 throws关键字用于方法体外部的方法声明部分，用来声明方法可能会抛出某些异常。仅当抛出了检查异常， 该方法的调用者才必须处理或者重新抛出该异常。当方法的调用者无力处理该异常的时候，应该继续抛出， 而不是囫囵吞枣一般在catch块中打印一下堆栈信息做个勉强处理。 捕获异常 捕获异常用try、catch、finally关键字。 try、catch、finally三个语句块均不能单独使用，三者可以组成 try...catch...finally、 try...catch、 try...finally三种结构，catch语句可以有一个或多个，finally语句最多一个。 try、catch、finally三个代码块中变量的作用域为代码块内部，分别独立而不能相互访问。 如果要在三个块中都可以访问，则需要将变量定义到这些块的外面。 多个catch块时候，其参数类型必须按照从子类到父类顺序由上到下，否则会导致捕获的异常不够精确。因为catch一旦匹配到一个类型，就会忽略往后的catch。比如IOException必须放到Exception前面，否则编译器会报错。 引申 若一段代码前有异常抛出，并且这个异常没有被捕获，这段代码将产生编译时错误「无法访问的语句」。 若一段代码前有异常抛出，并且这个异常被try...catch所捕获，若此时catch语句中没有抛出新的异常，则这段代码能够被执行，否则，同第上一条。 若在一个条件语句中抛出异常，则程序能被编译，但后面的语句不会被执行。 关于finally finally中的代码总是会被执行，除非在执行try或者catch语句时虚拟机退出（System.exit(1))。 finally块可以做一些资源清理工作，如关闭文件、关闭游标等操作。 finally块不是必须的。 如果在try和finally块中都执行了return语句，最终返回的将是finally中的return值。 异常处理的一般原则 在知道该如何处理的情况下尽早捕获异常。否则继续向上抛出或者转译为RuntimeException——避免抛出过多的异常，影响程序可读性。 自定义非检查型异常（RuntimeException），用以封装所有的检查型异常——让程序决定是否对异常进行处理。 只针对异常的情况才使用异常。不要滥用try-catch，因为会影响性能。 为应用系统定义一套属于自己的异常处理框架。这样当异常发生时，才能将异常信息以统一的风格、优雅的反馈给用户。 异常的转译 如果方法抛出的异常与它执行的任务没有明显的联系，这种情形会使人不知所措。为了避免这个问题，更高层的实现应该捕获低层的异常，同时抛出可以按照高层抽象进行解释的异常，这种做法被称为异常转译（exception translation），如下： 12345try&#123; // use lower-level abstraction to do our bidding&#125; catch(LowerLevelException ex)&#123; throw new HigherLevelException(...);&#125; 异常转译的哲学 异常转译是针对所有继承Throwable超类的类而言的，从语法角度讲，其子类之间都可以相互转换。 但是从设计的角度出发，对于异常转译，我们要有一个合理的转译规则，否则各种异常互相转译必然导致代码混乱不堪。笔者认为，一个合理的三大类异常（Error, RuntimeException, 非RuntimeException）的转译关系如下图： 异常转译 将Error和检查型异常（非RuntimeException）转译成RuntimeException是为了增加代码的可读性、挽回因错误（Error）发生带来的负面影响，使代码更为简洁，且有利于异常的统一处理。 异常链 异常的转译涉及到了异常链的概念。在捕获一个异常后，抛出另一个异常，把底层的异常信息传给上层，并且保留底层的异常信息，这就是异常链。JDK1.4以后，Throwable子类在构造器中可以接受一个cause对象(Throwable对象)作为参数，表示原始异常，通过cause参数把原始异常传递给新的上层异常。这样，位于高层的异常递归调用getCause()方法，就可以遍历各层的异常信息。 设计自己的异常处理框架 对于一个应用系统来说，发生的所有异常在用户看来都是应用系统内部的异常。因此，系统内部的异常应该统一的转译成AppAbstractException（或是其他你喜欢的名字），AppAbstractException异常应该能够提供给客户端友好的异常信息。 自定义的异常都应该是RuntimeException（非检查异常）类的子类，以便由开发人员在合适的位置统一处理异常。 应用异常处理框架 eg：Spring中的所有异常都可以用 org.springframework.core.NestedRuntimeException 来表示，并且该基类继承的是RuntimeException。]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Java异常</tag>
+        <tag>Exception</tag>
+        <tag>Java异常体系</tag>
+        <tag>Java Core</tag>
+        <tag>异常框架设计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LaTeX学习]]></title>
     <url>%2FLaTeX.html</url>
     <content type="text"><![CDATA[LaTeX学习 如果你平时的写作中会遇到数学公式，而你又是使用的markdown编辑器，那么，本文适合你。 本文主要介绍LaTex数学排版在MarkDown语法中的使用。如果您需要的是更详尽的LaTeX论文排版等，请查阅相关专业资料。 TEX 是Donald E. Knuth 编写的一个以排版文章及数学公式为目标的计算机程序。TEX的版本号不断趋近于π，现在为3.141592。由Pascal 语言写成，特点: 免费、输出质量高、擅长科技排版、有点像编程。 LATEX 目前使用最广泛的TEX 宏集。 每一个LATEX 命令实际上最后都会被转换解释成几个甚至上百个TEX命令。 CTEX 国内致力于TEX 推广的网站：www.ctex.org/。该网站提供了CTEX 中文套装，这个安装程序把MiKTEX（TEX 在Windows 操作系统上的实现版本）和一些相关工具（如WinEdt、GSview 等）打包在一起，同时对中文接口进行了配置，以实现对中文文本的编辑。 如果想学习LATEX安装CTEX套装就可以了。LATEX 的功能和宏包有很多，每个人用到的功能是有限的；边用边学，建立了基本的概念以后，在使用中根据需求去解决问题就可以了。 LaTeX公式基础知识 LATEX控制序列的概念（类似于函数） 控制序列可以是作为命令：以\开头，参数：必须参数{}和可选参数[]。 环境概念 以bengin {环境名}开始，并以end {环境名}结束。 LaTeX 公式有两种，一种是用在正文中的，一种是单独显示的。正文中的公式用 $...$ 来定义，单独显示的用$$...$$ 来定义，其中 ... 表示的是LaTeX 的公式命令。 行内公式： $f(x) = \sum_{i=0}^{N}\int_{a}^{b} g(t,i) \text{ d}t$.(行内公式) \(f(x) = \sum_{i=0}^{N}\int_{a}^{b} g(t,i) \text{ d}t\) ​ 行间公式： $$f(x) = \sum_{i=0}^{N}\int_{a}^{b} g(t,i) \text{ d}t{6}\tag{1}$$ \[f(x) = \sum_{i=0}^{N}\int_{a}^{b} g(t,i) \text{ d}t{6}\tag{1}\] 上标与下标 上标命令是 ^{角标}，下标命令是_{角标}。当角标是单个字符时可以不用花括号 分式 输入较短的分式时，最简单的方法是使用斜线，譬如输入(x+y)/2，可得到：\((x + y)/2\) 要输入带有水平分数线的公式，可用命令：\frac{分子}{分母}。 eg. $$\frac{x+y}{2}$$ \[\frac{x+y}{2}\] $$\frac{1}{1+\frac{1}{2}}$$ \[\frac{1}{1+\frac{1}{2}}\] 根式 排版根式的命令是：开平方：\sqrt{表达式}；开 n 次方：\sqrt[n]{表达式} $$\sqrt{2}&lt;\sqrt[3]{3}$$ \[\sqrt{2}&lt;\sqrt[3]{3}\] $$\sqrt{1+\sqrt[p]{1+a^2}}$$ \[\sqrt{1+\sqrt[p]{1+a^2}}\] $$\sqrt{1+\sqrt[^p\!]{1+a^2}}$$ \[\sqrt{1+\sqrt[^p\!]{1+a^2}}\] 求和与积分 排版求和符号与积分符号的命令分别为 \sum和 \int，它们通常都有上下限，在排版上就是上标和下标。 $$\sum_{k=1}^{n}\frac{1}{k}$$ \[\sum_{k=1}^{n}\frac{1}{k}\] 微分符直体：$$\int_a^b f(x)\mathrm{d}x$$ \[\int_a^b f(x)\mathrm{d}x\] 公式中的空格 LaTeX 能够自动处理公式中的大多数字符之间的空格，但是有时候需要自己手动进行控制。 命令 释义 显示 $a\!b$ 紧贴 \(a\!b\) $ab$ 没有空格 \(ab\) $a\,b$ 小空格 \(a\,b\) $a\;b$ 中等空格 \(a\;b\) $ab$ 大空格 \(a\ b\) $a\quad b$ quad空格 \(a\quad b\) $a\qquad b$ 两个quad空格 \(a\qquad b\) 西文字符转换表 命令 释义 命令 释义 rm 罗马字体 \it 意大利字体 \bf 黑体 \sl 倾斜体 \sf 等线体 \sc 小体大写字母 \tt 打字机字体 \mit 数学斜体 \cal 数学中花体字母 公式中的定界符 这里所谓的定界符是指包围或分割公式的一些符号 $($ %( $)$ %) $[$ %[ $]$ %] $\{$ %{ $\}$ %} $|$ %| $\|$ %|| 在上述这些定界符之前冠以 \left（修饰左定界符）或 \right（修饰右定界符），可以得到自适应缩放的定界符，它们会根据定界符所包围的公式大小自适应缩放。 $$\left(\sum_{k=\frac{1}{2}}^{N^2}\frac{1}{k}\right)$$ \[\left(\sum_{k=\frac{1}{2}}^{N^2}\frac{1}{k}\right)\] 矩阵 对于少于 10 列的矩阵，可使用matrix，pmatrix，bmatrix，Bmatrix，vmatrix 和Vmatrix 等环境。 $$\begin{matrix}1 &amp; 2\\3 &amp;4\end{matrix}$$ \[\begin{matrix}1 &amp; 2\\3 &amp;4\end{matrix}\] $$\begin{pmatrix}1 &amp; 2\\3 &amp;4\end{pmatrix}$$ \[\begin{pmatrix}1 &amp; 2\\3 &amp;4\end{pmatrix}\] $$\begin{bmatrix}1 &amp; 2\\3 &amp;4\end{bmatrix}$$ \[\begin{bmatrix}1 &amp; 2\\3 &amp;4\end{bmatrix}\] $$\begin{Bmatrix}1 &amp; 2\\3 &amp;4\end{Bmatrix}$$ \[\begin{Bmatrix}1 &amp; 2\\3 &amp;4\end{Bmatrix}\] $$\begin{vmatrix}1 &amp; 2\\3 &amp;4\end{vmatrix}$$ \[\begin{vmatrix}1 &amp; 2\\3 &amp;4\end{vmatrix}\] $$\begin{Vmatrix}1 &amp; 2\\3 &amp;4\end{Vmatrix}$$ \[\begin{Vmatrix}1 &amp; 2\\3 &amp;4\end{Vmatrix}\] 排版数组 当矩阵规模超过 10 列，或者上述矩阵类型不敷需求，可使用 array 环境。该环境可把一些元素排列成横竖都对齐的矩形阵列。 12345678$$\mathbf&#123;X&#125; =\left( \begin&#123;array&#125;&#123;ccc&#125;x_&#123;11&#125; &amp; x_&#123;12&#125; &amp; \ldots \\x_&#123;21&#125; &amp; x_&#123;22&#125; &amp; \ldots \\\vdots &amp; \vdots &amp; \ddots\end&#123;array&#125; \right)$$ \[ \mathbf{X} = \left( \begin{array}{ccc} x_{11} &amp; x_{12} &amp; \ldots \\ x_{21} &amp; x_{22} &amp; \ldots \\ \vdots &amp; \vdots &amp; \ddots \end{array} \right) \] \mathbf大写控制符，\\表示换行，{ccc}表示列样式。array 环境也可以用来排版这样的表达式，表达式中使用一个. 作为其隐藏的\right定界符。 1234567$$y = \left\&#123; \begin&#123;array&#125;&#123;ll&#125;a &amp; \textrm&#123;if $d&gt;c$&#125;\\b+x &amp; \textrm&#123;in the morning&#125;\\l &amp; \textrm&#123;all day long&#125;\end&#123;array&#125; \right.$$ \[ y = \left\{ \begin{array}{ll} a &amp; \textrm{if $d&gt;c$}\\ b+x &amp; \textrm{in the morning}\\ l &amp; \textrm{all day long} \end{array} \right. \] 也可以在array环境中画线，如分隔矩阵中元素。 1234567$$\left(\begin&#123;array&#125;&#123;c|c&#125;1 &amp; 2 \\\hline3 &amp; 4\end&#123;array&#125;\right)$$ \[ \left(\begin{array}{c|c} 1 &amp; 2 \\ \hline 3 &amp; 4 \end{array}\right) \] 基本LaTeX 公式命令 希腊字母 命令 显示 \alpha \(\alpha\) \beta \(\beta\) \gamma \(\gamma\) \delta \(\delta\) \zeta \(\zeta\) \epsilon \(\epsilon\) \eta \(\eta\) \theta \(\theta\) \iota \(\iota\) \kappa \(\kappa\) \lambda \(\lambda\) \mu \(\mu\) \xi \(\xi\) \nu \(\nu\) \pi \(\pi\) \rho \(\rho\) \sigma \(\sigma\) \tau \(\tau\) \upsilon \(\upsilon\) \phi \(\phi\) \chi \(\chi\) \psi \(\psi\) \omega \(\omega\) 如果使用大写的希腊字母，把命令的首字母变成大写即可，例如 \Gamma 输出的是 \(\Gamma\)。 如果使用斜体大写希腊字母，再在大写希腊字母的LaTeX命令前加上var，例如\varGamma 生成 \(\varGamma\)。 eg. 123$$ \varGamma(x) = \frac&#123;\int_&#123;\alpha&#125;^&#123;\beta&#125; g(t)(x-t)^2\text&#123; d&#125;t &#125;&#123;\phi(x)\sum_&#123;i=0&#125;^&#123;N-1&#125; \omega_i&#125; \tag&#123;2&#125;$$ 生成如下结果： \[ \varGamma(x) = \frac{\int_{\alpha}^{\beta} g(t)(x-t)^2\text{ d}t }{\phi(x)\sum_{i=0}^{N-1} \omega_i} \tag{2} \] 和号和积分号 命令 显示 \sum \(\sum\) \int \(\int\) \sum_{i=1}^{N} \(\sum_{i=1}^{N}\) \int_{a}^{b} \(\int_{a}^{b}\) \prod \(\prod\) \iint \(\iint\) \prod_{i=1}^{N} \(\prod_{i=1}^{N}\) \iint_{a}^{b} \(\iint_{a}^{b}\) \bigcup \(\bigcup\) \bigcap \(\bigcap\) \bigcup_{i=1}^{N} \(\bigcup_{i=1}^{N}\) \bigcap_{i=1}^{N} \(\bigcap_{i=1}^{N}\) 其它常用命令 命令 显示 \sqrt[3]{2} \(\sqrt[3]{2}\) \sqrt{2} \(\sqrt{2}\) x^{3} \(x^{3}\) x_{3} \(x_{3}\) \lim_{x \to 0} \(\lim_{x \to 0}\) \frac{1}{2} \(\frac{1}{2}\) 注意：上标和下标在只有一个字符时，可以不用中括号: x^2和x^{2}的结果都是 \(x^2\) 数学符号的修饰 命令 释义 显示 \overline{数学公式} 上划线 \(\overline{数学公式}\) \underline{数学公式} 下划线 \(\underline{数学公式}\) \overbrace{数学表达式} 俯卧式花括号 \(\overbrace{数学表达式}\) \underbrace{数学表达式} 仰卧式花括号 \(\underbrace{数学表达式}\) LaTeX学术写作 目前markdown语法对于LaTeX的支持比较有限，主要是公式语法，对于论文写作的语法支持很少。 \(\title[LaTeX公式语法]{markdown中对于LaTeX语法的支持}\) \(\subtitle{subtitle here}\) \(\author[Laphi\;Lee]{Laphi Lee}\)]]></content>
@@ -9,6 +24,9 @@
       </categories>
       <tags>
         <tag>LaTeX</tag>
+        <tag>LaTeX学习</tag>
+        <tag>LaTeX markdown</tag>
+        <tag>Latex md</tag>
       </tags>
   </entry>
   <entry>
@@ -20,6 +38,9 @@
       </categories>
       <tags>
         <tag>git</tag>
+        <tag>git拾遗</tag>
+        <tag>常用git命令</tag>
+        <tag>git学习</tag>
       </tags>
   </entry>
   <entry>
@@ -31,6 +52,13 @@
       </categories>
       <tags>
         <tag>Fishing</tag>
+        <tag>钓鱼</tag>
+        <tag>钓鱼与天气</tag>
+        <tag>钓鱼技巧</tag>
+        <tag>钓位</tag>
+        <tag>调漂</tag>
+        <tag>饵料</tag>
+        <tag>野钓</tag>
       </tags>
   </entry>
   <entry>
@@ -42,6 +70,8 @@
       </categories>
       <tags>
         <tag>Java</tag>
+        <tag>Integer</tag>
+        <tag>java源码分析</tag>
       </tags>
   </entry>
 </search>

@@ -1,0 +1,1379 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java异常,Exception,Java异常体系,Java Core,异常框架设计," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Laphi Lee's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Java异常处理体系详解  异常指程序中不期而至的各种状况，如：文件找不到、网络连接失败、非法参数等。在Java中异常被当作是对象处理，所有的异常都基于一个超类：Throwable。本文主要讲解Java语言中的异常处理体系。  Java异常处理体系 Java中所有的异常都始于一个基类Throwable。我们就从Throwable讲起。 Throwable中的常用方法 Throwable中定义了一些">
+<meta name="keywords" content="Java异常,Exception,Java异常体系,Java Core,异常框架设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java异常处理体系详解">
+<meta property="og:url" content="http://www.laphilee.com/Java-Exception.html">
+<meta property="og:site_name" content="Laphi Lee&#39;s Blog">
+<meta property="og:description" content="Java异常处理体系详解  异常指程序中不期而至的各种状况，如：文件找不到、网络连接失败、非法参数等。在Java中异常被当作是对象处理，所有的异常都基于一个超类：Throwable。本文主要讲解Java语言中的异常处理体系。  Java异常处理体系 Java中所有的异常都始于一个基类Throwable。我们就从Throwable讲起。 Throwable中的常用方法 Throwable中定义了一些">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ow9wx6njf.bkt.clouddn.com/Throwable.png">
+<meta property="og:image" content="http://ow9wx6njf.bkt.clouddn.com/MyException.png">
+<meta property="og:image" content="http://ow9wx6njf.bkt.clouddn.com/AppException.png">
+<meta property="og:updated_time" content="2017-09-14T14:12:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java异常处理体系详解">
+<meta name="twitter:description" content="Java异常处理体系详解  异常指程序中不期而至的各种状况，如：文件找不到、网络连接失败、非法参数等。在Java中异常被当作是对象处理，所有的异常都基于一个超类：Throwable。本文主要讲解Java语言中的异常处理体系。  Java异常处理体系 Java中所有的异常都始于一个基类Throwable。我们就从Throwable讲起。 Throwable中的常用方法 Throwable中定义了一些">
+<meta name="twitter:image" content="http://ow9wx6njf.bkt.clouddn.com/Throwable.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Laphi Lee'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.laphilee.com/Java-Exception.html"/>
+
+
+
+
+
+  <title>Java异常处理体系详解 | Laphi Lee's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e2afb7373dca5aaff4485b43899dac22";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Laphi Lee's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">生活、技术个人博客</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            读书
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/categories/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-technology">
+          <a href="/categories/technology" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cog"></i> <br />
+            
+            技术
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.laphilee.com/Java-Exception.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laphi Lee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lyf.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Laphi Lee's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Java异常处理体系详解</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-14T21:21:06+08:00">
+                2017-09-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Java-Exception.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="Java-Exception.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          <span class="post-time">
+     &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+           <span class="post-meta-item-text">字数统计:</span>
+           <span class="post-count">2,138(字)</span>
+           
+         </span>
+    
+      <span class="post-time">
+     &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+           <span class="post-meta-item-text">阅读时长:</span>
+           <span class="post-count">8(分)</span>
+           
+         </span>
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="java异常处理体系详解">Java异常处理体系详解</h1>
+<blockquote>
+<p><em>异常</em>指程序中不期而至的各种状况，如：文件找不到、网络连接失败、非法参数等。在Java中异常被当作是对象处理，所有的异常都基于一个超类：<code>Throwable</code>。本文主要讲解Java语言中的异常处理体系。</p>
+</blockquote>
+<h2 id="java异常处理体系">Java异常处理体系</h2>
+<p>Java中所有的异常都始于一个基类<code>Throwable</code>。我们就从<code>Throwable</code>讲起。</p>
+<h3 id="throwable中的常用方法">Throwable中的常用方法</h3>
+<p><code>Throwable</code>中定义了一些公共的方法，所有的异常类都可以使用。其中常用的方法：</p>
+<a id="more"></a>
+<ul>
+<li><code>getCause()</code>：返回抛出异常的原因。如果 cause 不存在或未知，则返回 null。</li>
+<li><code>getMessage()</code>：返回异常的消息信息。</li>
+<li><code>printStackTrace()</code>：对象的堆栈跟踪输出至错误输出流，作为字段<code>System.err</code>的值。</li>
+</ul>
+<p>这些方法用于发生异常时获取异常和堆栈信息，帮助我们快速的定位排查问题。</p>
+<h3 id="java异常体系结构">Java异常体系结构</h3>
+<p>Java中的所有异常（各种<code>Exception</code>，<code>Error</code>）都是<code>java.lang.Throwable</code>超类的子类。这些异常分为两大类：<code>Error</code>和<code>Exception</code>。</p>
+<p><code>Error</code>是程序无法处理的错误，表示程序运行期间发生较严重的问题。比如<code>OutOfMemoryError</code>、<code>ThreadDeath</code>等。这些异常发生时， Java虚拟机（JVM）一般会选择线程终止。</p>
+<p><code>Exception</code>是程序本身可以处理的异常，这种异常分两大类<em>运行时异常</em>和<em>非运行时异常</em>。 程序中应当尽可能去处理这些异常。</p>
+<h4 id="运行时异常">运行时异常</h4>
+<p><em>运行时异常</em>都是<code>RuntimeException</code>类及其子类异常，如 <code>NullPointerException</code>、 <code>IndexOutOfBoundsException</code> 等，这些异常是<strong><em>非检查异常</em></strong>，程序中可以选择捕获处理，也可以不处理。这些异常一般是由程序逻辑错误引起的，程序应该从逻辑角度尽可能避免这类异常的发生。</p>
+<h4 id="非运行时异常">非运行时异常</h4>
+<p><em>非运行时异常</em>是<strong><code>RuntimeException</code>以外的异常</strong>，类型上都属于<code>Exception</code>类及其子类。 从程序语法角度讲是<strong>必须进行处理的异常</strong>，属于<strong><em>检查异常</em></strong>。如果不处理，程序就不能编译通过。 如<code>IOException</code>、<code>SQLException</code>等以及用户自定义的<code>Exception</code>异常，一般情况下不自定义检查异常。</p>
+<h4 id="java整个异常体系结构图">Java整个异常体系结构图</h4>
+<p>如下，笔者整理了Java（基于jdk1.8）的整个异常体系结构，谨供读者参考。</p>
+<div class="figure">
+<img src="http://ow9wx6njf.bkt.clouddn.com/Throwable.png" alt="Java异常体系">
+<p class="caption">Java异常体系</p>
+</div>
+<h3 id="java异常处理机制">Java异常处理机制</h3>
+<p>在Java程序中，异常处理有两种机制：<strong>抛出异常</strong>、<strong>捕获异常</strong>。<strong><em>检查异常</em></strong>必须在程序中处理；<strong><em>非检查异常</em></strong>，程序中可以选择捕获处理，也可以不处理。</p>
+<h4 id="抛出异常"><strong>抛出异常</strong></h4>
+<p>Java中我们通过<code>throw</code>、<code>throws</code>关键字来抛出异常。</p>
+<ul>
+<li><p><code>throw</code>关键字用于方法体内部，抛出一个<code>Throwable</code>类型的异常。如果抛出了检查异常， 则还应该在方法头部声明方法可能抛出的异常类型。该方法的调用者也必须检查处理抛出的异常。 如果所有方法都层层上抛获取的异常，最终JVM会进行处理，处理也很简单，就是打印异常消息和堆栈信息。 如果抛出的是<code>Error</code>或<code>RuntimeException</code>，则该方法的调用者可选择处理该异常。</p></li>
+<li><p><code>throws</code>关键字用于方法体外部的方法声明部分，用来声明方法可能会抛出某些异常。仅当抛出了检查异常， 该方法的调用者才必须处理或者重新抛出该异常。当方法的调用者无力处理该异常的时候，应该继续抛出， 而不是囫囵吞枣一般在<code>catch</code>块中打印一下堆栈信息做个勉强处理。</p></li>
+</ul>
+<h4 id="捕获异常"><strong>捕获异常</strong></h4>
+<p>捕获异常用<code>try</code>、<code>catch</code>、<code>finally</code>关键字。</p>
+<ol style="list-style-type: decimal">
+<li><p><code>try</code>、<code>catch</code>、<code>finally</code>三个语句块均不能单独使用，三者可以组成 <code>try...catch...finally</code>、 <code>try...catch</code>、 <code>try...finally</code>三种结构，<code>catch</code>语句可以有一个或多个，<code>finally</code>语句最多一个。</p></li>
+<li><p><code>try</code>、<code>catch</code>、<code>finally</code>三个代码块中变量的作用域为代码块内部，分别独立而不能相互访问。 如果要在三个块中都可以访问，则需要将变量定义到这些块的外面。</p></li>
+<li><p>多个<code>catch</code>块时候，其参数类型必须按照从子类到父类顺序由上到下，否则会导致捕获的异常不够精确。因为<code>catch</code>一旦匹配到一个类型，就会忽略往后的<code>catch</code>。比如<code>IOException</code>必须放到<code>Exception</code>前面，否则编译器会报错。</p></li>
+</ol>
+<h4 id="引申">引申</h4>
+<ul>
+<li><p>若一段代码前有异常抛出，并且这个异常没有被捕获，这段代码将产生编译时错误「无法访问的语句」。</p></li>
+<li><p>若一段代码前有异常抛出，并且这个异常被<code>try...catch</code>所捕获，若此时<code>catch</code>语句中没有抛出新的异常，则这段代码能够被执行，否则，同第上一条。</p></li>
+<li><p>若在一个条件语句中抛出异常，则程序能被编译，但后面的语句不会被执行。</p></li>
+</ul>
+<h4 id="关于finally">关于<code>finally</code></h4>
+<ul>
+<li><code>finally</code>中的代码总是会被执行，除非在执行<code>try</code>或者<code>catch</code>语句时虚拟机退出（<code>System.exit(1)</code>)。</li>
+<li><code>finally</code>块可以做一些资源清理工作，如关闭文件、关闭游标等操作。</li>
+<li><code>finally</code>块不是必须的。</li>
+<li>如果在<code>try</code>和<code>finally</code>块中都执行了<code>return</code>语句，最终返回的将是<code>finally</code>中的<code>return</code>值。</li>
+</ul>
+<h3 id="异常处理的一般原则">异常处理的一般原则</h3>
+<ol style="list-style-type: decimal">
+<li>在知道该如何处理的情况下尽早捕获异常。否则继续向上抛出或者转译为<code>RuntimeException</code>——避免抛出过多的异常，影响程序可读性。</li>
+<li>自定义非检查型异常（<code>RuntimeException</code>），用以封装所有的检查型异常——让程序决定是否对异常进行处理。</li>
+<li>只针对异常的情况才使用异常。不要滥用<code>try-catch</code>，因为会影响性能。</li>
+<li>为应用系统定义一套属于自己的异常处理框架。这样当异常发生时，才能将异常信息以统一的风格、优雅的反馈给用户。</li>
+</ol>
+<h3 id="异常的转译">异常的转译</h3>
+<p>如果方法抛出的异常与它执行的任务没有明显的联系，这种情形会使人不知所措。为了避免这个问题，更高层的实现应该捕获低层的异常，同时抛出可以按照高层抽象进行解释的异常，这种做法被称为<strong>异常转译</strong>（exception translation），如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>&#123;</div><div class="line">    <span class="comment">// use lower-level abstraction to do our bidding</span></div><div class="line">&#125; <span class="keyword">catch</span>(LowerLevelException ex)&#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> HigherLevelException(...);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="异常转译的哲学">异常转译的哲学</h4>
+<p><strong>异常转译</strong>是针对所有继承<code>Throwable</code>超类的类而言的，从语法角度讲，其子类之间都可以相互转换。 但是从设计的角度出发，对于异常转译，我们要有一个合理的转译规则，否则各种异常互相转译必然导致代码混乱不堪。笔者认为，一个合理的三大类异常（<code>Error</code>, <code>RuntimeException</code>, <code>非RuntimeException</code>）的转译关系如下图：</p>
+<div class="figure">
+<img src="http://ow9wx6njf.bkt.clouddn.com/MyException.png" alt="异常转译">
+<p class="caption">异常转译</p>
+</div>
+<p>将<code>Error</code>和<em>检查型异常</em>（<code>非RuntimeException</code>）转译成<code>RuntimeException</code>是为了增加代码的可读性、挽回因错误（<code>Error</code>）发生带来的负面影响，使代码更为简洁，且有利于异常的统一处理。</p>
+<h4 id="异常链">异常链</h4>
+<p>异常的转译涉及到了<em>异常链</em>的概念。在捕获一个异常后，抛出另一个异常，把底层的异常信息传给上层，并且保留底层的异常信息，这就是<strong><em>异常链</em></strong>。JDK1.4以后，<code>Throwable</code>子类在构造器中可以接受一个<code>cause</code>对象(<code>Throwable</code>对象)作为参数，表示<em>原始异常</em>，通过<code>cause</code>参数把<em>原始异常</em>传递给新的上层异常。这样，位于高层的异常递归调用<code>getCause()</code>方法，就可以遍历各层的异常信息。</p>
+<h2 id="设计自己的异常处理框架">设计自己的异常处理框架</h2>
+<ul>
+<li>对于一个应用系统来说，发生的所有异常在用户看来都是应用系统内部的异常。因此，系统内部的异常应该统一的转译成<code>AppAbstractException</code>（或是其他你喜欢的名字），<code>AppAbstractException</code>异常应该能够提供给客户端友好的异常信息。</li>
+<li>自定义的异常都应该是<code>RuntimeException</code>（<em>非检查异常</em>）类的子类，以便由开发人员在合适的位置统一处理异常。</li>
+</ul>
+<div class="figure">
+<img src="http://ow9wx6njf.bkt.clouddn.com/AppException.png" alt="应用异常处理框架">
+<p class="caption">应用异常处理框架</p>
+</div>
+<p><strong><em>eg：</em></strong>Spring中的所有异常都可以用 <code>org.springframework.core.NestedRuntimeException</code> 来表示，并且该基类继承的是<code>RuntimeException</code>。</p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpeg" alt="Laphi Lee WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Laphi Lee Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java异常/" rel="tag"># Java异常</a>
+          
+            <a href="/tags/Exception/" rel="tag"># Exception</a>
+          
+            <a href="/tags/Java异常体系/" rel="tag"># Java异常体系</a>
+          
+            <a href="/tags/Java-Core/" rel="tag"># Java Core</a>
+          
+            <a href="/tags/异常框架设计/" rel="tag"># 异常框架设计</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/LaTeX.html" rel="next" title="LaTeX学习">
+                <i class="fa fa-chevron-left"></i> LaTeX学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="hypercomments_widget"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/lyf.jpg"
+               alt="Laphi Lee" />
+          <p class="site-author-name" itemprop="name">Laphi Lee</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/LaphiLee" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=1007447768&site=qq&menu=yes" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  QQ
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java异常处理体系详解"><span class="nav-text">Java异常处理体系详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#java异常处理体系"><span class="nav-text">Java异常处理体系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#throwable中的常用方法"><span class="nav-text">Throwable中的常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java异常体系结构"><span class="nav-text">Java异常体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#运行时异常"><span class="nav-text">运行时异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非运行时异常"><span class="nav-text">非运行时异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java整个异常体系结构图"><span class="nav-text">Java整个异常体系结构图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java异常处理机制"><span class="nav-text">Java异常处理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抛出异常"><span class="nav-text">抛出异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#捕获异常"><span class="nav-text">捕获异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引申"><span class="nav-text">引申</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于finally"><span class="nav-text">关于finally</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理的一般原则"><span class="nav-text">异常处理的一般原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常的转译"><span class="nav-text">异常的转译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#异常转译的哲学"><span class="nav-text">异常转译的哲学</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常链"><span class="nav-text">异常链</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计自己的异常处理框架"><span class="nav-text">设计自己的异常处理框架</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Laphi Lee</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+<div class="host-by">
+  <p>Hosted by <a class="theme-link" href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+</div>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 95037, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 95037, xid: "Java-Exception.html"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/95037/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
