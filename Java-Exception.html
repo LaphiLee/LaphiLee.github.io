@@ -103,10 +103,14 @@
 <meta property="og:site_name" content="Laphi Lee&#39;s Blog">
 <meta property="og:description" content="Java异常处理体系详解  异常指程序中不期而至的各种状况，如：文件找不到、网络连接失败、非法参数等。在Java中异常被当作是对象处理，所有的异常都基于一个超类：Throwable。本文主要讲解Java语言中的异常处理体系。  Java异常处理体系 Java中所有的异常都始于一个基类Throwable。我们就从Throwable讲起。 Throwable中的常用方法 Throwable中定义了一些">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-14T15:20:24.000Z">
+<meta property="og:image" content="http://ow9wx6njf.bkt.clouddn.com/Throwable.png">
+<meta property="og:image" content="http://ow9wx6njf.bkt.clouddn.com/MyException.png">
+<meta property="og:image" content="http://ow9wx6njf.bkt.clouddn.com/AppException.png">
+<meta property="og:updated_time" content="2017-09-14T15:21:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java异常处理体系详解">
 <meta name="twitter:description" content="Java异常处理体系详解  异常指程序中不期而至的各种状况，如：文件找不到、网络连接失败、非法参数等。在Java中异常被当作是对象处理，所有的异常都基于一个超类：Throwable。本文主要讲解Java语言中的异常处理体系。  Java异常处理体系 Java中所有的异常都始于一个基类Throwable。我们就从Throwable讲起。 Throwable中的常用方法 Throwable中定义了一些">
+<meta name="twitter:image" content="http://ow9wx6njf.bkt.clouddn.com/Throwable.png">
 
 
 
@@ -470,7 +474,7 @@
 <h4 id="java整个异常体系结构图">Java整个异常体系结构图</h4>
 <p>如下，笔者整理了Java（基于jdk1.8）的整个异常体系结构，谨供读者参考。</p>
 <div class="figure">
-<embed src="http://ow9wx6njf.bkt.clouddn.com/Throwable.png-laphilee">
+<img src="http://ow9wx6njf.bkt.clouddn.com/Throwable.png" alt="Java异常体系">
 <p class="caption">Java异常体系</p>
 </div>
 <h3 id="java异常处理机制">Java异常处理机制</h3>
@@ -514,7 +518,7 @@
 <h4 id="异常转译的哲学">异常转译的哲学</h4>
 <p><strong>异常转译</strong>是针对所有继承<code>Throwable</code>超类的类而言的，从语法角度讲，其子类之间都可以相互转换。 但是从设计的角度出发，对于异常转译，我们要有一个合理的转译规则，否则各种异常互相转译必然导致代码混乱不堪。笔者认为，一个合理的三大类异常（<code>Error</code>, <code>RuntimeException</code>, <code>非RuntimeException</code>）的转译关系如下图：</p>
 <div class="figure">
-<embed src="http://ow9wx6njf.bkt.clouddn.com/MyException.png-laphilee">
+<img src="http://ow9wx6njf.bkt.clouddn.com/MyException.png" alt="异常转译">
 <p class="caption">异常转译</p>
 </div>
 <p>将<code>Error</code>和<em>检查型异常</em>（<code>非RuntimeException</code>）转译成<code>RuntimeException</code>是为了增加代码的可读性、挽回因错误（<code>Error</code>）发生带来的负面影响，使代码更为简洁，且有利于异常的统一处理。</p>
@@ -526,7 +530,7 @@
 <li>自定义的异常都应该是<code>RuntimeException</code>（<em>非检查异常</em>）类的子类，以便由开发人员在合适的位置统一处理异常。</li>
 </ul>
 <div class="figure">
-<embed src="http://ow9wx6njf.bkt.clouddn.com/AppException.png-laphilee">
+<img src="http://ow9wx6njf.bkt.clouddn.com/AppException.png" alt="应用异常处理框架">
 <p class="caption">应用异常处理框架</p>
 </div>
 <p><strong><em>eg：</em></strong>Spring中的所有异常都可以用 <code>org.springframework.core.NestedRuntimeException</code> 来表示，并且该基类继承的是<code>RuntimeException</code>。</p>
