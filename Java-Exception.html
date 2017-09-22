@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://ow9wx6njf.bkt.clouddn.com/Throwable.png">
 <meta property="og:image" content="http://ow9wx6njf.bkt.clouddn.com/MyException.png">
 <meta property="og:image" content="http://ow9wx6njf.bkt.clouddn.com/AppException.png">
-<meta property="og:updated_time" content="2017-09-14T15:21:36.000Z">
+<meta property="og:updated_time" content="2017-09-22T09:13:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java异常处理体系详解">
 <meta name="twitter:description" content="Java异常处理体系详解  异常指程序中不期而至的各种状况，如：文件找不到、网络连接失败、非法参数等。在Java中异常被当作是对象处理，所有的异常都基于一个超类：Throwable。本文主要讲解Java语言中的异常处理体系。  Java异常处理体系 Java中所有的异常都始于一个基类Throwable。我们就从Throwable讲起。 Throwable中的常用方法 Throwable中定义了一些">
@@ -422,7 +422,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">字数统计:</span>
-           <span class="post-count">2,138(字)</span>
+           <span class="post-count">2,367(字)</span>
            
          </span>
     
@@ -432,7 +432,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">阅读时长:</span>
-           <span class="post-count">8(分)</span>
+           <span class="post-count">9(分)</span>
            
          </span>
 
@@ -492,6 +492,11 @@
 <li><p><code>try</code>、<code>catch</code>、<code>finally</code>三个代码块中变量的作用域为代码块内部，分别独立而不能相互访问。 如果要在三个块中都可以访问，则需要将变量定义到这些块的外面。</p></li>
 <li><p>多个<code>catch</code>块时候，其参数类型必须按照从子类到父类顺序由上到下，否则会导致捕获的异常不够精确。因为<code>catch</code>一旦匹配到一个类型，就会忽略往后的<code>catch</code>。比如<code>IOException</code>必须放到<code>Exception</code>前面，否则编译器会报错。</p></li>
 </ol>
+<p><em>小技巧</em>：</p>
+<p>因为<code>finally</code>代码块每次都要执行，我们通常会在<code>finally</code>中写一些清理资源的代码，但有时候这样写会有一些问题。比如：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> BufferedReader in;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inputFile</span><span class="params">(String fileName)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        in = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(fileName));</div><div class="line">    &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">      	<span class="comment">//文件没找到异常</span></div><div class="line">        <span class="keyword">throw</span>  e;</div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">          	<span class="comment">//如果成功打开文件，此时才需要关闭文件</span></div><div class="line">            in.close();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException ioException) &#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">throw</span>  e;</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">        <span class="comment">//不要在这里关闭文件，因为有可能这个文件根本就没有打开</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>最安全的方法是实用嵌套的<code>try</code>子句。如下：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> BufferedReader in;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inputFile</span><span class="params">(String fileName)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        in = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(fileName));</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            String s;</div><div class="line">            <span class="keyword">while</span> ((s = in.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="comment">//do something</span></div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            </div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">          <span class="comment">//只有成功打开的文件才需要关闭</span></div><div class="line">            in.close();</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">      <span class="comment">//此时只要处理找不到文件异常即可</span></div><div class="line">        <span class="keyword">throw</span>  e;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="引申">引申</h4>
 <ul>
 <li><p>若一段代码前有异常抛出，并且这个异常没有被捕获，这段代码将产生编译时错误「无法访问的语句」。</p></li>
@@ -508,7 +513,7 @@
 <h3 id="异常处理的一般原则">异常处理的一般原则</h3>
 <ol style="list-style-type: decimal">
 <li>在知道该如何处理的情况下尽早捕获异常。否则继续向上抛出或者转译为<code>RuntimeException</code>——避免抛出过多的异常，影响程序可读性。</li>
-<li>自定义非检查型异常（<code>RuntimeException</code>），用以封装所有的检查型异常——让程序决定是否对异常进行处理。</li>
+<li>自定义非检查型异常（<code>RuntimeException</code>），用以封装所有的检查型异常——让程序决定是否对异常进行处理，防止<strong><em>吞食则有害</em></strong>问题的发生。</li>
 <li>只针对异常的情况才使用异常。不要滥用<code>try-catch</code>，因为会影响性能。</li>
 <li>为应用系统定义一套属于自己的异常处理框架。这样当异常发生时，才能将异常信息以统一的风格、优雅的反馈给用户。</li>
 </ol>
