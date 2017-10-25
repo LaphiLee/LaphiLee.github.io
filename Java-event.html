@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LaphiLee 钓鱼 Java 后端" />
+  <meta name="keywords" content="Java Core,Java事件机制,swing," />
 
 
 
@@ -95,17 +95,18 @@
 
 
 
-<meta name="description" content="思考中……">
-<meta name="keywords" content="java, shell, 数据库, mysql, LaTeX, 架构, 钓鱼">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Laphi Lee&#39;s Blog">
-<meta property="og:url" content="http://www.laphilee.com/archives/2017/09/index.html">
+<meta name="description" content="Java事件机制浅析 Java的事件机制最初是用在Swing组件上的，用来处理诸如按钮按下之类的动作事件，但如果理解了事件机制的基本概念，我们可以轻易的将其用到任何Java对象上。 基本概念  事件  　　事件可以是系统中发生的任何动作。 　　当一个事件发生时，该事件用一个事件对象来表示。事件对象有对应的事件类。">
+<meta name="keywords" content="Java Core,Java事件机制,swing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java事件机制浅析">
+<meta property="og:url" content="http://www.laphilee.com/Java-event.html">
 <meta property="og:site_name" content="Laphi Lee&#39;s Blog">
-<meta property="og:description" content="思考中……">
+<meta property="og:description" content="Java事件机制浅析 Java的事件机制最初是用在Swing组件上的，用来处理诸如按钮按下之类的动作事件，但如果理解了事件机制的基本概念，我们可以轻易的将其用到任何Java对象上。 基本概念  事件  　　事件可以是系统中发生的任何动作。 　　当一个事件发生时，该事件用一个事件对象来表示。事件对象有对应的事件类。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-25T07:29:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Laphi Lee&#39;s Blog">
-<meta name="twitter:description" content="思考中……">
+<meta name="twitter:title" content="Java事件机制浅析">
+<meta name="twitter:description" content="Java事件机制浅析 Java的事件机制最初是用在Swing组件上的，用来处理诸如按钮按下之类的动作事件，但如果理解了事件机制的基本概念，我们可以轻易的将其用到任何Java对象上。 基本概念  事件  　　事件可以是系统中发生的任何动作。 　　当一个事件发生时，该事件用一个事件对象来表示。事件对象有对应的事件类。">
 
 
 
@@ -133,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://www.laphilee.com/archives/2017/09/"/>
+  <link rel="canonical" href="http://www.laphilee.com/Java-event.html"/>
 
 
 
 
 
-  <title>归档 | Laphi Lee's Blog</title>
+  <title>Java事件机制浅析 | Laphi Lee's Blog</title>
   
 
 
@@ -174,7 +175,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  page-archive  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -312,66 +313,301 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 6 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.laphilee.com/Java-event.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laphi Lee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lyf.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Laphi Lee's Blog">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Java事件机制浅析</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-25T15:26:32+08:00">
+                2017-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Java-event.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="Java-event.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          <span class="post-time">
+     &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+           <span class="post-meta-item-text">字数统计:</span>
+           <span class="post-count">835(字)</span>
+           
+         </span>
+    
+      <span class="post-time">
+     &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+           <span class="post-meta-item-text">阅读时长:</span>
+           <span class="post-count">3(分)</span>
+           
+         </span>
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <h1 id="java事件机制浅析">Java事件机制浅析</h1>
+<p>Java的事件机制最初是用在Swing组件上的，用来处理诸如按钮按下之类的动作事件，但如果理解了事件机制的基本概念，我们可以轻易的将其用到任何Java对象上。</p>
+<h2 id="基本概念">基本概念</h2>
+<ul>
+<li>事件</li>
+</ul>
+<p>　　事件可以是系统中发生的任何动作。 　　当一个事件发生时，该事件用一个事件对象来表示。事件对象有对应的事件类。</p>
+<a id="more"></a>
+<ul>
+<li>事件源</li>
+</ul>
+<p>　　事件最初发生的地方。</p>
+<ul>
+<li>事件处理器（事件处理方法）</li>
+</ul>
+<p>　　事件处理器是一个接收事件对象并进行相应处理的方法。事件处理器包含在一个类中，这个类的对象负责检查事件是否发生，若发生就激活事件处理器进行处理。</p>
+<ul>
+<li>注册事件监听器</li>
+</ul>
+<p>　　为了能够让事件监听器检查事件源是否发生了某些事件，并且在发生时激活事件处理器进行相应的处理，必须在事件源上注册事件监听器。</p>
+<h2 id="实现java事件机制">实现Java事件机制</h2>
+<blockquote>
+<p>先介绍下Java中和事件处理相关的几个类，然后我们通过一个简单的实例来详细了解。</p>
+</blockquote>
+<h3 id="涉及到的java类">涉及到的Java类</h3>
+<p>Java的事件机制一般包括三个部分：<code>EventObject</code>，<code>EventListener</code>和<code>Source</code>。</p>
+<ul>
+<li><code>EventObject</code></li>
+</ul>
+<p><code>java.util.EventObject</code>是事件状态对象的基类，它封装了事件源对象以及和事件相关的信息。所有java的事件类都需要继承该类。</p>
+<ul>
+<li><code>EventListener</code></li>
+</ul>
+<p><code>java.util.EventListener</code>是一个标记接口，就是说该接口内是没有任何方法的。所有事件监听器都需要实现该接口。事件监听器注册在事件源上，当事件源的属性或状态改变的时候，调用相应监听器内的回调方法。</p>
+<ul>
+<li><code>Source</code></li>
+</ul>
+<p>事件源不需要实现或继承任何接口或类，它是事件最初发生的地方。因为事件源需要注册事件监听器，所以事件源内需要有相应的盛放事件监听器的容器。</p>
+<h3 id="实例">实例</h3>
+<p><strong>事件对象</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.EventObject;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyEvent</span> <span class="keyword">extends</span> <span class="title">EventObject</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> sourceState;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyEvent</span><span class="params">(Object source)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(source);<span class="comment">//source为实际的事件对象(数据)</span></div><div class="line">        sourceState = ((Source)source).getFlag();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSourceState</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> sourceState;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>事件监听器</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.EventListener;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StateChangeListener</span> <span class="keyword">implements</span> <span class="title">EventListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleEvent</span><span class="params">(MyEvent event)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"触发状态改变事件。。。"</span>);</div><div class="line">        System.out.println(<span class="string">"当前事件源状态为："</span> + event.getSourceState());</div><div class="line">        System.out.println(<span class="string">"。。。。。。。。。。。。。。。。。。。。。。。"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.EventListener;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StateChangeToOneListener</span> <span class="keyword">implements</span> <span class="title">EventListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleEvent</span><span class="params">(MyEvent event)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"触发状态变为1的事件。。。"</span>);</div><div class="line">        System.out.println(<span class="string">"当前事件源状态为："</span> + event.getSourceState());</div><div class="line">        System.out.println(<span class="string">"。。。。。。。。。。。。。。。。。。。。。。。"</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>事件源</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.EventListener;</div><div class="line"><span class="keyword">import</span> java.util.HashSet;</div><div class="line"><span class="keyword">import</span> java.util.Set;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * </span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Thief</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Source</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> flag = <span class="number">0</span>;</div><div class="line">    Set&lt;EventListener&gt; listeners = <span class="keyword">new</span> HashSet&lt;EventListener&gt;();</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line"><span class="comment">     * 注册事件监听器</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> listener</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addListener</span><span class="params">(EventListener listener)</span> </span>&#123;</div><div class="line">        listeners.add(listener);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 当事件发生时，通知注册在事件源上的所有事件做出相应的反映</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyListener</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (EventListener listener : listeners) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                ((StateChangeListener)listener).handleEvent(<span class="keyword">new</span> MyEvent(<span class="keyword">this</span>));</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                <span class="keyword">if</span> (flag == <span class="number">1</span>) &#123;</div><div class="line">                    ((StateChangeToOneListener)listener).handleEvent(<span class="keyword">new</span> MyEvent(<span class="keyword">this</span>));</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 改变状态</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeFlag</span><span class="params">()</span> </span>&#123;</div><div class="line">        flag = (flag == <span class="number">0</span> ? <span class="number">1</span> : <span class="number">0</span>);</div><div class="line">        notifyListener();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getFlag</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> flag;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>测试类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        </div><div class="line">        Source source = <span class="keyword">new</span> Source();</div><div class="line">        source.addListener(<span class="keyword">new</span> StateChangeListener());</div><div class="line">        source.addListener(<span class="keyword">new</span> StateChangeToOneListener());</div><div class="line">        </div><div class="line">        source.changeFlag();</div><div class="line">        System.out.println(<span class="string">"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"</span>);</div><div class="line">        source.changeFlag();</div><div class="line">        System.out.println(<span class="string">"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"</span>);</div><div class="line">        source.changeFlag();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpeg" alt="Laphi Lee WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Laphi Lee Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/Java-Exception.html" itemprop="url">
-              
-                <span itemprop="name">Java异常处理体系详解</span>
-              
-            </a>
-        
-      </h3>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-14T21:21:06+08:00"
-              content="2017-09-14" >
-          09-14
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java-Core/" rel="tag"># Java Core</a>
+          
+            <a href="/tags/Java事件机制/" rel="tag"># Java事件机制</a>
+          
+            <a href="/tags/swing/" rel="tag"># swing</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Java-Exception.html" rel="next" title="Java异常处理体系详解">
+                <i class="fa fa-chevron-left"></i> Java异常处理体系详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
 
-    
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 
-  </section>
-
-  
-
+      
+    </div>
+  </div>
 
 
           </div>
@@ -379,6 +615,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="hypercomments_widget"></div>
+    
+  </div>
+
 
         </div>
         
@@ -398,8 +640,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/lyf.jpg"
@@ -502,6 +753,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java事件机制浅析"><span class="nav-text">Java事件机制浅析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现java事件机制"><span class="nav-text">实现Java事件机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#涉及到的java类"><span class="nav-text">涉及到的Java类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-text">实例</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -652,11 +919,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -681,6 +946,8 @@
 
 		_hcwp.push({widget:"Bloggerstream", widget_id: 95037, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
+		
+		_hcwp.push({widget:"Stream", widget_id: 95037, xid: "Java-event.html"});
 		
 
 		(function() {
@@ -1046,32 +1313,7 @@
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
 })();
-</script>
-
-
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1089,6 +1331,11 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
+
+
+  
+
+  
   
 
 
