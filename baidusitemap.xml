@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://www.laphilee.com/git_mine.html</loc>
+    <lastmod>2017-10-26T03:01:37.000Z</lastmod>
+    <data>
+        <display>
+        <title>git拾遗</title>
+        <pubTime>2017-07-25T03:03:59.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+        <tag>git拾遗</tag>
+         
+        <tag>常用git命令</tag>
+         
+        <tag>git学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://www.laphilee.com/categories/technology/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.laphilee.com/Java-event.html</loc>
     <lastmod>2017-10-25T07:40:25.000Z</lastmod>
     <data>
@@ -83,32 +109,6 @@
            
              
               <breadCrumb title="生活" url="http://www.laphilee.com/categories/life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.laphilee.com/git_mine.html</loc>
-    <lastmod>2017-09-14T06:41:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>git拾遗</title>
-        <pubTime>2017-07-25T03:03:59.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-        <tag>git拾遗</tag>
-         
-        <tag>常用git命令</tag>
-         
-        <tag>git学习</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://www.laphilee.com/categories/technology/"/>
           
         </display>
     </data>

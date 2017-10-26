@@ -109,7 +109,7 @@
 <meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase3.png">
 <meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase4.png">
 <meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase5.png">
-<meta property="og:updated_time" content="2017-09-14T06:41:33.000Z">
+<meta property="og:updated_time" content="2017-10-26T03:01:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git拾遗">
 <meta name="twitter:description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ 步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.c">
@@ -425,7 +425,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">字数统计:</span>
-           <span class="post-count">1,916(字)</span>
+           <span class="post-count">2,160(字)</span>
            
          </span>
     
@@ -435,7 +435,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">阅读时长:</span>
-           <span class="post-count">8(分)</span>
+           <span class="post-count">9(分)</span>
            
          </span>
 
@@ -600,6 +600,12 @@
 <p>查看所有标签列表：<code>git tag</code></p>
 <p>可以用<code>git show &lt;tagname&gt;</code>查看标签信息：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tag v20170725</div><div class="line">Tagger: laphi &lt;laphi@laphilee.com&gt;</div><div class="line">Date:   Tue Jul 25 09:39:27 2017 +0800</div><div class="line"></div><div class="line">我的tag</div></pre></td></tr></table></figure>
+<h2 id="移除gitignore中已经被忽略的文件或目录">移除gitignore中已经被忽略的文件或目录</h2>
+<p><em>问题：</em> 在初始化git仓库的时候没有创建<code>.gitignore</code>文件来过滤不必要提交的文件, 后来却发现某些文件不需要提交, 但是这些文件已经被提交了, 这时候创建<code>.gitignore</code>文件忽略这些文件时, 发现ignore的规则对那些已经被track的文件无效.</p>
+<p>其实<code>.gitignore</code>文件只会忽略那些没有被跟踪的文件, 也就是说ignore规则只对那些在规则建立之后被新创建的新文件生效. 因此推荐: <strong>初始化git项目时就创建.gitignore文件</strong>.</p>
+<p>但是如果是一个老的项目里面新添加的<code>.gitignore</code>，很有可能会出现上面我们提到的问题。如何把git提示“<em>ignored tracked with git</em>”的文件忽略掉呢？可使用如下命令：</p>
+<p>命令：<code>git rm --cached -r 文件／文件夹</code></p>
+<p><strong><em>eg.</em></strong> <code>git rm --cached -r ../biz/myproject.iml</code></p>
 
 
       
@@ -877,7 +883,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github上fork代码后从自己的代码库拉下代码如何保持自己库中的代码和原代码的更新保持一致呢"><span class="nav-text">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git在本地新建分支并与远程库建立关联的几种方法"><span class="nav-text">git在本地新建分支并与远程库建立关联的几种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git设置提交代码时显示的提交人信息"><span class="nav-text">git设置提交代码时显示的提交人信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git删除远程分支"><span class="nav-text">git删除远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除不存在对应远程分支的本地分支"><span class="nav-text">删除不存在对应远程分支的本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名远程分支"><span class="nav-text">重命名远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置git区分文件名大小写"><span class="nav-text">设置git区分文件名大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rebase"><span class="nav-text">rebase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase和其他分支直接合并不推荐会有很多冲突"><span class="nav-text">使用rebase和其他分支直接合并（不推荐，会有很多冲突）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase来合并当前分支commit然后再和其他分支merge推荐"><span class="nav-text">使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签tag"><span class="nav-text">标签（tag）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github上fork代码后从自己的代码库拉下代码如何保持自己库中的代码和原代码的更新保持一致呢"><span class="nav-text">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git在本地新建分支并与远程库建立关联的几种方法"><span class="nav-text">git在本地新建分支并与远程库建立关联的几种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git设置提交代码时显示的提交人信息"><span class="nav-text">git设置提交代码时显示的提交人信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git删除远程分支"><span class="nav-text">git删除远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除不存在对应远程分支的本地分支"><span class="nav-text">删除不存在对应远程分支的本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名远程分支"><span class="nav-text">重命名远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置git区分文件名大小写"><span class="nav-text">设置git区分文件名大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rebase"><span class="nav-text">rebase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase和其他分支直接合并不推荐会有很多冲突"><span class="nav-text">使用rebase和其他分支直接合并（不推荐，会有很多冲突）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase来合并当前分支commit然后再和其他分支merge推荐"><span class="nav-text">使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签tag"><span class="nav-text">标签（tag）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除gitignore中已经被忽略的文件或目录"><span class="nav-text">移除gitignore中已经被忽略的文件或目录</span></a></li></ol></div>
             
 
           </div>
