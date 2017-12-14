@@ -1,0 +1,1418 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术,java日志,日志系统," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Laphi Lee's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="项目日志漫谈 日志系统是任何系统都不可或缺的一部分，明白如何记录日志和应该记录什么是一个软件工程师必备的技能。但怎么样才能做好日志系统呢？ 记录日志的若干建议 查阅了很多资料，再结合自己的项目经验，大概可以给出以下几点建议。">
+<meta name="keywords" content="技术,java日志,日志系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目日志漫谈">
+<meta property="og:url" content="http://www.laphilee.com/posts/5735.html">
+<meta property="og:site_name" content="Laphi Lee&#39;s Blog">
+<meta property="og:description" content="项目日志漫谈 日志系统是任何系统都不可或缺的一部分，明白如何记录日志和应该记录什么是一个软件工程师必备的技能。但怎么样才能做好日志系统呢？ 记录日志的若干建议 查阅了很多资料，再结合自己的项目经验，大概可以给出以下几点建议。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://blog.souche.com/content/images/2016/12/-----2016-12-05---10.25.26.png">
+<meta property="og:updated_time" content="2017-12-14T07:32:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目日志漫谈">
+<meta name="twitter:description" content="项目日志漫谈 日志系统是任何系统都不可或缺的一部分，明白如何记录日志和应该记录什么是一个软件工程师必备的技能。但怎么样才能做好日志系统呢？ 记录日志的若干建议 查阅了很多资料，再结合自己的项目经验，大概可以给出以下几点建议。">
+<meta name="twitter:image" content="https://blog.souche.com/content/images/2016/12/-----2016-12-05---10.25.26.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Laphi Lee'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.laphilee.com/posts/5735.html"/>
+
+
+
+
+
+  <title>项目日志漫谈 | Laphi Lee's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e2afb7373dca5aaff4485b43899dac22";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Laphi Lee's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">暮春三月，羊欢草长，天寒地冻，问谁饲狼？人心怜羊，狼心独怆，天心难测，世情如霜。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            读书
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/categories/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-technology">
+          <a href="/categories/technology" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cog"></i> <br />
+            
+            技术
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.laphilee.com/posts/5735.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laphi Lee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lyf.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Laphi Lee's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">项目日志漫谈</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T15:29:15+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/5735.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="posts/5735.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          <span class="post-time">
+     &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+           <span class="post-meta-item-text">字数统计:</span>
+           <span class="post-count">3,953(字)</span>
+           
+         </span>
+    
+      <span class="post-time">
+     &nbsp; | &nbsp;
+           <span class="post-meta-item-icon">
+             <i class="fa fa-calendar-o"></i>
+           </span>
+           <span class="post-meta-item-text">阅读时长:</span>
+           <span class="post-count">15(分)</span>
+           
+         </span>
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="项目日志漫谈">项目日志漫谈</h1>
+<p>日志系统是任何系统都不可或缺的一部分，明白如何记录日志和应该记录什么是一个软件工程师必备的技能。但怎么样才能做好日志系统呢？</p>
+<h2 id="记录日志的若干建议">记录日志的若干建议</h2>
+<p>查阅了很多资料，再结合自己的项目经验，大概可以给出以下几点建议。</p>
+<a id="more"></a>
+<h3 id="不应该自己写日志系统">不应该自己写日志系统</h3>
+<p>现在有很多流行的logging库，在Java里面有比如Log4j（log4j2），slf4j，logback，Apache Commons Logging等，它们都经受住了时间的考验，是非常可靠的日志系统（库）。关于各个库的性能问题，我们稍后再详细讨论，但可以肯定的是，它们肯定比你自己写日志系统靠谱的多。</p>
+<p>推荐使用slf4j +log4j(log4j2)/logback来记录日志。</p>
+<p>使用slf4j的原因是，SLF4J与上述其它的日志库之间有一个主要的区别。SLF4J或者说是Java的简单记录日志设计没有真正地实现日志记录，相反它只是一个允许你使用任何处于后端的日志记录库的抽象层 。如果你正在编写内部或者外部使用的API或者应用库的话，那么你真的不需要让使用你所编写的库的客户端还去选择日志库。假设项目已经使用了log4j，而且你包含一个名为Apache Active MQ的库，这个库还依赖于另一个日志记录库logback的话，那么你还需要包含它们，然而，如果Apache Active MQ使用了SLF4J的话，你可以继续使用你的日志记录库，而不需要痛苦地添加和维护新的日志记录框架。简短的说，SLF4J让你的代码独立于任何特定的日志记录API，这个好的想法尤其适合于公共的API开发人员。虽然日志记录库的抽象理念不是新的，而且Apache的commons logging日志记录库也是用了这个理念，不过现在SLF4J是Java世界里标准的日志记录库。让我们看一些使用 SLF4J而不使用log4j,logback或者java.util.logging的理由。</p>
+<p>1）在你的开源库或者私有库中使用SLF4J，可以使它独立于任何的日志实现，这就意味着不需要管理多个库和多个日志文件。你的客户端将会体会到这一点。</p>
+<p>2）SLF4J提供了占位日志记录，通过移除对isDebugEnabled(), isInfoEnabled()等等的检查提高了代码的可读性。</p>
+<p>3）通过使用日志记录方法，直到你使用到的时候，才会去构造日志信息（字符串），这就同时提高了内存和CPU的使用率。</p>
+<p>4）做一个侧面的说明，越少的临时字符串，垃圾回收器就意味着越少的工作，这就意味着为你的应用程序提供更好的吞吐量和性能。</p>
+<h3 id="在适当级别上记录日志">在适当级别上记录日志</h3>
+<p>尽管我们有多个日志库可供选择，但是在记录日志时都要遵循一个普遍的原则：在适当的级别傻姑娘记录日志。下面给出一个比较通用的建议。</p>
+<ul>
+<li>TRACE level： 一般用在开发环境中，用于开发过程中追踪问题。</li>
+<li>DEBUG level：可以把一切东西都记录在这里。这在调试过程中最常用到。在进入生产阶段前减少debug语句的数量，只留下最有意义的部分。</li>
+<li>INFO level: 记录一些比较有价值的用户行为(user-driven)和系统的特定行为(例如计划任务…)，但是这样的信息不宜太多。</li>
+<li>NOTICE level：这是生产环境中使用的级别。把一切不认为是错误的，可以记录的事件都log起来</li>
+<li>WARN level：记录在这个级别的事件都有可能成为一个error。例如，一次调用数据库使用的时间超过了预设时间，或者内存缓存即将到达容量上限。这可以让你适当地发出警报，或者在调试时更好地理解系统在failure之前做了些什么</li>
+<li>ERROR level：把每一个错误条件都记录在这。例如API调用返回了错误，或是内部错误条件</li>
+<li>FATAL level：极少被用到，在实际程序中也不应该出现多少。在这个级别上进行log意味着程序要结束了。例如一个网络守护进程无法bind到socket上，那么它唯一能做的就只有log到这里，然后退出运行。</li>
+</ul>
+<p>测试联调环境一般的都是用DEBUG level，因为可以获取到任何自己感兴趣的信息，正式的生产环境可以用INFO level，只记录一些重要的信息，当然也有的系统会用到WARN level。当然如果在生产环境出现了一个bug，仅靠INFO level或者WARN level，ERROR level无法定位问题的话，可能你会想看到debug级别的日志，帮助排查问题，这个就涉及到动态调整系统的日志级别了，我们稍后再说。</p>
+<h3 id="将日志信息分类">将日志信息分类</h3>
+<p>大部分的日志库允许指定一个日志类别以及将不同类别的日志记录到不同的文件中去。它可以分类log信息，并基于logging框架的配置，在最后以某一形式进行记录。比如将日志分为业务日志、错误日志和系统日志等，并将它们按照统一的格式进行输出，使得排查问题时可以一目了然的看出是哪个文件在什么时间点发生了什么，如果是错误日志的话，最好是打印出行号和错误原因。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">RollingRandomAccessFile</span> <span class="attr">name</span>=<span class="string">"smartrobotLog"</span></span></div><div class="line"><span class="tag">								 <span class="attr">fileName</span>=<span class="string">"logs/biz.log"</span></span></div><div class="line"><span class="tag">								 <span class="attr">filePattern</span>=<span class="string">"logs/$$&#123;date:yyyy-MM&#125;/biz-%d&#123;MM-dd-yyyy&#125;-%i.log"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">Append</span>&gt;</span>true<span class="tag">&lt;/<span class="name">Append</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">PatternLayout</span></span></div><div class="line"><span class="tag">					<span class="attr">pattern</span>=<span class="string">"%d&#123;yy-MM-dd.HH:mm:ss.SSS&#125; [%-16t] %-5p %-22c&#123;0&#125; - [%X&#123;traceId&#125;] - %m%n"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">Policies</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">TimeBasedTriggeringPolicy</span> <span class="attr">interval</span>=<span class="string">"1"</span> <span class="attr">modulate</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">SizeBasedTriggeringPolicy</span> <span class="attr">size</span>=<span class="string">"500 MB"</span>/&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">Policies</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">RollingRandomAccessFile</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上面的一段log4j的配置代码指定了日志输出的格式以及日志文件归档的策略。</p>
+<p>如果对log4j的语法不熟悉的话，可以参考http://www.cnblogs.com/elaron/archive/2013/01/14/2860259.html 这篇博客。</p>
+<h3 id="写有意义的log">写有意义的log</h3>
+<p>这可能是最重要的建议了。没有什么比你深刻理解程序内部，却写出含糊的日志更糟了。</p>
+<p>在你写日志信息之前，总要提醒自己，有突发事件的时候，你唯一拥有的只有来自log文件，你必须从中明白发生了什么。一个很有用的日志内容是接口（无论是自己提供的接口还是调用其它系统的接口）的入参、返回值，如果是调用外部接口的话，最好把完整的请求url及返回的原始结果打印出来。</p>
+<p>在写warn和error level时尤为重要的一个方法是，添加辅助信息到log信息中，如果做不到，那么改为把这个操作的作用写下。</p>
+<p>还有，不要让一个log信息的内容基于上一个。这是因为前面的信息可能由于(与当前信息)处于不同的类别或者level而没被写入。更坏的情况是，它因多线程或异步操作，在另一个地方(或是以另一方式)出现。</p>
+<h3 id="为你的日志增加traceid">为你的日志增加traceId</h3>
+<p>一个很有用的关于日志的纪录是traceId（基于线程，可追踪一条业务线），尤其是分布式系统中。如果使用的是log4j或者是logback的话，可以结合slf4j的MDC来为线程统一的添加traceId，可以添加到AOP或Filter或Interceptor中。如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Around</span>(value = <span class="string">"execution(* com.xx.xx.facade.impl.*.*(..))"</span>, argNames=<span class="string">"pjp"</span>)</div><div class="line">  <span class="function"><span class="keyword">public</span> Object <span class="title">validator</span><span class="params">(ProceedingJoinPoint pjp)</span> <span class="keyword">throws</span> Throwable </span>&#123;</div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">          String traceId = TraceUtils.begin();</div><div class="line">          MDC.put(<span class="string">"traceId"</span>, traceId);</div><div class="line">          Object obj = pjp.proceed(args);</div><div class="line">          <span class="keyword">return</span> obj;</div><div class="line">      &#125; <span class="keyword">catch</span>(Throwable e) &#123;</div><div class="line">          <span class="comment">//TODO 处理错误</span></div><div class="line">      &#125; <span class="keyword">finally</span> &#123;</div><div class="line">          TraceUtils.endTrace();</div><div class="line">      &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>代码通过AOP记录了每次请求的traceId并使用变量“mdc_trace_id”记录，在日志配置文件里需要设置变量才能将“traceId”输出到日志文件中。我以logback配置文件为例,看日志第6行%X{traceId}：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">RollingRandomAccessFile</span> <span class="attr">name</span>=<span class="string">"smartrobotLog"</span></span></div><div class="line"><span class="tag">								 <span class="attr">fileName</span>=<span class="string">"logs/biz.log"</span></span></div><div class="line"><span class="tag">								 <span class="attr">filePattern</span>=<span class="string">"logs/$$&#123;date:yyyy-MM&#125;/biz-%d&#123;MM-dd-yyyy&#125;-%i.log"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">Append</span>&gt;</span>true<span class="tag">&lt;/<span class="name">Append</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">PatternLayout</span></span></div><div class="line"><span class="tag">					<span class="attr">pattern</span>=<span class="string">"%d&#123;yy-MM-dd.HH:mm:ss.SSS&#125; [%-16t] %-5p %-22c&#123;0&#125; - [%X&#123;traceId&#125;] - %m%n"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">Policies</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">TimeBasedTriggeringPolicy</span> <span class="attr">interval</span>=<span class="string">"1"</span> <span class="attr">modulate</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">SizeBasedTriggeringPolicy</span> <span class="attr">size</span>=<span class="string">"500 MB"</span>/&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">Policies</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">RollingRandomAccessFile</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>当然利用MDC我们还可以添加很多其它有用的信息。总结下MDC为我们带来的好处：</p>
+<ol style="list-style-type: decimal">
+<li>如果你的系统已经上线，突然有一天老板说我们增加一些用户数据到日志里分析一下。如果没有MDC我猜此时此刻你应该处于雪崩状态。MDC恰到好处的让你能够实现在日志上突如其来的一些需求</li>
+<li>如果你是个代码洁癖，封装了公司LOG的操作，并且将处理线程跟踪日志号也封装了进去，但只有使用了你封装日志工具的部分才能打印跟踪日志号，其他部分(比如hibernate、mybatis、httpclient等等)日志都不会体现跟踪号。当然我们可以通过linux命令来绕过这些困扰。</li>
+<li>使代码简洁、日志风格统一</li>
+</ol>
+<h3 id="应该用机器可解析的格式来打日志">应该用机器可解析的格式来打日志</h3>
+<p>日志是给人看的，但有时候当数量量很大的情况下，靠人肉去分析log就不太现实了，一定要自动化的去分析日志。如果我们想要顺利的实现日志分析的自动化，那么用机器容易解析的格式记录日志就很有必要了。</p>
+<p>举个例子。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">log.info(<span class="string">"User &#123;&#125; plays &#123;&#125; in game &#123;&#125;"</span>,userId,card，gameId);</div></pre></td></tr></table></figure>
+<p>它会生成类似如下的输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2017-10-1217:49:37,656[T1]INFOc.d.g.UserRequestUser1334563plays4ofspadesingame23425656</div></pre></td></tr></table></figure>
+<p>如果我们想自动化解析它的话，就比较麻烦了<code>/User(\d+)plays(.+)ingame(\d+)$/</code> 正则表达式是一个可行的方案，但是这并不轻松而且容易出错。一个更好的解决方案是把log记录成机器容易解析的格式，比如JSON。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2017-10-1217:49:37,656[T1]INFOc.d.g.UserRequestUserplays&#123;&apos;user&apos;:1334563,&apos;card&apos;:&apos;4ofspade&apos;,&apos;game&apos;:23425656&#125;</div></pre></td></tr></table></figure>
+<p>现在你的log分析器可以更容易地写入，更直接地索引，而且你可以释放logstash（如果日志最终是放在logstash）所有的威力。</p>
+<h3 id="将日志收集到日志聚合系统">将日志收集到日志聚合系统</h3>
+<p>说到日志分析，就不得不提日志聚合系统。现在主流的日志分析系统有logstash和flume。关于它们具体的区别请自己百度，这样的文章很多。但是使用日志聚合系统总的目的是为了分析日志，还可以解决分布式环境下日志分散的问题。</p>
+<h3 id="应该考虑阅读者">应该考虑阅读者</h3>
+<p>为什么要对应用程序做日志？</p>
+<p>唯一的答案是，在某一天会有人去读它(或是它的意义)。更重要的是，猜猜谁会读它，这是很有趣的事。对于不同的”谁”，你将要写下的log信息的内容，上下文，类别和level会大不同。</p>
+<p>这些”谁”包括:</p>
+<ul>
+<li>一个尝试自己解决问题的终端用户(想象一个客户端或桌面程序)</li>
+<li>一个在调试产品问题的系统管理员或者运维工程师</li>
+<li>一个在开发中debug，或者在解决产品问题的开发者</li>
+</ul>
+<p>开发者了解程序内部，所以给他的log信息可以比给终端用户的复杂得多。为你的目标阅读者调整你的表达方式，乃至为此加入额外的类别(dedicate separate catagories)。</p>
+<p>当然，不管目标读者是谁，请记得给你的日志带上上下文。这一点可以配合前面提到的MDC来完成。、</p>
+<h3 id="给日志添加监控">给日志添加监控</h3>
+<p>可以给log4j日志添加邮件提醒，当出现ERROR级别的错误时发送邮件给相关技术人员。当然，如果你有专门的监控系统，这点可以忽略。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">## MAIL</div><div class="line">log4j.appender.MAIL=org.apache.log4j.net.SMTPAppender</div><div class="line"># 日志的错误级别</div><div class="line">log4j.appender.MAIL.Threshold=ERROR </div><div class="line">#缓存文件大小，日志达到512K时发送Email</div><div class="line">log4j.appender.MAIL.BufferSize=512</div><div class="line"># 发送邮件的服务器</div><div class="line">log4j.appender.MAIL.SMTPHost=smtp.163.com</div><div class="line"># 邮件的标题</div><div class="line">log4j.appender.MAIL.Subject=Log4J ErrorMessage</div><div class="line"># 用户名</div><div class="line">log4j.appender.MAIL.SMTPUsername=邮箱用户名</div><div class="line"># 密码</div><div class="line">log4j.appender.MAIL.SMTPPassword=邮箱密码</div><div class="line"># 发件人地址</div><div class="line">log4j.appender.MAIL.From=test@163.com </div><div class="line"># 日志邮件的接收者</div><div class="line">log4j.appender.MAIL.To=test@163.com</div></pre></td></tr></table></figure>
+<h2 id="流行日志库的性能对比">流行日志库的性能对比</h2>
+<p>关于性能对比，可以参考这篇博客 https://blog.souche.com/logback-log4j-log4j2shi-ce/ 。</p>
+<p>这里只说下结果。</p>
+<p>实验环境</p>
+<ul>
+<li>OS: Mac OS X 10.12.1</li>
+<li>CPU: 2.6 GHz Intel Core i5</li>
+<li>内存: 8 GB 1600 MHz DDR3</li>
+</ul>
+<p>实验结果</p>
+<div class="figure">
+<img src="https://blog.souche.com/content/images/2016/12/-----2016-12-05---10.25.26.png" alt="logback log4j log4j2性能对比">
+<p class="caption">logback log4j log4j2性能对比</p>
+</div>
+<ul>
+<li>可见在同步日志模式下, Logback的性能是最糟糕的.</li>
+<li>而log4j2的性能无论在同步日志模式还是异步日志模式下都是最佳的.</li>
+</ul>
+<p>其根本原因在于log4j2使用了LMAX，一个无锁的线程间通信库代替了, logback和log4j之前的队列. 并发性能大大提升。</p>
+<p><strong>关于log4j2的新特性</strong></p>
+<ol style="list-style-type: decimal">
+<li>丢数据这种情况少，可以用来做审计功能。而且自身内部报的exception会被发现，但是logback和log4j不会。</li>
+<li>log4j2使用了disruptor技术，在多线程环境下，性能高于logback等10倍以上。</li>
+<li>(garbage free）之前的版本会产生非常多的临时对象，会造成GC频繁，log4j2则在这方面上做了优化，减少产生临时对象。尽可能少的GC</li>
+<li>利用插件系统，使得扩展新的appender,filter,layout等变得容易，log4j不可以扩展 插件？？？？</li>
+<li>因为插件系统的简单性，所以在配置的时候，可以不用具体指定所要处理的类型。class</li>
+<li>可以自定义level</li>
+<li>Java 8 lambda support for lazy logging</li>
+<li>Support for Message objects</li>
+<li>对filter的功能支持的更强大</li>
+<li>系统日志(Syslog)协议supports both TCP and UDP</li>
+<li>利用jdk1.5并发的特性，减少了死锁的发生。</li>
+<li>Socket LogEvent SerializedLayout</li>
+<li>支持kafka queue</li>
+</ol>
+<h2 id="动态更新log4j的日志级别">动态更新log4j的日志级别</h2>
+<p>项目上线了后，我们生产环境一般设置的输出级别都是INFO，但是有些问题不一定能通过INFO信息找到。如何能做到 动态的修改日志的级别，而且不用重启服务，对线上环境的影响减少到最小呢？</p>
+<p>首先POM中加上这些依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">spring_version</span>&gt;</span>3.2.2.RELEASE<span class="tag">&lt;/<span class="name">spring_version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.6.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-log4j12<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.6.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>	</div><div class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.16<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- spring --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring_version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>	</div><div class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>然后在项目的web.xml中加上:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--由Sprng载入的Log4j配置文件位置--&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>log4jConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>/WEB-INF/classes/log4j.properties<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span>  </div><div class="line"><span class="comment">&lt;!--Spring默认刷新Log4j配置文件的间隔,单位为millisecond--&gt;</span>   </div><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>log4jRefreshInterval<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>6000<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span>  </div><div class="line"><span class="comment">&lt;!--Spring log4j 监听器--&gt;</span>  </div><div class="line">   <span class="tag">&lt;<span class="name">listener</span>&gt;</span>  </div><div class="line">       <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.util.Log4jConfigListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span>  </div><div class="line">   <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>如上配置的作用是每隔6000毫秒扫描一次log4j配置文件的变化。</p>
+<p>最后，需要在log4j的配置文件里面加上日志级别控制。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">root</span> <span class="attr">level</span>=<span class="string">"$&#123;log_level&#125;"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"$&#123;log_appender&#125;"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>而这里的log_level可以配合disconf或者类似的配置系统实现实时的修改日志级别。</p>
+<p>本文参考 http://blog.jobbole.com/52018/ ， https://blog.souche.com/logback-log4j-log4j2shi-ce/</p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpeg" alt="Laphi Lee WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Laphi Lee Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/java日志/" rel="tag"># java日志</a>
+          
+            <a href="/tags/日志系统/" rel="tag"># 日志系统</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/42720.html" rel="next" title="Java事件机制浅析">
+                <i class="fa fa-chevron-left"></i> Java事件机制浅析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="hypercomments_widget"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/lyf.jpg"
+               alt="Laphi Lee" />
+          <p class="site-author-name" itemprop="name">Laphi Lee</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/LaphiLee" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=1007447768&site=qq&menu=yes" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  QQ
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yfqh1024.com/" title="扬帆起航" target="_blank">扬帆起航</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#项目日志漫谈"><span class="nav-text">项目日志漫谈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#记录日志的若干建议"><span class="nav-text">记录日志的若干建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不应该自己写日志系统"><span class="nav-text">不应该自己写日志系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在适当级别上记录日志"><span class="nav-text">在适当级别上记录日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将日志信息分类"><span class="nav-text">将日志信息分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写有意义的log"><span class="nav-text">写有意义的log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为你的日志增加traceid"><span class="nav-text">为你的日志增加traceId</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应该用机器可解析的格式来打日志"><span class="nav-text">应该用机器可解析的格式来打日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将日志收集到日志聚合系统"><span class="nav-text">将日志收集到日志聚合系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应该考虑阅读者"><span class="nav-text">应该考虑阅读者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给日志添加监控"><span class="nav-text">给日志添加监控</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流行日志库的性能对比"><span class="nav-text">流行日志库的性能对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态更新log4j的日志级别"><span class="nav-text">动态更新log4j的日志级别</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Laphi Lee</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+<div class="host-by">
+  <p>Hosted by <a class="theme-link" href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+</div>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 95037, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 95037, xid: "posts/5735.html"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/95037/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
