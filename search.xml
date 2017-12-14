@@ -21,8 +21,8 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>Java Core</tag>
         <tag>Java事件机制</tag>
+        <tag>Java Core</tag>
         <tag>swing</tag>
       </tags>
   </entry>
@@ -34,10 +34,10 @@
         <category>技术</category>
       </categories>
       <tags>
+        <tag>Java Core</tag>
         <tag>Java异常</tag>
         <tag>Exception</tag>
         <tag>Java异常体系</tag>
-        <tag>Java Core</tag>
         <tag>异常框架设计</tag>
       </tags>
   </entry>
