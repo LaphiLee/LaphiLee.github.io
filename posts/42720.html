@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="git常用命令, git学习" />
+  <meta name="keywords" content="Java事件机制" />
 
 
 
@@ -95,25 +95,18 @@
 
 
 
-<meta name="description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ 步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.c">
-<meta name="keywords" content="git常用命令, git学习">
+<meta name="description" content="Java事件机制浅析 Java的事件机制最初是用在Swing组件上的，用来处理诸如按钮按下之类的动作事件，但如果理解了事件机制的基本概念，我们可以轻易的将其用到任何Java对象上。 基本概念  事件  　　事件可以是系统中发生的任何动作。 　　当一个事件发生时，该事件用一个事件对象来表示。事件对象有对应的事件类。">
+<meta name="keywords" content="Java事件机制">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git拾遗">
-<meta property="og:url" content="http://www.laphilee.com/19482.html">
+<meta property="og:title" content="Java事件机制浅析">
+<meta property="og:url" content="http://www.laphilee.com/posts/42720.html">
 <meta property="og:site_name" content="Laphi Lee&#39;s Blog">
-<meta property="og:description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ 步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.c">
+<meta property="og:description" content="Java事件机制浅析 Java的事件机制最初是用在Swing组件上的，用来处理诸如按钮按下之类的动作事件，但如果理解了事件机制的基本概念，我们可以轻易的将其用到任何Java对象上。 基本概念  事件  　　事件可以是系统中发生的任何动作。 　　当一个事件发生时，该事件用一个事件对象来表示。事件对象有对应的事件类。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase0.png">
-<meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase1.png">
-<meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase2.png">
-<meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase3.png">
-<meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase4.png">
-<meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase5.png">
-<meta property="og:updated_time" content="2017-12-15T04:44:18.000Z">
+<meta property="og:updated_time" content="2017-12-15T04:40:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git拾遗">
-<meta name="twitter:description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ 步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.c">
-<meta name="twitter:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase0.png">
+<meta name="twitter:title" content="Java事件机制浅析">
+<meta name="twitter:description" content="Java事件机制浅析 Java的事件机制最初是用在Swing组件上的，用来处理诸如按钮按下之类的动作事件，但如果理解了事件机制的基本概念，我们可以轻易的将其用到任何Java对象上。 基本概念  事件  　　事件可以是系统中发生的任何动作。 　　当一个事件发生时，该事件用一个事件对象来表示。事件对象有对应的事件类。">
 
 
 
@@ -141,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://www.laphilee.com/19482.html"/>
+  <link rel="canonical" href="http://www.laphilee.com/posts/42720.html"/>
 
 
 
 
 
-  <title>git拾遗 | Laphi Lee's Blog</title>
+  <title>Java事件机制浅析 | Laphi Lee's Blog</title>
   
 
 
@@ -330,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.laphilee.com/19482.html">
+    <link itemprop="mainEntityOfPage" href="http://www.laphilee.com/posts/42720.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laphi Lee">
@@ -347,7 +340,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">git拾遗</h2>
+          <h2 class="post-title" itemprop="name headline">Java事件机制浅析</h2>
         
 
         <div class="post-meta">
@@ -359,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T11:03:59+08:00">
-                2017-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-25T15:26:32+08:00">
+                2017-10-25
               </time>
             
 
@@ -393,8 +386,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/technology/other/" itemprop="url" rel="index">
-                    <span itemprop="name">other</span>
+                  <a href="/categories/technology/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -404,8 +397,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/technology/other/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/technology/Java/Java-Core/" itemprop="url" rel="index">
+                    <span itemprop="name">Java Core</span>
                   </a>
                 </span>
 
@@ -423,8 +416,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/19482.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="/19482.html" itemprop="commentsCount"></span>
+                <a href="/posts/42720.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="posts/42720.html" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -447,7 +440,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">字数统计:</span>
-           <span class="post-count">2,160(字)</span>
+           <span class="post-count">833(字)</span>
            
          </span>
     
@@ -457,7 +450,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">阅读时长:</span>
-           <span class="post-count">9(分)</span>
+           <span class="post-count">3(分)</span>
            
          </span>
 
@@ -473,161 +466,54 @@
       
 
       
-        <p>整理一些git中非常有用且自己又容易忘记的命令，仅供参考。</p>
-<h2 id="github上fork代码后从自己的代码库拉下代码如何保持自己库中的代码和原代码的更新保持一致呢">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</h2>
-<p><em>步骤：</em></p>
-<ol style="list-style-type: decimal">
-<li>在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。</li>
-</ol>
-<p>如: 其中 <code>upstream</code> 表示上游代码库名， 可以任意。</p>
-<p><code>git remote add {upstream} git@github.com:spring-projects/spring-framework.git</code></p>
-<ol style="list-style-type: decimal">
-<li>将本地的修改提交 commit</li>
-</ol>
-<p><a id="more"></a></p>
-<ol start="2" style="list-style-type: decimal">
-<li>在每次 Pull Request 前做如下操作，即可实现和上游版本库的同步。</li>
-</ol>
-<p>​ 3.1 ： <code>git remote update upstream</code></p>
-<p>​ 3.2 ： <code>git rebase upstream/{branch name}</code></p>
-<p>需要注意的是在操作3.2之前，一定要将checkout到{branch name}所指定的branch，</p>
-<p>如: git checkout develop</p>
-<ol style="list-style-type: decimal">
-<li>push 代码到 github</li>
-</ol>
-<p>​ <code>git push origin {branch name}</code></p>
-<h2 id="git在本地新建分支并与远程库建立关联的几种方法">git在本地新建分支并与远程库建立关联的几种方法</h2>
+        <h1 id="java事件机制浅析">Java事件机制浅析</h1>
+<p>Java的事件机制最初是用在Swing组件上的，用来处理诸如按钮按下之类的动作事件，但如果理解了事件机制的基本概念，我们可以轻易的将其用到任何Java对象上。</p>
+<h2 id="基本概念">基本概念</h2>
 <ul>
-<li><p><strong><code>git checkout --track origin/remote_branch</code>（推荐）</strong></p></li>
-<li><p>基于远程分支“remote_branch”，创建一个叫“remote_branch”的本地分支。</p></li>
+<li>事件</li>
 </ul>
-<p><code>git checkout -b remote_branch origin/remote_branch</code></p>
+<p>　　事件可以是系统中发生的任何动作。 　　当一个事件发生时，该事件用一个事件对象来表示。事件对象有对应的事件类。</p>
+<a id="more"></a>
 <ul>
-<li><p><code>git clone -b {remote_branch} git@github.com:spring-projects/spring-framework.git</code></p></li>
-<li><p><code>git branch remote_branch</code> , <code>git checkout remote_branch</code>, <code>git pull origin remote_branch</code></p></li>
-<li><ol class="example" style="list-style-type: decimal">
-<li><code>git branch --set-upstream-to=origin/&lt;branch&gt; {remote_branch}</code></li>
-</ol></li>
+<li>事件源</li>
 </ul>
-<h2 id="git设置提交代码时显示的提交人信息">git设置提交代码时显示的提交人信息</h2>
-<p><code>git config —global user.name laphi</code></p>
-<p><code>git config —global user.email laphi@laphilee.com</code></p>
-<p>生成git帐号关联邮箱的rsa：<code>git ssh-keygen -t rsa -C laphi@laphilee.com</code>。</p>
+<p>　　事件最初发生的地方。</p>
+<ul>
+<li>事件处理器（事件处理方法）</li>
+</ul>
+<p>　　事件处理器是一个接收事件对象并进行相应处理的方法。事件处理器包含在一个类中，这个类的对象负责检查事件是否发生，若发生就激活事件处理器进行处理。</p>
+<ul>
+<li>注册事件监听器</li>
+</ul>
+<p>　　为了能够让事件监听器检查事件源是否发生了某些事件，并且在发生时激活事件处理器进行相应的处理，必须在事件源上注册事件监听器。</p>
+<h2 id="实现java事件机制">实现Java事件机制</h2>
 <blockquote>
-<p>这里不强制要求用git生成rsa，直接用不和邮箱信息关联的rsa也完全可以。</p>
+<p>先介绍下Java中和事件处理相关的几个类，然后我们通过一个简单的实例来详细了解。</p>
 </blockquote>
-<h2 id="git删除远程分支">git删除远程分支</h2>
-<p>如果一不小心把本地的临时分支push到server上去了，想要删除。怎么办？</p>
-<p>用<code>git branch -r -d origin/branch-name</code>只是删除的本地对该远程分支的track，不能删除远程服务器（如github，gitlab等）上的该分支。正确的方法应该是这样：<code>git push origin :branch-name</code>冒号前面的空格不能少，原理是把一个空分支push到server上，相当于删除该分支。</p>
-<p>或者用命令<code>git push origin --delete &lt;branchName&gt;</code></p>
-<h2 id="删除不存在对应远程分支的本地分支">删除不存在对应远程分支的本地分支</h2>
-<p>假设这样一种情况：</p>
-<ol style="list-style-type: decimal">
-<li>我创建了本地分支b1并pull到远程分支 <code>origin/b1</code>；</li>
-<li>其他人在本地使用fetch或pull创建了本地的b1分支；</li>
-<li>我删除了 <code>origin/b1</code> 远程分支；</li>
-<li>其他人再次执行fetch或者pull并不会删除这个他们本地的 <code>b1</code> 分支，运行 <code>git branch -a</code> 也不能看出这个branch被删除了，如何处理？</li>
-</ol>
-<p>使用下面的代码查看b1的状态：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ git remote show origin</div><div class="line">* remote origin</div><div class="line">  Fetch URL: git@github.com:xxx/xxx.git</div><div class="line">  Push  URL: git@github.com:xxx/xxx.git</div><div class="line">  HEAD branch: master</div><div class="line">  Remote branches:</div><div class="line">    master                 tracked</div><div class="line">    refs/remotes/origin/b1 stale (use &apos;git remote prune&apos; to remove)</div><div class="line">  Local branch configured for &apos;git pull&apos;:</div><div class="line">    master merges with remote master</div><div class="line">  Local ref configured for &apos;git push&apos;:</div><div class="line">    master pushes to master (up to date)</div></pre></td></tr></table></figure>
-<p>这时候能够看到b1是stale的，使用 <code>git remote prune origin</code> 可以将其从本地版本库中去除。</p>
-<p>更简单的方法是使用这个命令，它在fetch之后删除掉没有与远程分支对应的本地分支：</p>
-<p><code>git fetch -p</code></p>
-<h2 id="重命名远程分支">重命名远程分支</h2>
-<p>在Git中重命名远程分支，其实就是先删除远程分支，然后重命名本地分支，再重新提交一个远程分支。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xiaosi@Q:~/code/qt$ git branch -av</div><div class="line">* dev                                            8d807de MOD  </div><div class="line">master                                         f600e50 code change during build  remotes/origin/HEAD                            -&gt; origin/master  remotes/origin/dev                             8d807de MOD  remotes/origin/master                          f600e50 code change during build</div></pre></td></tr></table></figure>
-<p>删除远程分支：<code>git push --delete origin dev</code> 重命名本地分支：<code>git branch -m dev develop</code> 推送本地分支：<code>git push origin develop</code></p>
-<h2 id="设置git区分文件名大小写">设置git区分文件名大小写</h2>
-<p>git 默认是不区分文件名大小写的，当我们不小心把文件名的大小写写错了，想改过来，会发现push不起作用。</p>
-<p>譬如当你创建一个文件后，叫 <em>readme.md</em> 写入内容后 提交到线上代码仓库。然后你在本地修改文件名为<em>Readme.md</em> 接着你去提交，发现代码没有变化.<code>git status</code>无任何提示信息。</p>
-<p>这里有两种解决方法</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>配置git使其对文件名大小写敏感</strong>：<code>git config core.ignorecase false</code></p></li>
-<li><p>在本地仓库把文件删除，提交，然后push到远程仓库，然后再在本地重新添加正确文件名的文件，然后再push。</p></li>
-</ol>
-<p>删除</p>
-<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm readme.md</div></pre></td></tr></table></figure></p>
-<p>push到远程仓库</p>
-<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git commit -m 'readme.md'</div><div class="line">git push origin &lt;my_branch&gt;</div></pre></td></tr></table></figure></p>
-<p>重新添加</p>
-<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add Readme.md</div></pre></td></tr></table></figure></p>
-<p>提交</p>
-<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git commit -m 'Readme.md'</div><div class="line">git push origin &lt;my_branch&gt;</div></pre></td></tr></table></figure></p>
-<p>这里推荐使用第一种方法，一劳永逸。</p>
-<h2 id="rebase">rebase</h2>
-<h3 id="使用rebase和其他分支直接合并不推荐会有很多冲突">使用rebase和其他分支直接合并（不推荐，会有很多冲突）</h3>
-<p>假设你现在基于远程分支“origin”，创建一个叫“mywork”的分支。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b mywork origin</div></pre></td></tr></table></figure>
-<div class="figure">
-<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase0.png" alt="img">
-<p class="caption">img</p>
-</div>
-<p>现在我们在这个分支做一些修改，然后生成两个提交(commit).</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ vi file.txt</div><div class="line">$ git commit</div><div class="line">$ vi otherfile.txt</div><div class="line">$ git commit</div><div class="line">...</div></pre></td></tr></table></figure>
-<p>但是与此同时，有些人也在“origin”分支上做了一些修改并且做了提交了. 这就意味着“origin”和“mywork”这两个分支各自“前进”了，它们之间“分叉”了。</p>
-<div class="figure">
-<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase1.png" alt="img">
-<p class="caption">img</p>
-</div>
-<p>在这里，你可以用“pull”命令把“origin”分支上的修改拉下来并且和你的修改合并； 结果看起来就像一个新的“合并的提交”(merge commit):</p>
-<div class="figure">
-<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase2.png" alt="img">
-<p class="caption">img</p>
-</div>
-<p>但是，如果你想让“mywork”分支历史看起来像没有经过任何合并一样，你也许可以用 <a href="http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html" target="_blank" rel="external">git rebase</a>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout mywork</div><div class="line">$ git rebase origin</div></pre></td></tr></table></figure>
-<p>这些命令会把你的“mywork”分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到“.git/rebase”目录中),然后把“mywork”分支更新到最新的“origin”分支，最后把保存的这些补丁应用到“mywork”分支上。</p>
-<div class="figure">
-<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase3.png" alt="img">
-<p class="caption">img</p>
-</div>
-<p>当’mywork’分支更新之后，它会指向这些新创建的提交(commit),而那些老的提交会被丢弃。 如果运行垃圾收集命令(pruning garbage collection), 这些被丢弃的提交就会删除. （请查看 <a href="http://www.kernel.org/pub/software/scm/git/docs/git-gc.html" target="_blank" rel="external">git gc</a>)</p>
-<div class="figure">
-<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase4.png" alt="img">
-<p class="caption">img</p>
-</div>
-<p>现在我们可以看一下用合并(merge)和用rebase所产生的历史的区别：</p>
-<div class="figure">
-<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase5.png" alt="img">
-<p class="caption">img</p>
-</div>
-<p>在rebase的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决 冲突；在解决完冲突后，用<code>git-add</code>命令去更新这些内容的索引(index), 然后，你无需执行 <code>git-commit</code>,只要执行:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase --continue</div></pre></td></tr></table></figure>
-<p>这样git会继续应用(apply)余下的补丁。</p>
-<p>在任何时候，你可以用<code>--abort</code>参数来终止rebase的行动，并且“mywork” 分支会回到rebase开始前的状态。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase --abort</div></pre></td></tr></table></figure>
-<h3 id="使用rebase来合并当前分支commit然后再和其他分支merge推荐">使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</h3>
-<ol style="list-style-type: decimal">
-<li><code>git rebase -i HEAD~8</code></li>
-</ol>
-<p>合并最近的8次commit。</p>
-<ol start="2" style="list-style-type: decimal">
-<li><code>git rebase -i i870cs</code></li>
-</ol>
-<p>“i870cs” 为不参与合并的最后一个commit</p>
-<p><em>注：commit排序为倒序。即最新的commit在最上面。</em></p>
-<p>从第二行开始，将<code>pick</code>改为<code>s</code>(s, squash = use commit, but meld into previous commit )</p>
-<p>wq保存并退出。</p>
-<p>如果有冲突，修改冲突后</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add .  </div><div class="line">git rebase --continue</div></pre></td></tr></table></figure>
-<p>如果想放弃rebase，执行<code>git rebase --abort</code></p>
-<p>将rebase同步到远程：<code>git push origin &lt;your-branch&gt;</code></p>
-<h2 id="标签tag">标签（tag）</h2>
-<blockquote>
-<p>当代码写到一个里程碑版本的时候，为了方便日后查看版本以及代码回滚，这时候需要打tag</p>
-</blockquote>
-<p>创建标签：<code>git tag -a v20170725 -m &quot;打标签&quot;</code></p>
-<p>或者根据指定的commit打tag：<code>git tag -a v20170725 -m &quot;打标签&quot; dd98asd</code></p>
-<p>将标签同步到远程(和操作普通分支没有区别)：<code>git push origin v20170725</code></p>
-<p>查看所有标签列表：<code>git tag</code></p>
-<p>可以用<code>git show &lt;tagname&gt;</code>查看标签信息：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tag v20170725</div><div class="line">Tagger: laphi &lt;laphi@laphilee.com&gt;</div><div class="line">Date:   Tue Jul 25 09:39:27 2017 +0800</div><div class="line"></div><div class="line">我的tag</div></pre></td></tr></table></figure>
-<h2 id="移除gitignore中已经被忽略的文件或目录">移除gitignore中已经被忽略的文件或目录</h2>
-<p><em>问题：</em> 在初始化git仓库的时候没有创建<code>.gitignore</code>文件来过滤不必要提交的文件, 后来却发现某些文件不需要提交, 但是这些文件已经被提交了, 这时候创建<code>.gitignore</code>文件忽略这些文件时, 发现ignore的规则对那些已经被track的文件无效.</p>
-<p>其实<code>.gitignore</code>文件只会忽略那些没有被跟踪的文件, 也就是说ignore规则只对那些在规则建立之后被新创建的新文件生效. 因此推荐: <strong>初始化git项目时就创建.gitignore文件</strong>.</p>
-<p>但是如果是一个老的项目里面新添加的<code>.gitignore</code>，很有可能会出现上面我们提到的问题。如何把git提示“<em>ignored tracked with git</em>”的文件忽略掉呢？可使用如下命令：</p>
-<p>命令：<code>git rm --cached -r 文件／文件夹</code></p>
-<p><strong><em>eg.</em></strong> <code>git rm --cached -r ../biz/myproject.iml</code></p>
+<h3 id="涉及到的java类">涉及到的Java类</h3>
+<p>Java的事件机制一般包括三个部分：<code>EventObject</code>，<code>EventListener</code>和<code>Source</code>。</p>
+<ul>
+<li><code>EventObject</code></li>
+</ul>
+<p><code>java.util.EventObject</code>是事件状态对象的基类，它封装了事件源对象以及和事件相关的信息。所有java的事件类都需要继承该类。</p>
+<ul>
+<li><code>EventListener</code></li>
+</ul>
+<p><code>java.util.EventListener</code>是一个标记接口，就是说该接口内是没有任何方法的。所有事件监听器都需要实现该接口。事件监听器注册在事件源上，当事件源的属性或状态改变的时候，调用相应监听器内的回调方法。</p>
+<ul>
+<li><code>Source</code></li>
+</ul>
+<p>事件源不需要实现或继承任何接口或类，它是事件最初发生的地方。因为事件源需要注册事件监听器，所以事件源内需要有相应的盛放事件监听器的容器。</p>
+<h3 id="实例">实例</h3>
+<p><strong>事件对象</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.EventObject;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyEvent</span> <span class="keyword">extends</span> <span class="title">EventObject</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> sourceState;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyEvent</span><span class="params">(Object source)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(source);<span class="comment">//source为实际的事件对象(数据)</span></div><div class="line">        sourceState = ((Source)source).getFlag();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSourceState</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> sourceState;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>事件监听器</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.EventListener;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StateChangeListener</span> <span class="keyword">implements</span> <span class="title">EventListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleEvent</span><span class="params">(MyEvent event)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"触发状态改变事件。。。"</span>);</div><div class="line">        System.out.println(<span class="string">"当前事件源状态为："</span> + event.getSourceState());</div><div class="line">        System.out.println(<span class="string">"。。。。。。。。。。。。。。。。。。。。。。。"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.EventListener;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StateChangeToOneListener</span> <span class="keyword">implements</span> <span class="title">EventListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleEvent</span><span class="params">(MyEvent event)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"触发状态变为1的事件。。。"</span>);</div><div class="line">        System.out.println(<span class="string">"当前事件源状态为："</span> + event.getSourceState());</div><div class="line">        System.out.println(<span class="string">"。。。。。。。。。。。。。。。。。。。。。。。"</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>事件源</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.EventListener;</div><div class="line"><span class="keyword">import</span> java.util.HashSet;</div><div class="line"><span class="keyword">import</span> java.util.Set;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Source</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> flag = <span class="number">0</span>;</div><div class="line">    Set&lt;EventListener&gt; listeners = <span class="keyword">new</span> HashSet&lt;EventListener&gt;();</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line"><span class="comment">     * 注册事件监听器</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> listener</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addListener</span><span class="params">(EventListener listener)</span> </span>&#123;</div><div class="line">        listeners.add(listener);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 当事件发生时，通知注册在事件源上的所有事件做出相应的反映</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyListener</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (EventListener listener : listeners) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                ((StateChangeListener)listener).handleEvent(<span class="keyword">new</span> MyEvent(<span class="keyword">this</span>));</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                <span class="keyword">if</span> (flag == <span class="number">1</span>) &#123;</div><div class="line">                    ((StateChangeToOneListener)listener).handleEvent(<span class="keyword">new</span> MyEvent(<span class="keyword">this</span>));</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 改变状态</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeFlag</span><span class="params">()</span> </span>&#123;</div><div class="line">        flag = (flag == <span class="number">0</span> ? <span class="number">1</span> : <span class="number">0</span>);</div><div class="line">        notifyListener();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getFlag</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> flag;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>测试类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        </div><div class="line">        Source source = <span class="keyword">new</span> Source();</div><div class="line">        source.addListener(<span class="keyword">new</span> StateChangeListener());</div><div class="line">        source.addListener(<span class="keyword">new</span> StateChangeToOneListener());</div><div class="line">        </div><div class="line">        source.changeFlag();</div><div class="line">        System.out.println(<span class="string">"————————————————————————"</span>);</div><div class="line">        source.changeFlag();</div><div class="line">        System.out.println(<span class="string">"～～～～～～～～～～～～～"</span>);</div><div class="line">        source.changeFlag();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
 
       
@@ -679,13 +565,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/Java-Core/" rel="tag"># Java Core</a>
           
-            <a href="/tags/git拾遗/" rel="tag"># git拾遗</a>
+            <a href="/tags/Java事件机制/" rel="tag"># Java事件机制</a>
           
-            <a href="/tags/常用git命令/" rel="tag"># 常用git命令</a>
-          
-            <a href="/tags/git学习/" rel="tag"># git学习</a>
+            <a href="/tags/swing/" rel="tag"># swing</a>
           
         </div>
       
@@ -698,8 +582,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/36312.html" rel="next" title="漫谈钓鱼">
-                <i class="fa fa-chevron-left"></i> 漫谈钓鱼
+              <a href="/posts/60571.html" rel="next" title="Java异常处理体系详解">
+                <i class="fa fa-chevron-left"></i> Java异常处理体系详解
               </a>
             
           </div>
@@ -708,8 +592,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/16707.html" rel="prev" title="LaTeX学习">
-                LaTeX学习 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/5735.html" rel="prev" title="项目日志漫谈">
+                项目日志漫谈 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -905,7 +789,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github上fork代码后从自己的代码库拉下代码如何保持自己库中的代码和原代码的更新保持一致呢"><span class="nav-text">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git在本地新建分支并与远程库建立关联的几种方法"><span class="nav-text">git在本地新建分支并与远程库建立关联的几种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git设置提交代码时显示的提交人信息"><span class="nav-text">git设置提交代码时显示的提交人信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git删除远程分支"><span class="nav-text">git删除远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除不存在对应远程分支的本地分支"><span class="nav-text">删除不存在对应远程分支的本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名远程分支"><span class="nav-text">重命名远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置git区分文件名大小写"><span class="nav-text">设置git区分文件名大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rebase"><span class="nav-text">rebase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase和其他分支直接合并不推荐会有很多冲突"><span class="nav-text">使用rebase和其他分支直接合并（不推荐，会有很多冲突）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase来合并当前分支commit然后再和其他分支merge推荐"><span class="nav-text">使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签tag"><span class="nav-text">标签（tag）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除gitignore中已经被忽略的文件或目录"><span class="nav-text">移除gitignore中已经被忽略的文件或目录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java事件机制浅析"><span class="nav-text">Java事件机制浅析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现java事件机制"><span class="nav-text">实现Java事件机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#涉及到的java类"><span class="nav-text">涉及到的Java类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-text">实例</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1089,7 +973,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 95037, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 95037, xid: "/19482.html"});
+		_hcwp.push({widget:"Stream", widget_id: 95037, xid: "posts/42720.html"});
 		
 
 		(function() {
