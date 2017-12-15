@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LaTeX,LaTeX学习,LaTeX markdown,Latex md," />
+  <meta name="keywords" content="git常用命令, git学习" />
 
 
 
@@ -95,18 +95,25 @@
 
 
 
-<meta name="description" content="LaTeX学习 如果你平时的写作中会遇到数学公式，而你又是使用的markdown编辑器，那么，本文适合你。  本文主要介绍LaTex数学排版在MarkDown语法中的使用。如果您需要的是更详尽的LaTeX论文排版等，请查阅相关专业资料。  TEX 是Donald E. Knuth 编写的一个以排版文章及数学公式为目标的计算机程序。TEX的版本号不断趋近于π，现在为3.141592。由Pascal">
-<meta name="keywords" content="LaTeX,LaTeX学习,LaTeX markdown,Latex md">
+<meta name="description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ 步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.c">
+<meta name="keywords" content="git常用命令, git学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LaTeX学习">
-<meta property="og:url" content="http://www.laphilee.com/posts/16707.html">
+<meta property="og:title" content="git拾遗">
+<meta property="og:url" content="http://www.laphilee.com/19482.html">
 <meta property="og:site_name" content="Laphi Lee&#39;s Blog">
-<meta property="og:description" content="LaTeX学习 如果你平时的写作中会遇到数学公式，而你又是使用的markdown编辑器，那么，本文适合你。  本文主要介绍LaTex数学排版在MarkDown语法中的使用。如果您需要的是更详尽的LaTeX论文排版等，请查阅相关专业资料。  TEX 是Donald E. Knuth 编写的一个以排版文章及数学公式为目标的计算机程序。TEX的版本号不断趋近于π，现在为3.141592。由Pascal">
+<meta property="og:description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ 步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-26T03:25:38.000Z">
+<meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase0.png">
+<meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase1.png">
+<meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase2.png">
+<meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase3.png">
+<meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase4.png">
+<meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase5.png">
+<meta property="og:updated_time" content="2017-12-15T04:44:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LaTeX学习">
-<meta name="twitter:description" content="LaTeX学习 如果你平时的写作中会遇到数学公式，而你又是使用的markdown编辑器，那么，本文适合你。  本文主要介绍LaTex数学排版在MarkDown语法中的使用。如果您需要的是更详尽的LaTeX论文排版等，请查阅相关专业资料。  TEX 是Donald E. Knuth 编写的一个以排版文章及数学公式为目标的计算机程序。TEX的版本号不断趋近于π，现在为3.141592。由Pascal">
+<meta name="twitter:title" content="git拾遗">
+<meta name="twitter:description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ 步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.c">
+<meta name="twitter:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase0.png">
 
 
 
@@ -134,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://www.laphilee.com/posts/16707.html"/>
+  <link rel="canonical" href="http://www.laphilee.com/19482.html"/>
 
 
 
 
 
-  <title>LaTeX学习 | Laphi Lee's Blog</title>
+  <title>git拾遗 | Laphi Lee's Blog</title>
   
 
 
@@ -252,7 +259,7 @@
       
         
         <li class="menu-item menu-item-technology">
-          <a href="/categories/technology" rel="section">
+          <a href="/categories" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-cog"></i> <br />
             
@@ -323,7 +330,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.laphilee.com/posts/16707.html">
+    <link itemprop="mainEntityOfPage" href="http://www.laphilee.com/19482.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laphi Lee">
@@ -340,7 +347,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">LaTeX学习</h2>
+          <h2 class="post-title" itemprop="name headline">git拾遗</h2>
         
 
         <div class="post-meta">
@@ -352,7 +359,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T11:12:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T11:03:59+08:00">
                 2017-07-25
               </time>
             
@@ -382,6 +389,28 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/other/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -394,8 +423,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/posts/16707.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="posts/16707.html" itemprop="commentsCount"></span>
+                <a href="/19482.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="/19482.html" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -418,7 +447,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">字数统计:</span>
-           <span class="post-count">1,896(字)</span>
+           <span class="post-count">2,160(字)</span>
            
          </span>
     
@@ -428,7 +457,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">阅读时长:</span>
-           <span class="post-count">8(分)</span>
+           <span class="post-count">9(分)</span>
            
          </span>
 
@@ -444,464 +473,161 @@
       
 
       
-        <h1 id="latex学习">LaTeX学习</h1>
-<p>如果你平时的写作中会遇到数学公式，而你又是使用的markdown编辑器，那么，本文适合你。</p>
+        <p>整理一些git中非常有用且自己又容易忘记的命令，仅供参考。</p>
+<h2 id="github上fork代码后从自己的代码库拉下代码如何保持自己库中的代码和原代码的更新保持一致呢">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</h2>
+<p><em>步骤：</em></p>
+<ol style="list-style-type: decimal">
+<li>在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。</li>
+</ol>
+<p>如: 其中 <code>upstream</code> 表示上游代码库名， 可以任意。</p>
+<p><code>git remote add {upstream} git@github.com:spring-projects/spring-framework.git</code></p>
+<ol style="list-style-type: decimal">
+<li>将本地的修改提交 commit</li>
+</ol>
+<p><a id="more"></a></p>
+<ol start="2" style="list-style-type: decimal">
+<li>在每次 Pull Request 前做如下操作，即可实现和上游版本库的同步。</li>
+</ol>
+<p>​ 3.1 ： <code>git remote update upstream</code></p>
+<p>​ 3.2 ： <code>git rebase upstream/{branch name}</code></p>
+<p>需要注意的是在操作3.2之前，一定要将checkout到{branch name}所指定的branch，</p>
+<p>如: git checkout develop</p>
+<ol style="list-style-type: decimal">
+<li>push 代码到 github</li>
+</ol>
+<p>​ <code>git push origin {branch name}</code></p>
+<h2 id="git在本地新建分支并与远程库建立关联的几种方法">git在本地新建分支并与远程库建立关联的几种方法</h2>
+<ul>
+<li><p><strong><code>git checkout --track origin/remote_branch</code>（推荐）</strong></p></li>
+<li><p>基于远程分支“remote_branch”，创建一个叫“remote_branch”的本地分支。</p></li>
+</ul>
+<p><code>git checkout -b remote_branch origin/remote_branch</code></p>
+<ul>
+<li><p><code>git clone -b {remote_branch} git@github.com:spring-projects/spring-framework.git</code></p></li>
+<li><p><code>git branch remote_branch</code> , <code>git checkout remote_branch</code>, <code>git pull origin remote_branch</code></p></li>
+<li><ol class="example" style="list-style-type: decimal">
+<li><code>git branch --set-upstream-to=origin/&lt;branch&gt; {remote_branch}</code></li>
+</ol></li>
+</ul>
+<h2 id="git设置提交代码时显示的提交人信息">git设置提交代码时显示的提交人信息</h2>
+<p><code>git config —global user.name laphi</code></p>
+<p><code>git config —global user.email laphi@laphilee.com</code></p>
+<p>生成git帐号关联邮箱的rsa：<code>git ssh-keygen -t rsa -C laphi@laphilee.com</code>。</p>
 <blockquote>
-<p>本文主要介绍LaTex数学排版在MarkDown语法中的使用。如果您需要的是更详尽的LaTeX论文排版等，请查阅相关专业资料。</p>
+<p>这里不强制要求用git生成rsa，直接用不和邮箱信息关联的rsa也完全可以。</p>
 </blockquote>
-<p><em>TEX</em> 是Donald E. Knuth 编写的一个以排版文章及数学公式为目标的计算机程序。TEX的版本号不断趋近于<em>π</em>，现在为3.141592。由Pascal 语言写成，特点: <strong>免费、输出质量高、擅长科技排版、有点像编程</strong>。</p>
-<p><em>LATEX</em> 目前使用最广泛的TEX 宏集。 每一个<em>LATEX</em> 命令实际上最后都会被转换解释成几个甚至上百个TEX命令。</p>
-<a id="more"></a>
-<p><em>CTEX</em> 国内致力于TEX 推广的网站：<a href="http://www.ctex.org/" target="_blank" rel="external">www.ctex.org/</a>。该网站提供了<em>CTEX</em> 中文套装，这个安装程序把<em>MiKTEX</em>（<em>TEX</em> 在Windows 操作系统上的实现版本）和一些相关工具（如<em>WinEdt</em>、<em>GSview</em> 等）打包在一起，同时对中文接口进行了配置，以实现对中文文本的编辑。</p>
-<p>如果想学习<em>LATEX</em>安装<em>CTEX</em>套装就可以了。<em>LATEX</em> 的功能和宏包有很多，每个人用到的功能是有限的；边用边学，建立了基本的概念以后，在使用中根据需求去解决问题就可以了。</p>
-<h2 id="latex公式基础知识">LaTeX公式基础知识</h2>
-<ul>
-<li><em>LATEX</em>控制序列的概念（类似于函数）</li>
-</ul>
-<p>控制序列可以是作为命令：以<code>\</code>开头，参数：必须参数<code>{}</code>和可选参数<code>[]</code>。</p>
-<ul>
-<li>环境概念 </li>
-</ul>
-<p>以<code>bengin {环境名}</code>开始，并以<code>end {环境名}</code>结束。</p>
-<ul>
-<li><em>LaTeX</em> 公式有两种，一种是用在正文中的，一种是单独显示的。正文中的公式用 <code>$...$</code> 来定义，单独显示的用<code>$$...$$</code> 来定义，其中 <code>...</code> 表示的是<em>LaTeX</em> 的公式命令。</li>
-</ul>
-<p><em>行内公式：</em></p>
-<p><code>$f(x) = \sum_{i=0}^{N}\int_{a}^{b} g(t,i) \text{ d}t$.</code>(行内公式)</p>
-<p><span class="math inline">\(f(x) = \sum_{i=0}^{N}\int_{a}^{b} g(t,i) \text{ d}t\)</span></p>
-<p>​ <em>行间公式：</em></p>
-<p><code>$$f(x) = \sum_{i=0}^{N}\int_{a}^{b} g(t,i) \text{ d}t{6}\tag{1}$$</code> <span class="math display">\[f(x) = \sum_{i=0}^{N}\int_{a}^{b} g(t,i) \text{ d}t{6}\tag{1}\]</span></p>
-<ul>
-<li>上标与下标</li>
-</ul>
-<p>上标命令是 <code>^{角标}</code>，下标命令是<code>_{角标}</code>。当角标是单个字符时可以不用花括号</p>
-<ul>
-<li>分式</li>
-</ul>
-<p>输入较短的分式时，最简单的方法是使用斜线，譬如输入<code>(x+y)/2</code>，可得到：<span class="math inline">\((x + y)/2\)</span></p>
-<p>要输入带有水平分数线的公式，可用命令：<code>\frac{分子}{分母}</code>。</p>
-<p><em>eg.</em></p>
-<p><code>$$\frac{x+y}{2}$$</code> <span class="math display">\[\frac{x+y}{2}\]</span></p>
-<p><code>$$\frac{1}{1+\frac{1}{2}}$$</code> <span class="math display">\[\frac{1}{1+\frac{1}{2}}\]</span></p>
-<ul>
-<li>根式</li>
-</ul>
-<p>排版根式的命令是：开平方：<code>\sqrt{表达式}</code>；开 n 次方：<code>\sqrt[n]{表达式}</code></p>
-<p><code>$$\sqrt{2}&lt;\sqrt[3]{3}$$</code> <span class="math display">\[\sqrt{2}&lt;\sqrt[3]{3}\]</span></p>
-<p><code>$$\sqrt{1+\sqrt[p]{1+a^2}}$$</code> <span class="math display">\[\sqrt{1+\sqrt[p]{1+a^2}}\]</span></p>
-<p><code>$$\sqrt{1+\sqrt[^p\!]{1+a^2}}$$</code> <span class="math display">\[\sqrt{1+\sqrt[^p\!]{1+a^2}}\]</span></p>
-<ul>
-<li>求和与积分</li>
-</ul>
-<p>排版求和符号与积分符号的命令分别为 <code>\sum</code>和 <code>\int</code>，它们通常都有上下限，在排版上就是上标和下标。</p>
-<p><code>$$\sum_{k=1}^{n}\frac{1}{k}$$</code> <span class="math display">\[\sum_{k=1}^{n}\frac{1}{k}\]</span></p>
-<p>微分符直体：<code>$$\int_a^b f(x)\mathrm{d}x$$</code> <span class="math display">\[\int_a^b f(x)\mathrm{d}x\]</span></p>
-<ul>
-<li>公式中的空格</li>
-</ul>
-<p>LaTeX 能够自动处理公式中的大多数字符之间的空格，但是有时候需要自己手动进行控制。</p>
-<table>
-<thead>
-<tr class="header">
-<th>命令</th>
-<th>释义</th>
-<th>显示</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>$a\!b$</code></td>
-<td>紧贴</td>
-<td><span class="math inline">\(a\!b\)</span></td>
-</tr>
-<tr class="even">
-<td><code>$ab$</code></td>
-<td>没有空格</td>
-<td><span class="math inline">\(ab\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>$a\,b$</code></td>
-<td>小空格</td>
-<td><span class="math inline">\(a\,b\)</span></td>
-</tr>
-<tr class="even">
-<td><code>$a\;b$</code></td>
-<td>中等空格</td>
-<td><span class="math inline">\(a\;b\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>$ab$</code></td>
-<td>大空格</td>
-<td><span class="math inline">\(a\ b\)</span></td>
-</tr>
-<tr class="even">
-<td><code>$a\quad b$</code></td>
-<td>quad空格</td>
-<td><span class="math inline">\(a\quad b\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>$a\qquad b$</code></td>
-<td>两个quad空格</td>
-<td><span class="math inline">\(a\qquad b\)</span></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>西文字符转换表</li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th>命令</th>
-<th>释义</th>
-<th></th>
-<th>命令</th>
-<th>释义</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>rm</code></td>
-<td>罗马字体</td>
-<td></td>
-<td><code>\it</code></td>
-<td>意大利字体</td>
-</tr>
-<tr class="even">
-<td><code>\bf</code></td>
-<td>黑体</td>
-<td></td>
-<td><code> \sl</code></td>
-<td>倾斜体</td>
-</tr>
-<tr class="odd">
-<td><code>\sf</code></td>
-<td>等线体</td>
-<td></td>
-<td><code> \sc</code></td>
-<td>小体大写字母</td>
-</tr>
-<tr class="even">
-<td><code>\tt</code></td>
-<td>打字机字体</td>
-<td></td>
-<td><code>\mit</code></td>
-<td>数学斜体</td>
-</tr>
-<tr class="odd">
-<td><code>\cal</code></td>
-<td>数学中花体字母</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>公式中的定界符</li>
-</ul>
-<p>这里所谓的定界符是指包围或分割公式的一些符号</p>
-<p><code>$($    %(</code></p>
-<p><code>$)$    %)</code></p>
-<p><code>$[$    %[</code></p>
-<p><code>$]$    %]</code></p>
-<p><code>$\{$    %{</code></p>
-<p><code>$\}$    %}</code></p>
-<p><code>$|$    %|</code></p>
-<p><code>$\|$    %||</code></p>
-<p>在上述这些定界符之前冠以 <code>\left</code>（修饰左定界符）或 <code>\right</code>（修饰右定界符），可以得到自适应缩放的定界符，它们会根据定界符所包围的公式大小自适应缩放。</p>
-<p><code>$$\left(\sum_{k=\frac{1}{2}}^{N^2}\frac{1}{k}\right)$$</code></p>
-<p><span class="math display">\[\left(\sum_{k=\frac{1}{2}}^{N^2}\frac{1}{k}\right)\]</span></p>
-<ul>
-<li>矩阵</li>
-</ul>
-<p>对于少于 10 列的矩阵，可使用<code>matrix</code>，<code>pmatrix</code>，<code>bmatrix</code>，<code>Bmatrix</code>，<code>vmatrix</code> 和<code>Vmatrix</code> 等环境。</p>
-<p><code>$$\begin{matrix}1 &amp; 2\\3 &amp;4\end{matrix}$$</code> <span class="math display">\[\begin{matrix}1 &amp; 2\\3 &amp;4\end{matrix}\]</span></p>
-<p><code>$$\begin{pmatrix}1 &amp; 2\\3 &amp;4\end{pmatrix}$$</code> <span class="math display">\[\begin{pmatrix}1 &amp; 2\\3 &amp;4\end{pmatrix}\]</span></p>
-<p><code>$$\begin{bmatrix}1 &amp; 2\\3 &amp;4\end{bmatrix}$$</code> <span class="math display">\[\begin{bmatrix}1 &amp; 2\\3 &amp;4\end{bmatrix}\]</span></p>
-<p><code>$$\begin{Bmatrix}1 &amp; 2\\3 &amp;4\end{Bmatrix}$$</code> <span class="math display">\[\begin{Bmatrix}1 &amp; 2\\3 &amp;4\end{Bmatrix}\]</span></p>
-<p><code>$$\begin{vmatrix}1 &amp; 2\\3 &amp;4\end{vmatrix}$$</code> <span class="math display">\[\begin{vmatrix}1 &amp; 2\\3 &amp;4\end{vmatrix}\]</span></p>
-<p><code>$$\begin{Vmatrix}1 &amp; 2\\3 &amp;4\end{Vmatrix}$$</code> <span class="math display">\[\begin{Vmatrix}1 &amp; 2\\3 &amp;4\end{Vmatrix}\]</span></p>
-<ul>
-<li>排版数组</li>
-</ul>
-<p>当矩阵规模超过 10 列，或者上述矩阵类型不敷需求，可使用 <code>array</code> 环境。该环境可把一些元素排列成横竖都对齐的矩形阵列。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line">\mathbf&#123;X&#125; =</div><div class="line">\left( \begin&#123;array&#125;&#123;ccc&#125;</div><div class="line">x_&#123;11&#125; &amp; x_&#123;12&#125; &amp; \ldots \\</div><div class="line">x_&#123;21&#125; &amp; x_&#123;22&#125; &amp; \ldots \\</div><div class="line">\vdots &amp; \vdots &amp; \ddots</div><div class="line">\end&#123;array&#125; \right)</div><div class="line">$$</div></pre></td></tr></table></figure>
-<p><span class="math display">\[
-\mathbf{X} =
-\left( \begin{array}{ccc}
-x_{11} &amp; x_{12} &amp; \ldots \\
-x_{21} &amp; x_{22} &amp; \ldots \\
-\vdots &amp; \vdots &amp; \ddots
-\end{array} \right)
-\]</span></p>
-<p><code>\mathbf</code>大写控制符，<code>\\</code>表示换行，<code>{ccc}</code>表示列样式。<code>array</code> 环境也可以用来排版这样的表达式，表达式中使用一个<code>.</code> 作为其隐藏的<code>\right</code>定界符。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line">y = \left\&#123; \begin&#123;array&#125;&#123;ll&#125;</div><div class="line">a &amp; \textrm&#123;if $d&gt;c$&#125;\\</div><div class="line">b+x &amp; \textrm&#123;in the morning&#125;\\</div><div class="line">l &amp; \textrm&#123;all day long&#125;</div><div class="line">\end&#123;array&#125; \right.</div><div class="line">$$</div></pre></td></tr></table></figure>
-<p><span class="math display">\[
-y = \left\{ \begin{array}{ll}
-a &amp; \textrm{if $d&gt;c$}\\
-b+x &amp; \textrm{in the morning}\\
-l &amp; \textrm{all day long}
-\end{array} \right.
-\]</span></p>
-<ul>
-<li>也可以在<code>array</code>环境中画线，如分隔矩阵中元素。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line">\left(\begin&#123;array&#125;&#123;c|c&#125;</div><div class="line">1 &amp; 2 \\</div><div class="line">\hline</div><div class="line">3 &amp; 4</div><div class="line">\end&#123;array&#125;\right)</div><div class="line">$$</div></pre></td></tr></table></figure>
-<p><span class="math display">\[
-\left(\begin{array}{c|c}
-1 &amp; 2 \\
-\hline
-3 &amp; 4
-\end{array}\right)
-\]</span></p>
-<h2 id="基本latex公式命令">基本LaTeX 公式命令</h2>
-<h3 id="希腊字母">希腊字母</h3>
-<table>
-<thead>
-<tr class="header">
-<th align="left">命令</th>
-<th align="center">显示</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><code>\alpha</code></td>
-<td align="center"><span class="math inline">\(\alpha\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\beta</code></td>
-<td align="center"><span class="math inline">\(\beta\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\gamma</code></td>
-<td align="center"><span class="math inline">\(\gamma\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\delta</code></td>
-<td align="center"><span class="math inline">\(\delta\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\zeta</code></td>
-<td align="center"><span class="math inline">\(\zeta\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\epsilon</code></td>
-<td align="center"><span class="math inline">\(\epsilon\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\eta</code></td>
-<td align="center"><span class="math inline">\(\eta\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\theta</code></td>
-<td align="center"><span class="math inline">\(\theta\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\iota</code></td>
-<td align="center"><span class="math inline">\(\iota\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\kappa</code></td>
-<td align="center"><span class="math inline">\(\kappa\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\lambda</code></td>
-<td align="center"><span class="math inline">\(\lambda\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\mu</code></td>
-<td align="center"><span class="math inline">\(\mu\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\xi</code></td>
-<td align="center"><span class="math inline">\(\xi\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\nu</code></td>
-<td align="center"><span class="math inline">\(\nu\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\pi</code></td>
-<td align="center"><span class="math inline">\(\pi\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\rho</code></td>
-<td align="center"><span class="math inline">\(\rho\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\sigma</code></td>
-<td align="center"><span class="math inline">\(\sigma\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\tau</code></td>
-<td align="center"><span class="math inline">\(\tau\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\upsilon</code></td>
-<td align="center"><span class="math inline">\(\upsilon\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\phi</code></td>
-<td align="center"><span class="math inline">\(\phi\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\chi</code></td>
-<td align="center"><span class="math inline">\(\chi\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\psi</code></td>
-<td align="center"><span class="math inline">\(\psi\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\omega</code></td>
-<td align="center"><span class="math inline">\(\omega\)</span></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>如果使用大写的希腊字母，把命令的首字母变成大写即可，例如 <code>\Gamma</code> 输出的是 <span class="math inline">\(\Gamma\)</span>。</li>
-<li>如果使用斜体大写希腊字母，再在大写希腊字母的<em>LaTeX</em>命令前加上<em>var</em>，例如<code>\varGamma</code> 生成 <span class="math inline">\(\varGamma\)</span>。</li>
-</ul>
-<p><strong>eg.</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line"> \varGamma(x) = \frac&#123;\int_&#123;\alpha&#125;^&#123;\beta&#125; g(t)(x-t)^2\text&#123; d&#125;t &#125;&#123;\phi(x)\sum_&#123;i=0&#125;^&#123;N-1&#125; \omega_i&#125; \tag&#123;2&#125;</div><div class="line">$$</div></pre></td></tr></table></figure>
-<p>生成如下结果： <span class="math display">\[
-\varGamma(x) = \frac{\int_{\alpha}^{\beta} g(t)(x-t)^2\text{ d}t }{\phi(x)\sum_{i=0}^{N-1} \omega_i} \tag{2}
-\]</span></p>
-<h3 id="和号和积分号">和号和积分号</h3>
-<table>
-<thead>
-<tr class="header">
-<th align="left">命令</th>
-<th align="left">显示</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><code>\sum</code></td>
-<td align="left"><span class="math inline">\(\sum\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\int</code></td>
-<td align="left"><span class="math inline">\(\int\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\sum_{i=1}^{N}</code></td>
-<td align="left"><span class="math inline">\(\sum_{i=1}^{N}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\int_{a}^{b}</code></td>
-<td align="left"><span class="math inline">\(\int_{a}^{b}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\prod</code></td>
-<td align="left"><span class="math inline">\(\prod\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\iint</code></td>
-<td align="left"><span class="math inline">\(\iint\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\prod_{i=1}^{N}</code></td>
-<td align="left"><span class="math inline">\(\prod_{i=1}^{N}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\iint_{a}^{b}</code></td>
-<td align="left"><span class="math inline">\(\iint_{a}^{b}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\bigcup</code></td>
-<td align="left"><span class="math inline">\(\bigcup\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\bigcap</code></td>
-<td align="left"><span class="math inline">\(\bigcap\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>\bigcup_{i=1}^{N}</code></td>
-<td align="left"><span class="math inline">\(\bigcup_{i=1}^{N}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>\bigcap_{i=1}^{N}</code></td>
-<td align="left"><span class="math inline">\(\bigcap_{i=1}^{N}\)</span></td>
-</tr>
-</tbody>
-</table>
-<h3 id="其它常用命令">其它常用命令</h3>
-<table>
-<thead>
-<tr class="header">
-<th>命令</th>
-<th>显示</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>\sqrt[3]{2}</code></td>
-<td><span class="math inline">\(\sqrt[3]{2}\)</span></td>
-</tr>
-<tr class="even">
-<td><code>\sqrt{2}</code></td>
-<td><span class="math inline">\(\sqrt{2}\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>x^{3}</code></td>
-<td><span class="math inline">\(x^{3}\)</span></td>
-</tr>
-<tr class="even">
-<td><code>x_{3}</code></td>
-<td><span class="math inline">\(x_{3}\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>\lim_{x \to 0}</code></td>
-<td><span class="math inline">\(\lim_{x \to 0}\)</span></td>
-</tr>
-<tr class="even">
-<td><code>\frac{1}{2}</code></td>
-<td><span class="math inline">\(\frac{1}{2}\)</span></td>
-</tr>
-</tbody>
-</table>
+<h2 id="git删除远程分支">git删除远程分支</h2>
+<p>如果一不小心把本地的临时分支push到server上去了，想要删除。怎么办？</p>
+<p>用<code>git branch -r -d origin/branch-name</code>只是删除的本地对该远程分支的track，不能删除远程服务器（如github，gitlab等）上的该分支。正确的方法应该是这样：<code>git push origin :branch-name</code>冒号前面的空格不能少，原理是把一个空分支push到server上，相当于删除该分支。</p>
+<p>或者用命令<code>git push origin --delete &lt;branchName&gt;</code></p>
+<h2 id="删除不存在对应远程分支的本地分支">删除不存在对应远程分支的本地分支</h2>
+<p>假设这样一种情况：</p>
+<ol style="list-style-type: decimal">
+<li>我创建了本地分支b1并pull到远程分支 <code>origin/b1</code>；</li>
+<li>其他人在本地使用fetch或pull创建了本地的b1分支；</li>
+<li>我删除了 <code>origin/b1</code> 远程分支；</li>
+<li>其他人再次执行fetch或者pull并不会删除这个他们本地的 <code>b1</code> 分支，运行 <code>git branch -a</code> 也不能看出这个branch被删除了，如何处理？</li>
+</ol>
+<p>使用下面的代码查看b1的状态：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ git remote show origin</div><div class="line">* remote origin</div><div class="line">  Fetch URL: git@github.com:xxx/xxx.git</div><div class="line">  Push  URL: git@github.com:xxx/xxx.git</div><div class="line">  HEAD branch: master</div><div class="line">  Remote branches:</div><div class="line">    master                 tracked</div><div class="line">    refs/remotes/origin/b1 stale (use &apos;git remote prune&apos; to remove)</div><div class="line">  Local branch configured for &apos;git pull&apos;:</div><div class="line">    master merges with remote master</div><div class="line">  Local ref configured for &apos;git push&apos;:</div><div class="line">    master pushes to master (up to date)</div></pre></td></tr></table></figure>
+<p>这时候能够看到b1是stale的，使用 <code>git remote prune origin</code> 可以将其从本地版本库中去除。</p>
+<p>更简单的方法是使用这个命令，它在fetch之后删除掉没有与远程分支对应的本地分支：</p>
+<p><code>git fetch -p</code></p>
+<h2 id="重命名远程分支">重命名远程分支</h2>
+<p>在Git中重命名远程分支，其实就是先删除远程分支，然后重命名本地分支，再重新提交一个远程分支。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xiaosi@Q:~/code/qt$ git branch -av</div><div class="line">* dev                                            8d807de MOD  </div><div class="line">master                                         f600e50 code change during build  remotes/origin/HEAD                            -&gt; origin/master  remotes/origin/dev                             8d807de MOD  remotes/origin/master                          f600e50 code change during build</div></pre></td></tr></table></figure>
+<p>删除远程分支：<code>git push --delete origin dev</code> 重命名本地分支：<code>git branch -m dev develop</code> 推送本地分支：<code>git push origin develop</code></p>
+<h2 id="设置git区分文件名大小写">设置git区分文件名大小写</h2>
+<p>git 默认是不区分文件名大小写的，当我们不小心把文件名的大小写写错了，想改过来，会发现push不起作用。</p>
+<p>譬如当你创建一个文件后，叫 <em>readme.md</em> 写入内容后 提交到线上代码仓库。然后你在本地修改文件名为<em>Readme.md</em> 接着你去提交，发现代码没有变化.<code>git status</code>无任何提示信息。</p>
+<p>这里有两种解决方法</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>配置git使其对文件名大小写敏感</strong>：<code>git config core.ignorecase false</code></p></li>
+<li><p>在本地仓库把文件删除，提交，然后push到远程仓库，然后再在本地重新添加正确文件名的文件，然后再push。</p></li>
+</ol>
+<p>删除</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm readme.md</div></pre></td></tr></table></figure></p>
+<p>push到远程仓库</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git commit -m 'readme.md'</div><div class="line">git push origin &lt;my_branch&gt;</div></pre></td></tr></table></figure></p>
+<p>重新添加</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add Readme.md</div></pre></td></tr></table></figure></p>
+<p>提交</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git commit -m 'Readme.md'</div><div class="line">git push origin &lt;my_branch&gt;</div></pre></td></tr></table></figure></p>
+<p>这里推荐使用第一种方法，一劳永逸。</p>
+<h2 id="rebase">rebase</h2>
+<h3 id="使用rebase和其他分支直接合并不推荐会有很多冲突">使用rebase和其他分支直接合并（不推荐，会有很多冲突）</h3>
+<p>假设你现在基于远程分支“origin”，创建一个叫“mywork”的分支。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b mywork origin</div></pre></td></tr></table></figure>
+<div class="figure">
+<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase0.png" alt="img">
+<p class="caption">img</p>
+</div>
+<p>现在我们在这个分支做一些修改，然后生成两个提交(commit).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ vi file.txt</div><div class="line">$ git commit</div><div class="line">$ vi otherfile.txt</div><div class="line">$ git commit</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>但是与此同时，有些人也在“origin”分支上做了一些修改并且做了提交了. 这就意味着“origin”和“mywork”这两个分支各自“前进”了，它们之间“分叉”了。</p>
+<div class="figure">
+<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase1.png" alt="img">
+<p class="caption">img</p>
+</div>
+<p>在这里，你可以用“pull”命令把“origin”分支上的修改拉下来并且和你的修改合并； 结果看起来就像一个新的“合并的提交”(merge commit):</p>
+<div class="figure">
+<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase2.png" alt="img">
+<p class="caption">img</p>
+</div>
+<p>但是，如果你想让“mywork”分支历史看起来像没有经过任何合并一样，你也许可以用 <a href="http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html" target="_blank" rel="external">git rebase</a>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout mywork</div><div class="line">$ git rebase origin</div></pre></td></tr></table></figure>
+<p>这些命令会把你的“mywork”分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到“.git/rebase”目录中),然后把“mywork”分支更新到最新的“origin”分支，最后把保存的这些补丁应用到“mywork”分支上。</p>
+<div class="figure">
+<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase3.png" alt="img">
+<p class="caption">img</p>
+</div>
+<p>当’mywork’分支更新之后，它会指向这些新创建的提交(commit),而那些老的提交会被丢弃。 如果运行垃圾收集命令(pruning garbage collection), 这些被丢弃的提交就会删除. （请查看 <a href="http://www.kernel.org/pub/software/scm/git/docs/git-gc.html" target="_blank" rel="external">git gc</a>)</p>
+<div class="figure">
+<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase4.png" alt="img">
+<p class="caption">img</p>
+</div>
+<p>现在我们可以看一下用合并(merge)和用rebase所产生的历史的区别：</p>
+<div class="figure">
+<img src="http://gitbook.liuhui998.com/assets/images/figure/rebase5.png" alt="img">
+<p class="caption">img</p>
+</div>
+<p>在rebase的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决 冲突；在解决完冲突后，用<code>git-add</code>命令去更新这些内容的索引(index), 然后，你无需执行 <code>git-commit</code>,只要执行:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase --continue</div></pre></td></tr></table></figure>
+<p>这样git会继续应用(apply)余下的补丁。</p>
+<p>在任何时候，你可以用<code>--abort</code>参数来终止rebase的行动，并且“mywork” 分支会回到rebase开始前的状态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase --abort</div></pre></td></tr></table></figure>
+<h3 id="使用rebase来合并当前分支commit然后再和其他分支merge推荐">使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</h3>
+<ol style="list-style-type: decimal">
+<li><code>git rebase -i HEAD~8</code></li>
+</ol>
+<p>合并最近的8次commit。</p>
+<ol start="2" style="list-style-type: decimal">
+<li><code>git rebase -i i870cs</code></li>
+</ol>
+<p>“i870cs” 为不参与合并的最后一个commit</p>
+<p><em>注：commit排序为倒序。即最新的commit在最上面。</em></p>
+<p>从第二行开始，将<code>pick</code>改为<code>s</code>(s, squash = use commit, but meld into previous commit )</p>
+<p>wq保存并退出。</p>
+<p>如果有冲突，修改冲突后</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add .  </div><div class="line">git rebase --continue</div></pre></td></tr></table></figure>
+<p>如果想放弃rebase，执行<code>git rebase --abort</code></p>
+<p>将rebase同步到远程：<code>git push origin &lt;your-branch&gt;</code></p>
+<h2 id="标签tag">标签（tag）</h2>
 <blockquote>
-<p><strong>注意</strong>：上标和下标在只有一个字符时，可以不用中括号: <code>x^2</code>和<code>x^{2}</code>的结果都是 <span class="math inline">\(x^2\)</span></p>
+<p>当代码写到一个里程碑版本的时候，为了方便日后查看版本以及代码回滚，这时候需要打tag</p>
 </blockquote>
-<h3 id="数学符号的修饰">数学符号的修饰</h3>
-<table>
-<thead>
-<tr class="header">
-<th>命令</th>
-<th>释义</th>
-<th>显示</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>\overline{数学公式}</code></td>
-<td>上划线</td>
-<td><span class="math inline">\(\overline{数学公式}\)</span></td>
-</tr>
-<tr class="even">
-<td><code>\underline{数学公式}</code></td>
-<td>下划线</td>
-<td><span class="math inline">\(\underline{数学公式}\)</span></td>
-</tr>
-<tr class="odd">
-<td><code>\overbrace{数学表达式}</code></td>
-<td>俯卧式花括号</td>
-<td><span class="math inline">\(\overbrace{数学表达式}\)</span></td>
-</tr>
-<tr class="even">
-<td><code>\underbrace{数学表达式}</code></td>
-<td>仰卧式花括号</td>
-<td><span class="math inline">\(\underbrace{数学表达式}\)</span></td>
-</tr>
-</tbody>
-</table>
-<h2 id="latex学术写作">LaTeX学术写作</h2>
-<p>目前<em>markdown</em>语法对于<em>LaTeX</em>的支持比较有限，主要是公式语法，对于论文写作的语法支持很少。</p>
-<p><span class="math inline">\(\title[LaTeX公式语法]{markdown中对于LaTeX语法的支持}\)</span></p>
-<p><span class="math inline">\(\subtitle{subtitle here}\)</span></p>
-<p><span class="math inline">\(\author[Laphi\;Lee]{Laphi Lee}\)</span></p>
+<p>创建标签：<code>git tag -a v20170725 -m &quot;打标签&quot;</code></p>
+<p>或者根据指定的commit打tag：<code>git tag -a v20170725 -m &quot;打标签&quot; dd98asd</code></p>
+<p>将标签同步到远程(和操作普通分支没有区别)：<code>git push origin v20170725</code></p>
+<p>查看所有标签列表：<code>git tag</code></p>
+<p>可以用<code>git show &lt;tagname&gt;</code>查看标签信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tag v20170725</div><div class="line">Tagger: laphi &lt;laphi@laphilee.com&gt;</div><div class="line">Date:   Tue Jul 25 09:39:27 2017 +0800</div><div class="line"></div><div class="line">我的tag</div></pre></td></tr></table></figure>
+<h2 id="移除gitignore中已经被忽略的文件或目录">移除gitignore中已经被忽略的文件或目录</h2>
+<p><em>问题：</em> 在初始化git仓库的时候没有创建<code>.gitignore</code>文件来过滤不必要提交的文件, 后来却发现某些文件不需要提交, 但是这些文件已经被提交了, 这时候创建<code>.gitignore</code>文件忽略这些文件时, 发现ignore的规则对那些已经被track的文件无效.</p>
+<p>其实<code>.gitignore</code>文件只会忽略那些没有被跟踪的文件, 也就是说ignore规则只对那些在规则建立之后被新创建的新文件生效. 因此推荐: <strong>初始化git项目时就创建.gitignore文件</strong>.</p>
+<p>但是如果是一个老的项目里面新添加的<code>.gitignore</code>，很有可能会出现上面我们提到的问题。如何把git提示“<em>ignored tracked with git</em>”的文件忽略掉呢？可使用如下命令：</p>
+<p>命令：<code>git rm --cached -r 文件／文件夹</code></p>
+<p><strong><em>eg.</em></strong> <code>git rm --cached -r ../biz/myproject.iml</code></p>
 
 
       
@@ -953,13 +679,13 @@ l &amp; \textrm{all day long}
       
         <div class="post-tags">
           
-            <a href="/tags/LaTeX/" rel="tag"># LaTeX</a>
+            <a href="/tags/git/" rel="tag"># git</a>
           
-            <a href="/tags/LaTeX学习/" rel="tag"># LaTeX学习</a>
+            <a href="/tags/git拾遗/" rel="tag"># git拾遗</a>
           
-            <a href="/tags/LaTeX-markdown/" rel="tag"># LaTeX markdown</a>
+            <a href="/tags/常用git命令/" rel="tag"># 常用git命令</a>
           
-            <a href="/tags/Latex-md/" rel="tag"># Latex md</a>
+            <a href="/tags/git学习/" rel="tag"># git学习</a>
           
         </div>
       
@@ -972,8 +698,8 @@ l &amp; \textrm{all day long}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/19482.html" rel="next" title="git拾遗">
-                <i class="fa fa-chevron-left"></i> git拾遗
+              <a href="/36312.html" rel="next" title="漫谈钓鱼">
+                <i class="fa fa-chevron-left"></i> 漫谈钓鱼
               </a>
             
           </div>
@@ -982,8 +708,8 @@ l &amp; \textrm{all day long}
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/60571.html" rel="prev" title="Java异常处理体系详解">
-                Java异常处理体系详解 <i class="fa fa-chevron-right"></i>
+              <a href="/16707.html" rel="prev" title="LaTeX学习">
+                LaTeX学习 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1092,7 +818,7 @@ l &amp; \textrm{all day long}
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1103,7 +829,7 @@ l &amp; \textrm{all day long}
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1179,7 +905,7 @@ l &amp; \textrm{all day long}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#latex学习"><span class="nav-text">LaTeX学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#latex公式基础知识"><span class="nav-text">LaTeX公式基础知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本latex公式命令"><span class="nav-text">基本LaTeX 公式命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#希腊字母"><span class="nav-text">希腊字母</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和号和积分号"><span class="nav-text">和号和积分号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它常用命令"><span class="nav-text">其它常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学符号的修饰"><span class="nav-text">数学符号的修饰</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#latex学术写作"><span class="nav-text">LaTeX学术写作</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github上fork代码后从自己的代码库拉下代码如何保持自己库中的代码和原代码的更新保持一致呢"><span class="nav-text">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git在本地新建分支并与远程库建立关联的几种方法"><span class="nav-text">git在本地新建分支并与远程库建立关联的几种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git设置提交代码时显示的提交人信息"><span class="nav-text">git设置提交代码时显示的提交人信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git删除远程分支"><span class="nav-text">git删除远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除不存在对应远程分支的本地分支"><span class="nav-text">删除不存在对应远程分支的本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名远程分支"><span class="nav-text">重命名远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置git区分文件名大小写"><span class="nav-text">设置git区分文件名大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rebase"><span class="nav-text">rebase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase和其他分支直接合并不推荐会有很多冲突"><span class="nav-text">使用rebase和其他分支直接合并（不推荐，会有很多冲突）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase来合并当前分支commit然后再和其他分支merge推荐"><span class="nav-text">使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签tag"><span class="nav-text">标签（tag）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除gitignore中已经被忽略的文件或目录"><span class="nav-text">移除gitignore中已经被忽略的文件或目录</span></a></li></ol></div>
             
 
           </div>
@@ -1363,7 +1089,7 @@ l &amp; \textrm{all day long}
 		_hcwp.push({widget:"Bloggerstream", widget_id: 95037, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 95037, xid: "posts/16707.html"});
+		_hcwp.push({widget:"Stream", widget_id: 95037, xid: "/19482.html"});
 		
 
 		(function() {
@@ -1729,32 +1455,7 @@ l &amp; \textrm{all day long}
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
 })();
-</script>
-
-
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1772,6 +1473,11 @@ l &amp; \textrm{all day long}
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
+
+
+  
+
+  
   
 
 
