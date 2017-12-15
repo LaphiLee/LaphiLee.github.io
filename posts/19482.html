@@ -799,7 +799,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -810,7 +810,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -821,7 +821,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -897,7 +897,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github上fork代码后从自己的代码库拉下代码如何保持自己库中的代码和原代码的更新保持一致呢"><span class="nav-text">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git在本地新建分支并与远程库建立关联的几种方法"><span class="nav-text">git在本地新建分支并与远程库建立关联的几种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git设置提交代码时显示的提交人信息"><span class="nav-text">git设置提交代码时显示的提交人信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git删除远程分支"><span class="nav-text">git删除远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除不存在对应远程分支的本地分支"><span class="nav-text">删除不存在对应远程分支的本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名远程分支"><span class="nav-text">重命名远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置git区分文件名大小写"><span class="nav-text">设置git区分文件名大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rebase"><span class="nav-text">rebase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase和其他分支直接合并不推荐会有很多冲突"><span class="nav-text">使用rebase和其他分支直接合并（不推荐，会有很多冲突）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase来合并当前分支commit然后再和其他分支merge推荐"><span class="nav-text">使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签tag"><span class="nav-text">标签（tag）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除gitignore中已经被忽略的文件或目录"><span class="nav-text">移除gitignore中已经被忽略的文件或目录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github上fork代码后从自己的代码库拉下代码如何保持自己库中的代码和原代码的更新保持一致呢"><span class="nav-number">1.</span> <span class="nav-text">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git在本地新建分支并与远程库建立关联的几种方法"><span class="nav-number">2.</span> <span class="nav-text">git在本地新建分支并与远程库建立关联的几种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git设置提交代码时显示的提交人信息"><span class="nav-number">3.</span> <span class="nav-text">git设置提交代码时显示的提交人信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git删除远程分支"><span class="nav-number">4.</span> <span class="nav-text">git删除远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除不存在对应远程分支的本地分支"><span class="nav-number">5.</span> <span class="nav-text">删除不存在对应远程分支的本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名远程分支"><span class="nav-number">6.</span> <span class="nav-text">重命名远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置git区分文件名大小写"><span class="nav-number">7.</span> <span class="nav-text">设置git区分文件名大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rebase"><span class="nav-number">8.</span> <span class="nav-text">rebase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase和其他分支直接合并不推荐会有很多冲突"><span class="nav-number">8.1.</span> <span class="nav-text">使用rebase和其他分支直接合并（不推荐，会有很多冲突）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase来合并当前分支commit然后再和其他分支merge推荐"><span class="nav-number">8.2.</span> <span class="nav-text">使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签tag"><span class="nav-number">9.</span> <span class="nav-text">标签（tag）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除gitignore中已经被忽略的文件或目录"><span class="nav-number">10.</span> <span class="nav-text">移除gitignore中已经被忽略的文件或目录</span></a></li></ol></div>
             
 
           </div>
