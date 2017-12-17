@@ -4,6 +4,38 @@
 
     
   <url>
+    <loc>http://www.laphilee.com/posts/19482.html</loc>
+    <lastmod>2017-12-17T04:38:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>git拾遗</title>
+        <pubTime>2017-07-25T03:03:59.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+        <tag>git拾遗</tag>
+         
+        <tag>常用git命令</tag>
+         
+        <tag>git学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://www.laphilee.com/categories/technology/"/>
+          
+             
+              <breadCrumb title="other" url="http://www.laphilee.com/categories/technology/other/"/>
+          
+             
+              <breadCrumb title="git" url="http://www.laphilee.com/categories/technology/other/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.laphilee.com/posts/21319.html</loc>
     <lastmod>2017-12-15T15:23:09.000Z</lastmod>
     <data>
@@ -57,38 +89,6 @@
           
              
               <breadCrumb title="日志" url="http://www.laphilee.com/categories/technology/%E6%9E%B6%E6%9E%84/%E6%97%A5%E5%BF%97/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.laphilee.com/posts/19482.html</loc>
-    <lastmod>2017-12-15T04:44:18.000Z</lastmod>
-    <data>
-        <display>
-        <title>git拾遗</title>
-        <pubTime>2017-07-25T03:03:59.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-        <tag>git拾遗</tag>
-         
-        <tag>常用git命令</tag>
-         
-        <tag>git学习</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://www.laphilee.com/categories/technology/"/>
-          
-             
-              <breadCrumb title="other" url="http://www.laphilee.com/categories/technology/other/"/>
-          
-             
-              <breadCrumb title="git" url="http://www.laphilee.com/categories/technology/other/git/"/>
           
         </display>
     </data>

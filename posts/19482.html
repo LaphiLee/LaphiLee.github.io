@@ -95,13 +95,13 @@
 
 
 
-<meta name="description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ 步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.c">
+<meta name="description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ *步骤：在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可">
 <meta name="keywords" content="git常用命令, git学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git拾遗">
 <meta property="og:url" content="http://www.laphilee.com/posts/19482.html">
 <meta property="og:site_name" content="Laphi Lee&#39;s Blog">
-<meta property="og:description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ 步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.c">
+<meta property="og:description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ *步骤：在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase0.png">
 <meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase1.png">
@@ -109,10 +109,10 @@
 <meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase3.png">
 <meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase4.png">
 <meta property="og:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase5.png">
-<meta property="og:updated_time" content="2017-12-15T04:44:18.000Z">
+<meta property="og:updated_time" content="2017-12-17T04:38:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git拾遗">
-<meta name="twitter:description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ 步骤：  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可以任意。 git remote add {upstream} git@github.c">
+<meta name="twitter:description" content="整理一些git中非常有用且自己又容易忘记的命令，仅供参考。 github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？ *步骤：在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。  如: 其中 upstream 表示上游代码库名， 可">
 <meta name="twitter:image" content="http://gitbook.liuhui998.com/assets/images/figure/rebase0.png">
 
 
@@ -439,7 +439,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">字数统计:</span>
-           <span class="post-count">2,160(字)</span>
+           <span class="post-count">2,447(字)</span>
            
          </span>
     
@@ -449,7 +449,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">阅读时长:</span>
-           <span class="post-count">9(分)</span>
+           <span class="post-count">10(分)</span>
            
          </span>
 
@@ -467,17 +467,15 @@
       
         <p>整理一些git中非常有用且自己又容易忘记的命令，仅供参考。</p>
 <h2 id="github上fork代码后从自己的代码库拉下代码如何保持自己库中的代码和原代码的更新保持一致呢">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</h2>
-<p><em>步骤：</em></p>
+<p>*步骤：在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。</p>
 <ol style="list-style-type: decimal">
 <li>在 Fork 的代码库中添加上游代码库的 remote 源，该操作只需操作一次即可。</li>
 </ol>
 <p>如: 其中 <code>upstream</code> 表示上游代码库名， 可以任意。</p>
 <p><code>git remote add {upstream} git@github.com:spring-projects/spring-framework.git</code></p>
+<a id="more"></a>
 <ol style="list-style-type: decimal">
 <li>将本地的修改提交 commit</li>
-</ol>
-<p><a id="more"></a></p>
-<ol start="2" style="list-style-type: decimal">
 <li>在每次 Pull Request 前做如下操作，即可实现和上游版本库的同步。</li>
 </ol>
 <p>​ 3.1 ： <code>git remote update upstream</code></p>
@@ -608,10 +606,12 @@
 <blockquote>
 <p>当代码写到一个里程碑版本的时候，为了方便日后查看版本以及代码回滚，这时候需要打tag</p>
 </blockquote>
-<p>创建标签：<code>git tag -a v20170725 -m &quot;打标签&quot;</code></p>
+<p>创建标签：</p>
+<p><code>git tag v1.4-lw</code>。此为轻量级标签，无需任何参数。</p>
+<p><em>（推荐使用带附注的标签）</em><code>git tag -a v20170725 -m &quot;打标签&quot;</code>。此处的<code>-a</code>表示含附注类型的标签，而 <code>-m</code> 选项则指定了对应的标签说明。</p>
 <p>或者根据指定的commit打tag：<code>git tag -a v20170725 -m &quot;打标签&quot; dd98asd</code></p>
 <p>将标签同步到远程(和操作普通分支没有区别)：<code>git push origin v20170725</code></p>
-<p>查看所有标签列表：<code>git tag</code></p>
+<p>查看所有标签列表：<code>git tag</code>，或者如果你只对某些特定的标签感兴趣，可以用<code>git tag -l 'v1.4.2.*'</code></p>
 <p>可以用<code>git show &lt;tagname&gt;</code>查看标签信息：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tag v20170725</div><div class="line">Tagger: laphi &lt;laphi@laphilee.com&gt;</div><div class="line">Date:   Tue Jul 25 09:39:27 2017 +0800</div><div class="line"></div><div class="line">我的tag</div></pre></td></tr></table></figure>
 <h2 id="移除gitignore中已经被忽略的文件或目录">移除gitignore中已经被忽略的文件或目录</h2>
@@ -620,6 +620,13 @@
 <p>但是如果是一个老的项目里面新添加的<code>.gitignore</code>，很有可能会出现上面我们提到的问题。如何把git提示“<em>ignored tracked with git</em>”的文件忽略掉呢？可使用如下命令：</p>
 <p>命令：<code>git rm --cached -r 文件／文件夹</code></p>
 <p><strong><em>eg.</em></strong> <code>git rm --cached -r ../biz/myproject.iml</code></p>
+<h2 id="选择性合并">选择性合并</h2>
+<p><em>场景:</em> 某天你正在做一个新的需求，突然有一天产品告诉你说有一个新特性需要提前上线，那么怎么办呢？ 该cherry-pick上场了，cherry-pick会重演某些commit，即把某些commit的更改重新执行一遍。</p>
+<p><code>git cherry-pick commit</code></p>
+<p>注：这里的commit可以是同分支的commit，也可以是不同分支的。</p>
+<h2 id="git-命令别名">Git 命令别名</h2>
+<p>如果觉得git命令太长，每次重复输入太麻烦，可以使用git别名，用你自己容易记住和使用的别名来为自己节省时间。</p>
+<p><code>git config --global alias.co checkout</code> <code>git config --global alias.br branch</code> <code>git config --global alias.ci commit</code> <code>git config --global alias.st status</code></p>
 
 
       
@@ -897,7 +904,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github上fork代码后从自己的代码库拉下代码如何保持自己库中的代码和原代码的更新保持一致呢"><span class="nav-number">1.</span> <span class="nav-text">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git在本地新建分支并与远程库建立关联的几种方法"><span class="nav-number">2.</span> <span class="nav-text">git在本地新建分支并与远程库建立关联的几种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git设置提交代码时显示的提交人信息"><span class="nav-number">3.</span> <span class="nav-text">git设置提交代码时显示的提交人信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git删除远程分支"><span class="nav-number">4.</span> <span class="nav-text">git删除远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除不存在对应远程分支的本地分支"><span class="nav-number">5.</span> <span class="nav-text">删除不存在对应远程分支的本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名远程分支"><span class="nav-number">6.</span> <span class="nav-text">重命名远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置git区分文件名大小写"><span class="nav-number">7.</span> <span class="nav-text">设置git区分文件名大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rebase"><span class="nav-number">8.</span> <span class="nav-text">rebase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase和其他分支直接合并不推荐会有很多冲突"><span class="nav-number">8.1.</span> <span class="nav-text">使用rebase和其他分支直接合并（不推荐，会有很多冲突）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase来合并当前分支commit然后再和其他分支merge推荐"><span class="nav-number">8.2.</span> <span class="nav-text">使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签tag"><span class="nav-number">9.</span> <span class="nav-text">标签（tag）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除gitignore中已经被忽略的文件或目录"><span class="nav-number">10.</span> <span class="nav-text">移除gitignore中已经被忽略的文件或目录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github上fork代码后从自己的代码库拉下代码如何保持自己库中的代码和原代码的更新保持一致呢"><span class="nav-number">1.</span> <span class="nav-text">github上fork代码后，从自己的代码库拉下代码。如何保持自己库中的代码和原代码的更新保持一致呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git在本地新建分支并与远程库建立关联的几种方法"><span class="nav-number">2.</span> <span class="nav-text">git在本地新建分支并与远程库建立关联的几种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git设置提交代码时显示的提交人信息"><span class="nav-number">3.</span> <span class="nav-text">git设置提交代码时显示的提交人信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git删除远程分支"><span class="nav-number">4.</span> <span class="nav-text">git删除远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除不存在对应远程分支的本地分支"><span class="nav-number">5.</span> <span class="nav-text">删除不存在对应远程分支的本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名远程分支"><span class="nav-number">6.</span> <span class="nav-text">重命名远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置git区分文件名大小写"><span class="nav-number">7.</span> <span class="nav-text">设置git区分文件名大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rebase"><span class="nav-number">8.</span> <span class="nav-text">rebase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase和其他分支直接合并不推荐会有很多冲突"><span class="nav-number">8.1.</span> <span class="nav-text">使用rebase和其他分支直接合并（不推荐，会有很多冲突）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用rebase来合并当前分支commit然后再和其他分支merge推荐"><span class="nav-number">8.2.</span> <span class="nav-text">使用rebase来合并当前分支commit，然后再和其他分支merge（推荐）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签tag"><span class="nav-number">9.</span> <span class="nav-text">标签（tag）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除gitignore中已经被忽略的文件或目录"><span class="nav-number">10.</span> <span class="nav-text">移除gitignore中已经被忽略的文件或目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择性合并"><span class="nav-number">11.</span> <span class="nav-text">选择性合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-命令别名"><span class="nav-number">12.</span> <span class="nav-text">Git 命令别名</span></a></li></ol></div>
             
 
           </div>
