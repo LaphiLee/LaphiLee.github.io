@@ -95,13 +95,13 @@
 
 
 
-<meta name="description" content="JVM系列（一）Java虚拟机体系结构 概述 众所周知，Java支持平台无关性、安全性和网络移动性。而Java平台由Java虚拟机和Java核心类所构成，它为纯Java程序提供了统一的编程接口，而不管下层操作系统是什么。正是得益于Java虚拟机，它号称的“一次编译，到处运行”才能有所保障。 Java程序执行流程 Java程序的执行依赖于编译环境和运行环境。源码代码转变成可执行的机器代码，由下面的流">
+<meta name="description" content="概述 众所周知，Java支持平台无关性、安全性和网络移动性。而Java平台由Java虚拟机和Java核心类所构成，它为纯Java程序提供了统一的编程接口，而不管下层操作系统是什么。正是得益于Java虚拟机，它号称的“一次编译，到处运行”才能有所保障。 Java程序执行流程 Java程序的执行依赖于编译环境和运行环境。源码代码转变成可执行的机器代码，由下面的流程完成：">
 <meta name="keywords" content="Java虚拟机, jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM系列（一）Java虚拟机体系结构">
 <meta property="og:url" content="http://www.laphilee.com/posts/64150.html">
 <meta property="og:site_name" content="Laphi Lee&#39;s Blog">
-<meta property="og:description" content="JVM系列（一）Java虚拟机体系结构 概述 众所周知，Java支持平台无关性、安全性和网络移动性。而Java平台由Java虚拟机和Java核心类所构成，它为纯Java程序提供了统一的编程接口，而不管下层操作系统是什么。正是得益于Java虚拟机，它号称的“一次编译，到处运行”才能有所保障。 Java程序执行流程 Java程序的执行依赖于编译环境和运行环境。源码代码转变成可执行的机器代码，由下面的流">
+<meta property="og:description" content="概述 众所周知，Java支持平台无关性、安全性和网络移动性。而Java平台由Java虚拟机和Java核心类所构成，它为纯Java程序提供了统一的编程接口，而不管下层操作系统是什么。正是得益于Java虚拟机，它号称的“一次编译，到处运行”才能有所保障。 Java程序执行流程 Java程序的执行依赖于编译环境和运行环境。源码代码转变成可执行的机器代码，由下面的流程完成：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/316892/201601/316892-20160107184612653-1541384173.png">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/316892/201601/316892-20160107184347684-1132906737.png">
@@ -113,10 +113,10 @@
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/316892/201601/316892-20160108125858825-891554776.png">
 <meta property="og:image" content="https://images0.cnblogs.com/i/485345/201405/300854449949413.jpg">
 <meta property="og:image" content="https://images0.cnblogs.com/i/485345/201405/300855143845835.jpg">
-<meta property="og:updated_time" content="2018-01-10T06:28:12.000Z">
+<meta property="og:updated_time" content="2018-01-10T11:59:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM系列（一）Java虚拟机体系结构">
-<meta name="twitter:description" content="JVM系列（一）Java虚拟机体系结构 概述 众所周知，Java支持平台无关性、安全性和网络移动性。而Java平台由Java虚拟机和Java核心类所构成，它为纯Java程序提供了统一的编程接口，而不管下层操作系统是什么。正是得益于Java虚拟机，它号称的“一次编译，到处运行”才能有所保障。 Java程序执行流程 Java程序的执行依赖于编译环境和运行环境。源码代码转变成可执行的机器代码，由下面的流">
+<meta name="twitter:description" content="概述 众所周知，Java支持平台无关性、安全性和网络移动性。而Java平台由Java虚拟机和Java核心类所构成，它为纯Java程序提供了统一的编程接口，而不管下层操作系统是什么。正是得益于Java虚拟机，它号称的“一次编译，到处运行”才能有所保障。 Java程序执行流程 Java程序的执行依赖于编译环境和运行环境。源码代码转变成可执行的机器代码，由下面的流程完成：">
 <meta name="twitter:image" content="https://images2015.cnblogs.com/blog/316892/201601/316892-20160107184612653-1541384173.png">
 
 
@@ -443,7 +443,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">字数统计:</span>
-           <span class="post-count">8,467(字)</span>
+           <span class="post-count">9,313(字)</span>
            
          </span>
     
@@ -453,7 +453,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">阅读时长:</span>
-           <span class="post-count">30(分)</span>
+           <span class="post-count">33(分)</span>
            
          </span>
 
@@ -469,8 +469,7 @@
       
 
       
-        <h1 id="jvm系列一java虚拟机体系结构">JVM系列（一）Java虚拟机体系结构</h1>
-<h2 id="概述">概述</h2>
+        <h2 id="概述">概述</h2>
 <p>众所周知，Java支持平台无关性、安全性和网络移动性。而Java平台由Java虚拟机和Java核心类所构成，它为纯Java程序提供了统一的编程接口，而不管下层操作系统是什么。正是得益于Java虚拟机，它号称的“一次编译，到处运行”才能有所保障。</p>
 <h3 id="java程序执行流程">Java程序执行流程</h3>
 <p>Java程序的执行依赖于编译环境和运行环境。源码代码转变成可执行的机器代码，由下面的流程完成：</p>
@@ -587,7 +586,7 @@
 <p>对于习惯在HotSpot 虚拟机上开发和部署程序的开发者来说，很多人愿意把方法区称为“永久代”（Permanent Generation），本质上两者并不等价，仅仅是因为HotSpot 虚拟机的设计团队选择把GC 分代收集扩展至方法区，或者说使用永久代来实现方法区而已。对于其他虚拟机（如BEA JRockit、IBM J9 等）来说是不存在永久代的概念的。即使是HotSpot 虚拟机本身，根据官方发布的路线图信息，现在也有放弃永久代并“搬家”至Native Memory 来实现方法区的规划了。</p>
 <p>Java 虚拟机规范对这个区域的限制非常宽松，除了和Java 堆一样不需要连续的内存和可以选择固定大小或者可扩展外，还可以选择不实现垃圾收集。相对而言，垃圾收集行为在这个区域是比较少出现的，但并非数据进入了方法区就如永久代的名字一样“永久”存在了。这个区域的内存回收目标主要是针对常量池的回收和对类型的卸载，一般来说这个区域的回收“成绩”比较难以令人满意，尤其是类型的卸载，条件相当苛刻，但是这部分区域的回收确实是有必要的。在Sun 公司的BUG 列表中，曾出现过的若干个严重的BUG 就是由于低版本的HotSpot 虚拟机对此区域未完全回收而导致内存泄漏。根据Java 虚拟机规范的规定，当方法区无法满足内存分配需求时，将抛出OutOfMemoryError 异常。</p>
 <p>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class 文件中除了有类的版本、字段、方法、接口等描述等信息外，还有一项信息是常量池（Constant PoolTable），用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中。</p>
-<p>Java 虚拟机对Class 文件的每一部分（自然也包括常量池）的格式都有严格的规定，每一个字节用于存储哪种数据都必须符合规范上的要求，这样才会被虚拟机认可、装载和执行。但对于运行时常量池，Java 虚拟机规范没有做任何细节的要求，不同的提供商实现的虚拟机可以按照自己的需要来实现这个内存区域。不过，一般来说，除了保存Class 文件中描述的符号引用外，还会把翻译出来的直接引用也存储在运行时常量池中①。运行时常量池相对于Class 文件常量池的另外一个重要特征是具备动态性，Java 语言并不要求常量一定只能在编译期产生，也就是并非预置入Class 文件中常量池的内容才能进入方法区运行时常量池，运行期间也可能将新的常量放入池中，这种特性被开发人员利用得比较多的便是String 类的intern() 方法。既然运行时常量池是方法区的一部分，自然会受到方法区内存的限制，当常量池无法再申请到内存时会抛出OutOfMemoryError 异常</p>
+<p>Java 虚拟机对Class 文件的每一部分（自然也包括常量池）的格式都有严格的规定，每一个字节用于存储哪种数据都必须符合规范上的要求，这样才会被虚拟机认可、装载和执行。但对于运行时常量池，Java 虚拟机规范没有做任何细节的要求，不同的提供商实现的虚拟机可以按照自己的需要来实现这个内存区域。不过，一般来说，除了保存Class 文件中描述的符号引用外，还会把翻译出来的直接引用也存储在运行时常量池中①。运行时常量池相对于Class 文件常量池的另外一个重要特征是具备动态性，Java 语言并不要求常量一定只能在编译期产生，也就是并非预置入Class 文件中常量池的内容才能进入方法区运行时常量池，运行期间也可能将新的常量放入池中，这种特性被开发人员利用得比较多的便是String 类的intern() 方法。既然运行时常量池是方法区的一部分，自然会受到方法区内存的限制，当常量池无法再申请到内存时会抛出OutOfMemoryError 异常。</p>
 <h3 id="堆">堆</h3>
 <p>Java程序在运行时创建的所有类实例或数组（数组在Java虚拟机中是一个真正的对象）都放在同一个堆中。由于Java虚拟机实例只有一个堆空间，所以所有线程都将共享这个堆。需要注意的是，Java虚拟机有一条在堆中分配对象的指令，却没有释放内存的指令，因为虚拟机把这个任务交给垃圾收集器处理。Java虚拟机规范并没有强制规定垃圾收集器，它只要求虚拟机实现必须“以某种方式”管理自己的堆空间。比如某个实现可能只有固定大小的堆空间，当空间填满，它就简单抛出OutOfMemory异常，根本不考虑回收垃圾对象的问题，但却是符合规范的。</p>
 <p>Java虚拟机规范并没有规定Java对象在堆中如何表示，这给虚拟机的实现者决定怎么设计。一个可能的堆设计如下：</p>
@@ -599,6 +598,24 @@
 <p>对于大多数应用来说，Java 堆（Java Heap）是Java 虚拟机所管理的内存中最大的一块。Java 堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例都在这里分配内存。这一点在Java 虚拟机规范中的描述是：所有的对象实例以及数组都要在堆上分配①，但是随着JIT 编译器的发展与逃逸分析技术的逐渐成熟，栈上分配、标量替换②优化技术将会导致一些微妙的变化发生，所有的对象都分配在堆上也渐渐变得不是那么“绝对”了。Java 堆是垃圾收集器管理的主要区域，因此很多时候也被称做“GC 堆”（GarbageCollected Heap，幸好国内没翻译成“垃圾堆”）。如果从内存回收的角度看，由于现在收集器基本都是采用的分代收集算法，所以Java 堆中还可以细分为：新生代和老年代；再细致一点的有Eden 空间、From Survivor 空间、To Survivor 空间等。如果从内存分配的角度看，线程共享的Java 堆中可能划分出多个线程私有的分配缓冲区（Thread LocalAllocation Buffer，TLAB）。不过，无论如何划分，都与存放内容无关，无论哪个区域，存储的都仍然是对象实例，进一步划分的目的是为了更好地回收内存，或者更快地分配内存。根据Java 虚拟机规范的规定，Java 堆可以处于物理上不连续的内存空间中，只要逻辑上是连续的即可，就像我们的磁盘空间一样。在实现时，既可以实现成固定大小的，也可以是可扩展的，不过当前主流的虚拟机都是按照可扩展来实现的（通过-Xmx和-Xms 控制）。如果在堆中没有内存完成实例分配，并且堆也无法再扩展时，将会抛出OutOfMemoryError 异常。</p>
 <p>新生代 ( Young ) 与老年代 ( Old ) 的比例的值为 1:2 ( 该值可以通过参数 –XX:NewRatio 来指定 )</p>
 <p>默认的，Eden : from : to = 8 : 1 : 1 ( 可以通过参数 –XX:SurvivorRatio 来设定 )，即： Eden = 8/10 的新生代空间大小，from = to = 1/10 的新生代空间大小。</p>
+<p>堆内存和垃圾收集是密不可分的两个主题，讲垃圾收集的资料很多，但总的来说讲的比较混乱，在这里我试图从一个系统的视角展示垃圾收集。</p>
+<h4 id="垃圾收集的意义">垃圾收集的意义</h4>
+<p>垃圾收集的出现解放了C++中手工对内存进行管理的大量繁杂工作，手工malloc,free不仅增加程序复杂度，还增加了bug数量。 分代收集。即在新生代和老生代使用不同的收集方式。在垃圾收集上，目标主要有：加大系统吞吐量（减少总垃圾收集的资源消耗）；减少最大STW（Stop-The-World）时间；减少总STW时间。不同的系统需要不同的达成目标。而分代这一里程碑式的进步首先极大减少了STW，然后可以自由组合来达到预定目标。</p>
+<h4 id="可达性检测">可达性检测</h4>
+<p><strong>引用计数</strong>：一种在jdk1.2之前被使用的垃圾收集算法，我们需要了解其思想。其主要思想就是维护一个counter，当counter为0的时候认为对象没有引用，可以被回收。缺点是无法处理循环引用。目前iOS开发中的一个常见技术ARC（Automatic Reference Counting）也是采用类似的思路。在当前的JVM中应该是没有被使用的。 <strong>根搜算法</strong>：思想是从gc root根据引用关系来遍历整个堆并作标记，称之为mark，等会在具体收集器中介绍并行标记和单线程标记。之后回收掉未被mark的对象，好处是解决了循环依赖这种『孤岛效应』。这里的gc root主要指：</p>
+<ul>
+<li>虚拟机栈(栈桢中的本地变量表)中的引用的对象</li>
+<li>方法区中的类静态属性引用的对象</li>
+<li>方法区中的常量引用的对象</li>
+<li>本地方法栈中JNI的引用的对象</li>
+</ul>
+<h4 id="整理策略">整理策略</h4>
+<ul>
+<li>复制：主要用在新生代的回收上，通过from区和to区的来回拷贝。需要特定的结构（也就是Young区现在的结构）来支持，对于新生成的对象来说，频繁的去复制可以最快的找到那些不用的对象并回收掉空间。所以说在JVM里YGC一定承担了最大量的垃圾清除任务。</li>
+<li>标记清除/标记整理：主要用在老生代回收上，通过根搜的标记然后清除或者整理掉不需要的对象。</li>
+</ul>
+<p>这里清除会产生碎片空间，对内存利用不是很好，但不是说整理优于清除，毕竟整理会更慢。比如CMSGC就是使用清除而不是整理的。</p>
+<p>思考一下复制和标记清除/整理的区别，为什么新生代要用复制？因为对新生代来讲，一次垃圾收集要回收掉绝大部分对象，我们通过冗余空间的办法来加速整理过程（不冗余空间的整理操作要做swap，而冗余只需要做move）。同时可以记录下每个对象的『年龄』从而优化『晋升』操作使得中年对象不被错误放到老年代。而反过来老年代偏稳定，我们哪怕是用清除，也不会产生太多的碎片，并且整理的代价也并不会太大。</p>
 <h3 id="java栈">Java栈</h3>
 <p>每当启动给一个线程时，Java虚拟机会为它分配一个Java栈。Java栈由许多栈帧组成，一个栈帧包含一个Java方法调用的状态。当线程调用一个Java方法时，虚拟机压入一个新的栈帧到该线程的Java栈中，当该方法返回时，这个栈帧就从Java栈中弹出。Java栈存储线程中Java方法调用的状态–包括局部变量、参数、返回值以及运算的中间结果等。Java虚拟机没有寄存器，其指令集使用Java栈来存储中间数据。这样设计的原因是为了保持Java虚拟机的指令集尽量紧凑，同时也便于Java虚拟机在只有很少通用寄存器的平台上实现。另外，基于栈的体系结构，也有助于运行时某些虚拟机实现的动态编译器和即时编译器的代码优化。</p>
 <p>这个栈和数据结构中的stack有相似之处，但并不是用户态的。准确的讲它压入的每个栈帧（Stack Frame）是程序指令以及局部变量表，每个方法调用对应一个栈帧。局部变量表包括各种基本数据类型：boolean、byte、char、short、int、float、long、double以及对象的引用。我们需要注意到每个线程都有独立的栈并且是互相隔离的。</p>
@@ -742,6 +759,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/posts/11644.html" rel="prev" title="JVM系列（二）垃圾回收">
+                JVM系列（二）垃圾回收 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -837,7 +858,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -859,7 +880,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -935,7 +956,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jvm系列一java虚拟机体系结构"><span class="nav-number">1.</span> <span class="nav-text">JVM系列（一）Java虚拟机体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java程序执行流程"><span class="nav-number">1.1.1.</span> <span class="nav-text">Java程序执行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java虚拟机"><span class="nav-number">1.1.2.</span> <span class="nav-text">Java虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java虚拟机数据类型"><span class="nav-number">1.1.3.</span> <span class="nav-text">Java虚拟机数据类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">1.2.</span> <span class="nav-text">体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#class文件"><span class="nav-number">1.2.1.</span> <span class="nav-text">class文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类装载器子系统"><span class="nav-number">1.2.2.</span> <span class="nav-text">类装载器子系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法区"><span class="nav-number">1.2.3.</span> <span class="nav-text">方法区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆"><span class="nav-number">1.2.4.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java栈"><span class="nav-number">1.2.5.</span> <span class="nav-text">Java栈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#栈帧"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">栈帧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#局部变量区"><span class="nav-number">1.2.5.1.1.</span> <span class="nav-text">局部变量区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#操作数栈"><span class="nav-number">1.2.5.1.2.</span> <span class="nav-text">操作数栈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#帧数据区"><span class="nav-number">1.2.5.1.3.</span> <span class="nav-text">帧数据区</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序计数器"><span class="nav-number">1.2.6.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地方法栈"><span class="nav-number">1.2.7.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接内存"><span class="nav-number">1.2.8.</span> <span class="nav-text">直接内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行引擎"><span class="nav-number">1.2.9.</span> <span class="nav-text">执行引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令集"><span class="nav-number">1.2.9.1.</span> <span class="nav-text">指令集</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地方法接口"><span class="nav-number">1.3.</span> <span class="nav-text">本地方法接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象创建过程"><span class="nav-number">1.4.</span> <span class="nav-text">对象创建过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java程序执行流程"><span class="nav-number">1.1.</span> <span class="nav-text">Java程序执行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java虚拟机"><span class="nav-number">1.2.</span> <span class="nav-text">Java虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java虚拟机数据类型"><span class="nav-number">1.3.</span> <span class="nav-text">Java虚拟机数据类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">2.</span> <span class="nav-text">体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#class文件"><span class="nav-number">2.1.</span> <span class="nav-text">class文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类装载器子系统"><span class="nav-number">2.2.</span> <span class="nav-text">类装载器子系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法区"><span class="nav-number">2.3.</span> <span class="nav-text">方法区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆"><span class="nav-number">2.4.</span> <span class="nav-text">堆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾收集的意义"><span class="nav-number">2.4.1.</span> <span class="nav-text">垃圾收集的意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可达性检测"><span class="nav-number">2.4.2.</span> <span class="nav-text">可达性检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#整理策略"><span class="nav-number">2.4.3.</span> <span class="nav-text">整理策略</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java栈"><span class="nav-number">2.5.</span> <span class="nav-text">Java栈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#栈帧"><span class="nav-number">2.5.1.</span> <span class="nav-text">栈帧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#局部变量区"><span class="nav-number">2.5.1.1.</span> <span class="nav-text">局部变量区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#操作数栈"><span class="nav-number">2.5.1.2.</span> <span class="nav-text">操作数栈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#帧数据区"><span class="nav-number">2.5.1.3.</span> <span class="nav-text">帧数据区</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序计数器"><span class="nav-number">2.6.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地方法栈"><span class="nav-number">2.7.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接内存"><span class="nav-number">2.8.</span> <span class="nav-text">直接内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行引擎"><span class="nav-number">2.9.</span> <span class="nav-text">执行引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令集"><span class="nav-number">2.9.1.</span> <span class="nav-text">指令集</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地方法接口"><span class="nav-number">3.</span> <span class="nav-text">本地方法接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象创建过程"><span class="nav-number">4.</span> <span class="nav-text">对象创建过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>

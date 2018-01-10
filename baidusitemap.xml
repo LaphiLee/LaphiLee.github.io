@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://www.laphilee.com/posts/64150.html</loc>
-    <lastmod>2018-01-10T06:28:12.000Z</lastmod>
+    <lastmod>2018-01-10T11:59:32.000Z</lastmod>
     <data>
         <display>
         <title>JVM系列（一）Java虚拟机体系结构</title>
@@ -16,6 +16,40 @@
         <tag>jvm</tag>
          
         <tag>java虚拟机</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://www.laphilee.com/categories/technology/"/>
+          
+             
+              <breadCrumb title="Java" url="http://www.laphilee.com/categories/technology/Java/"/>
+          
+             
+              <breadCrumb title="虚拟机" url="http://www.laphilee.com/categories/technology/Java/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.laphilee.com/posts/11644.html</loc>
+    <lastmod>2018-01-10T11:53:39.000Z</lastmod>
+    <data>
+        <display>
+        <title>JVM系列（二）垃圾回收</title>
+        <pubTime>2018-01-10T11:51:26.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>jvm</tag>
+         
+        <tag>java虚拟机</tag>
+         
+        <tag>gc</tag>
+         
+        <tag>垃圾回收</tag>
          
          
            
