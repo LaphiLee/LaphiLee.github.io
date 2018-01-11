@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20171012212423785?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU2ltYmFfY2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="og:image" content="http://img.blog.csdn.net/20171013102630780?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU2ltYmFfY2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="og:image" content="http://ow9wx6njf.bkt.clouddn.com/gc.jpg">
-<meta property="og:updated_time" content="2018-01-11T06:37:49.000Z">
+<meta property="og:updated_time" content="2018-01-11T06:39:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM系列（二）垃圾回收">
 <meta name="twitter:description" content="JVM系列（二）垃圾回收 Hotspot垃圾收集器 JDK7/8之后，Hotpost虚拟机内所有的垃圾收集器及其组合(连线)，下图：   img  他们所处区域，表明其所属新生代收集器还是老年代收集器：">
@@ -862,11 +862,11 @@ JDK1.6大约 年老代使用了92%的空间之后，CMS收集器就会被激活�
 </ul>
 <p>如果有perm gen的话，当系统中要加载的类、反射的类和调用的方法较多，而且perm gen没有足够空间时，也会触发一次 full gc</p>
 <ul>
-<li>ygc出现 promotion failure</li>
+<li>ygc出现 <em>promotion failure</em></li>
 </ul>
-<p>promotion failure 发生在 young gc 阶段，即 cms 的 ParNewGC，当对象的gc年龄达到阈值时，或者 eden 的 to 区放不下时，会把该对象复制到 old gen，如果 old gen 空间不足时，会发生 promotion failure，并接下去触发full gc</p>
-<p>在GC日志中，有时会看到 concurrent mode failure 关键字，这是因为什么原因导致的问题呢? 对这一块的理解，很多文章都是说因为 concurrent mode failure 导致触发full gc，其实应该反过来，是full gc 导致的 concurrent mode failure，在cms gc的算法实现中，通常说的cms是由一个后台线程定时触发的，默认每2秒检查一次old gen的内存使用率，当 old gen 的内存使用率达到<code>-XX:CMSInitiatingOccupancyFraction</code>设置的值时，会触发一次 cms gc，对 old gen 进行并发收集，而真正的 full gc 是通过 vm thread线程触发的，而且在判断当前ygc会失败的情况下触发full gc，如上一次ygc出现了promotion failure，如果执行 full gc 时，发现后台线程正在执行 cms gc，就会导致 concurrent mode failure。</p>
-<p>对于以上这些情况，CMSInitiatingOccupancyFraction参数的设置就显得尤为重要，设置的太大的话，发生CMS时的剩余空间太小，在ygc的时候容易发生promotion failure，导致 concurrent mode failure 发生的概率就增大，如果设置太小的话，会导致 cms gc 的频率会增加，所以需要根据应用的需求对该参数进行调优。</p>
+<p><em>promotion failure</em> 发生在 young gc 阶段，即 cms 的 ParNewGC，当对象的gc年龄达到阈值时，或者 eden 的 to 区放不下时，会把该对象复制到 old gen，如果 old gen 空间不足时，会发生 <em>promotion failure</em>，并接下去触发full gc</p>
+<p>在GC日志中，有时会看到 <em>concurrent mode failure</em> 关键字，这是因为什么原因导致的问题呢? 对这一块的理解，很多文章都是说因为 <em>concurrent mode failure</em> 导致触发full gc，其实应该反过来，是full gc 导致的 <em>concurrent mode failure</em>，在cms gc的算法实现中，通常说的cms是由一个后台线程定时触发的，默认每2秒检查一次old gen的内存使用率，当 old gen 的内存使用率达到<code>-XX:CMSInitiatingOccupancyFraction</code>设置的值时，会触发一次 cms gc，对 old gen 进行并发收集，而真正的 full gc 是通过 vm thread线程触发的，而且在判断当前ygc会失败的情况下触发full gc，如上一次ygc出现了<em>promotion failure</em>，如果执行 full gc 时，发现后台线程正在执行 cms gc，就会导致 <em>concurrent mode failure</em>。</p>
+<p>对于以上这些情况，CMSInitiatingOccupancyFraction参数的设置就显得尤为重要，设置的太大的话，发生CMS时的剩余空间太小，在ygc的时候容易发生<em>promotion failure</em>，导致 <em>concurrent mode failure</em> 发生的概率就增大，如果设置太小的话，会导致 cms gc 的频率会增加，所以需要根据应用的需求对该参数进行调优。</p>
 <ul>
 <li>执行 <code>System.gc()</code>、<code>jmap -histo:live &lt;pid&gt;</code>、<code>jmap -dump</code> …</li>
 </ul>
