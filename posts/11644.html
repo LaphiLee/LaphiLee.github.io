@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20171012212423785?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU2ltYmFfY2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="og:image" content="http://img.blog.csdn.net/20171013102630780?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU2ltYmFfY2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="og:image" content="http://ow9wx6njf.bkt.clouddn.com/gc.jpg">
-<meta property="og:updated_time" content="2018-01-11T06:17:47.000Z">
+<meta property="og:updated_time" content="2018-01-11T06:22:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM系列（二）垃圾回收">
 <meta name="twitter:description" content="JVM系列（二）垃圾回收 Hotspot垃圾收集器 JDK7/8之后，Hotpost虚拟机内所有的垃圾收集器及其组合(连线)，下图：   img  他们所处区域，表明其所属新生代收集器还是老年代收集器：">
@@ -730,7 +730,7 @@
 <p>在并发清除时，用户线程新产生的垃圾，称为浮动垃圾； 这使得并发清除时需要预留一定的内存空间，不能像其他收集器一样，在年老代几乎填满再进行收集。 也可以认为CMS收集器所需要的空间比其他垃圾收集器大。</p>
 <pre><code>`-XX:CMSInitiatingOccupancyFraction`：设置CMS预留内存空间；
 
-JDK1.5默认设置下，CMS收集器当年老带使用了68%的空间之后就会被激活。
+JDK1.5默认设置下，CMS收集器当年老代使用了68%的空间之后就会被激活。
 
 JDK1.6大约 年老代使用了92%的空间之后，CMS收集器就会被激活。</code></pre>
 <ol style="list-style-type: decimal">
